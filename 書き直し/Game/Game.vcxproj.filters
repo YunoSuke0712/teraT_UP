@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\src">
+      <UniqueIdentifier>{488a8a41-b0cd-42f5-adc0-941860a5c1f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\Camera">
+      <UniqueIdentifier>{bda701d6-52c0-4abf-8d8a-903c075ace3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\Scene">
+      <UniqueIdentifier>{d1a28205-048f-4a56-9f0c-052e1fda4910}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib">
+      <UniqueIdentifier>{8230c0d2-75ca-4892-b36d-f24096cbdae4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Collision">
+      <UniqueIdentifier>{5aac1fd2-139f-447b-8680-4edf72fcda21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Debug">
+      <UniqueIdentifier>{3b39235a-374c-429b-8790-ae34280a0094}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Input">
+      <UniqueIdentifier>{20b446c6-35a1-4e3b-875e-c31bf2e5965a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\MyMath">
+      <UniqueIdentifier>{17da238d-0962-47ce-844b-4f0f24ebd70b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Common">
+      <UniqueIdentifier>{b0cfdfa9-3ec2-4515-8b99-f468ae62e6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\Player">
+      <UniqueIdentifier>{0007951f-4c06-4840-89ad-30eae066e26c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\System">
+      <UniqueIdentifier>{d1df2f82-243a-40f9-9117-28e5dae2be93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\Field">
+      <UniqueIdentifier>{afcee681-3b4a-49ff-a28c-598e9a8dee00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\Collision">
+      <UniqueIdentifier>{7044ad34-5e46-4f6c-8555-8fd329418862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\Enemy">
+      <UniqueIdentifier>{60201891-c81b-49f1-84c2-51dd43684d1d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\CameraManager.cpp">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneManager.cpp">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\DebugCamera.cpp">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\EventCamera.cpp">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera\PlayerCamera.cpp">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Debug\debug.cpp">
+      <Filter>ソース ファイル\src\lib\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Input\input.cpp">
+      <Filter>ソース ファイル\src\lib\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Input\PadInput.cpp">
+      <Filter>ソース ファイル\src\lib\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\MyMath\MyMath.cpp">
+      <Filter>ソース ファイル\src\lib\MyMath</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Collision\collision.cpp">
+      <Filter>ソース ファイル\src\lib\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player\Player.cpp">
+      <Filter>ソース ファイル\src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System\SoundManager.cpp">
+      <Filter>ソース ファイル\src\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\PlayScene.cpp">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Sceneresult.cpp">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Scenetitle.cpp">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Field\field.cpp">
+      <Filter>ソース ファイル\src\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collision\CollisionManager.cpp">
+      <Filter>ソース ファイル\src\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy\EnemyManager.cpp">
+      <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy\EnemyA.cpp">
+      <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Camera\CameraManager.h">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\SceneManager.h">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera\DebugCamera.h">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera\EventCamera.h">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera\PlayerCamera.h">
+      <Filter>ソース ファイル\src\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Debug\debug.h">
+      <Filter>ソース ファイル\src\lib\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Input\input.h">
+      <Filter>ソース ファイル\src\lib\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Input\PadInput.h">
+      <Filter>ソース ファイル\src\lib\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\MyMath\MyMath.h">
+      <Filter>ソース ファイル\src\lib\MyMath</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Collision\collision.h">
+      <Filter>ソース ファイル\src\lib\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Common\common.h">
+      <Filter>ソース ファイル\src\lib\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Player\Player.h">
+      <Filter>ソース ファイル\src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System\SoundManager.h">
+      <Filter>ソース ファイル\src\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\PlayScene.h">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Sceneresult.h">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\Scenetitle.h">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Field\field.h">
+      <Filter>ソース ファイル\src\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Collision\CollisionManager.h">
+      <Filter>ソース ファイル\src\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enemy\EnemyManager.h">
+      <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enemy\EnemyA.h">
+      <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
