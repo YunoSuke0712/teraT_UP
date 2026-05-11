@@ -1,6 +1,6 @@
 #pragma once
 #include<DxLib.h>
-
+#include <cmath>
 
 
 class EnemyA {
@@ -19,6 +19,11 @@ private:
 	int		m_rootID;
 
 	float m_rotationY;			//常に回転させるためだけ
+
+	//視界
+	VECTOR m_Dir;
+	bool m_IsFindPlayer;
+	int m_RePatrol;
 
 
 	enum Condition {
@@ -41,9 +46,12 @@ private:
 
 
 	void MoveRoot(VECTOR P_pos);
-	bool IsNearTarget(VECTOR playerPos, float radius);
 	void TargetPlayer(VECTOR P_pos);
+	void ReMove();
 
+
+	bool IsNearTarget(VECTOR playerPos, float radius);
+	void DrawEye();
 
 public:
 	// コンストラクタ・デストラクタ
@@ -95,9 +103,20 @@ public:
 	void SetEnemyID(int id) { m_EnemyID = id; }
 
 
+	VECTOR GetDir() {
 
+		m_Dir.x = -sinf(m_rotationY);
+		m_Dir.y = 0.0f;
+		m_Dir.z = -cosf(m_rotationY);
 
+		m_Dir = VNorm(m_Dir);
 
+		return m_Dir;
+	}
+
+	void SetFindPlayer(bool flag) { m_IsFindPlayer = flag; }
+
+	void SetCondition_TRACKING_P() { Condition_ID = TRACKING_P; }
 
 
 	

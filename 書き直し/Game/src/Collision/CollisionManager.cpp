@@ -11,10 +11,10 @@ static const float ENEMYB_EYE_SIZE = { 75.0f };
 static const float ENEMY_WALL_SIZE = { 100.0f };
 
 
-
+//フィールドプレイヤー
 void CollisionManager::CheckHitFieldToPlayer(Field& fi, Player& pl)
 {
-    const int ITERATION = 3; // 繰り返し回数
+    const int ITERATION = 10; // 繰り返し回数
 
     float p_radius = pl.GetRadius();
     VECTOR pos = pl.GetPosition();
@@ -65,4 +65,186 @@ void CollisionManager::CheckHitFieldToPlayer(Field& fi, Player& pl)
     }
 }
 
+//フィールドエネミー
+void CollisionManager::CheckHitFieldToEnemy(Field& fi, EnemyManager& ene)
+{
+    const int ITERATION = 3; // 繰り返し回数
+
+    for (int i = 0;i < ene.GetEnemyANum();i++)
+    {
+        EnemyA* OneEnemy = ene.GetOneEnemyA(i);
+        if (OneEnemy->GetIsActive() == false) continue;
+
+        float  e_radius = OneEnemy->GetRadius();
+        VECTOR pos = OneEnemy->GetPosition();
+
+
+        for (int iter = 0; iter < ITERATION; ++iter)
+        {
+            VECTOR e_pos = OneEnemy->GetCenter();
+            MV1_COLL_RESULT_POLY_DIM res;
+
+            MV1RefreshCollInfo(fi.GetFieldHndl());
+            res = MV1CollCheck_Sphere(fi.GetFieldHndl(), -1, e_pos, e_radius);
+
+            if (res.HitNum == 0)
+            {
+                MV1CollResultPolyDimTerminate(res);
+                break;
+            }
+
+            float maxLen = 0.0f;
+            VECTOR bestPush = { 0.0f, 0.0f, 0.0f };
+
+            for (int i = 0; i < res.HitNum; ++i)
+            {
+                VECTOR Norm = res.Dim[i].Normal;
+
+                VECTOR sub = VSub(res.Dim[i].HitPosition, e_pos);
+                float len = VSize(sub);
+                len = e_radius - len;
+
+                if (len <= 0.0f) continue;
+
+                // 一番深いものだけ選ぶ
+                if (len > maxLen)
+                {
+                    maxLen = len;
+                    bestPush = VScale(Norm, len);
+                }
+            }
+
+            // 押し出し
+            pos = VAdd(pos, bestPush);
+            OneEnemy->SetPosition(pos);
+
+            MV1CollResultPolyDimTerminate(res);
+
+            // ほぼ押し出し終わったら終了
+            if (maxLen < 0.001f) break;
+        }
+    }
+}
+
+////プレイヤーエネミー
+//void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
+//{
+//
+//    for (int i = 0;i < ene.GetEnemyANum();i++)
+//    {
+//        EnemyA* OneEnemy = ene.GetOneEnemyA(i);
+//        if (OneEnemy->GetIsActive() == false) continue;
+//
+//        float  e_radius = OneEnemy->GetRadius();
+//        VECTOR e_pos = OneEnemy->GetPosition();
+//        float p_radius = pl.GetRadius();
+//        VECTOR p_pos = pl.GetPosition();
+//
+//        VECTOR e_center = OneEnemy->GetCenter();
+//        VECTOR p_center = pl.GetCenter();
+//
+//
+//        // 当たり判定開始
+//        bool isHit = Collision::CheckHitSphereToSphere(p_center, p_radius, e_center, e_radius);
+//   
+//        if (isHit == true)
+//        {
+//            //// お互い当たった！！
+//            pl.HitEnemyCale();
+//            
+//        }
+//    
+//    
+//    }
+//}
+
+//プレイヤーエネミー
+void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
+{
+    for (int i = 0; i < ene.GetEnemyANum(); i++)
+    {
+        EnemyA* OneEnemy = ene.GetOneEnemyA(i);
+
+        if (OneEnemy->GetIsActive() == false) continue;
+
+        //--------------------------------
+        // 座標取得
+        //--------------------------------
+        VECTOR e_pos = OneEnemy->GetCenter();
+        VECTOR p_pos = pl.GetCenter();
+
+        //--------------------------------
+        // Enemy → Player方向
+        //--------------------------------
+        VECTOR toPlayer = VSub(p_pos, e_pos);
+
+        //--------------------------------
+        // 距離
+        //--------------------------------
+        float dist = VSize(toPlayer);
+
+        // 視界距離
+        const float VIEW_RANGE = 50.0f;
+
+        // 距離外
+        if (dist > VIEW_RANGE) continue;
+
+        //--------------------------------
+        // 正規化
+        //--------------------------------
+        toPlayer = VNorm(toPlayer);
+
+        //--------------------------------
+        // Enemyの向き
+        //--------------------------------
+        VECTOR enemyDir = OneEnemy->GetDir();
+
+        enemyDir = VNorm(enemyDir);
+
+        //--------------------------------
+        // 内積
+        //--------------------------------
+        float dot = VDot(enemyDir, toPlayer);
+
+        //--------------------------------
+        // 視野角判定
+        //--------------------------------
+        // 90度視野
+        // cos(45°) = 0.707
+        //--------------------------------
+        if (dot > 0.707f)
+        {
+            //--------------------------------
+            // プレイヤー発見
+            //--------------------------------
+            OneEnemy->SetFindPlayer(true);
+
+            OneEnemy->SetCondition_TRACKING_P();
+
+            //--------------------------------
+            // 接触判定
+            //--------------------------------
+            float e_radius = OneEnemy->GetRadius();
+            float p_radius = pl.GetRadius();
+
+            VECTOR e_center = OneEnemy->GetCenter();
+            VECTOR p_center = pl.GetCenter();
+
+            bool isHit = Collision::CheckHitSphereToSphere(p_center, p_radius, e_center, e_radius);
+
+            if (isHit == true)
+            {
+                pl.HitEnemyCale();
+            }
+        }
+        else
+        {
+            //--------------------------------
+            // 見失った
+            //--------------------------------
+            OneEnemy->SetFindPlayer(false);
+        }
+    }
+}
+          
 

@@ -7,7 +7,7 @@ static const char ENEMYB2_MODEL_PATH[] = "data/model/enemy/enemyB2.mv1";
 static const char DANAGER_MODEL_PATH[] = "data/model/enemy/danger.mv1";
 
 static const char CsvA[] = "data/csv/Map01/EnemyA.csv";
-static const char CsvB[] = "data/csv/Map01/EnemyA.csv";
+static const char CsvB[] = "data/csv/Map01/EnemyB.csv";
 
 
 
@@ -76,7 +76,7 @@ void EnemyManager::Step(VECTOR P_pos, int level, VECTOR D_pos)
 	}
 
 	//slot.SetSoundCage(m_SoundCage);
-	if (m_SoundCool > 0);
+	if (m_SoundCool > 0)
 	m_SoundCool--;
 }
 
@@ -95,8 +95,13 @@ void EnemyManager::Exit()
 	for (auto A : m_EneA_List)
 	{
 		A->Exit();
+
+		delete A; // ƒƒ‚ƒŠ‰ğ•ú
 	}
 
+	m_EneA_List.clear(); // ƒŠƒXƒg‚ğ‹ó‚É‚·‚é
+
+	m_InfoList.clear();  // À•Wî•ñ‚àÁ‚·
 }
 
 

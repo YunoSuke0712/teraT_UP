@@ -2,6 +2,8 @@
 #include<math.h>
 #include"../lib/common/common.h"
 
+//ブレンダー保存サイズ　0.1
+
 static const VECTOR fieldPos{ 500.0f,-15.0f,300.0f };		//背景の位置
 static const VECTOR fieldScale{ 0.8f,1.0f,0.8f };		    //背景のサイズ
 static const VECTOR skyScale{ 20.0f,20.0f,20.0f };			//背景のサイズ

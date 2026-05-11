@@ -25,7 +25,11 @@ static const VECTOR SPZ_POS = { -130.0f,105.0f,233.0f };
 #define ENEMY_UP (1.5)
 //----------------------------
 
-
+//----------------------------------------
+static const int ColorRED = GetColor(255, 0, 0);
+static const int ColorGREEN = GetColor(0, 255, 0);
+static const int ColorBLUE = GetColor(0, 0, 255);
+//----------------------------------------
 
 //ìG--------------------------------------
 //ìGÇÃí èÌë¨ìxÅ@1î{

@@ -55,6 +55,9 @@
     <Filter Include="ソース ファイル\src\Enemy">
       <UniqueIdentifier>{60201891-c81b-49f1-84c2-51dd43684d1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\src\Gimmick">
+      <UniqueIdentifier>{aa2195eb-e767-41bb-a7f8-1393bf824fcf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -117,6 +120,12 @@
     <ClCompile Include="src\Enemy\EnemyA.cpp">
       <Filter>ソース ファイル\src\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="src\Gimmick\Gimmick.cpp">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gimmick\GimmickManager.cpp">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera\CameraManager.h">
@@ -178,6 +187,12 @@
     </ClInclude>
     <ClInclude Include="src\Enemy\EnemyA.h">
       <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gimmick\Gimmick.h">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gimmick\GimmickManager.h">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

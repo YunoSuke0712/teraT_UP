@@ -19,6 +19,7 @@ static const float DASH_SPEED_UP = 5.0f;							//ダッシュ
 //アニメーション===
 static const float	ANIM_SPD = F1;					//アニメーション速度
 static const int THROW_COUNT = 15;					//投げるアニメーション時間
+static const int DEAS_COUNT = 180;
 //=================
 
 
@@ -74,6 +75,7 @@ void Player::Init()
 	m_walk = false;
 	m_throw = false;
 	m_throwcount = ZERO_I;
+	m_DeasCount = DEAS_COUNT;
 
 
 
@@ -135,55 +137,69 @@ void Player::Exit()
 void Player::Step(VECTOR rot)
 {
 	
-	
-	
-
-	
-
-	m_Pos.y += m_jumppower;
-	m_Pos = VAdd(m_Pos, Move(rot));
-
-	m_Speed = { 0.0f,0.0f,0.0f };
-	
-
-
-
-
-	// アニメ処理-----------------------------------------------
-	if (m_walk != true && m_pState == PLSTATE_WALK )m_pState = PLSTATE_NORMAL;
-
-	//投げる処理優先
-	if (m_throwcount > 0)
+	switch (m_pState)
 	{
-		m_throwcount--;
-		m_pState = PLSTATE_THROW;
-		//m_NowAnim = PLSTATE_NORMAL;
-		if (m_throwcount == 0)m_pState = PLSTATE_NORMAL;
-	}
-
-	//ダウンが最優先
-	//ここにダウンのアニメ
-
-	//ここまでにm_pStateを変更
-	if (m_NowAnim != m_pState)
-	{
-		for (int i = 0; i < PLSTATE_NUM; i++)
+	case PLSTATE_DEAS:
+		m_DeasCount--;
+		if (m_DeasCount <= 0)
 		{
-			m_AnimIndex = MV1DetachAnim(m_hndl, i);
-
+			m_isActive = false;
 		}
-		m_AnimIndex = MV1AttachAnim(m_hndl, m_pState);
-	}
-	float	animTime = MV1GetAttachAnimTime(m_hndl, m_AnimIndex);
-	animTime += ANIM_SPD*2;
-	if (animTime >= MV1GetAttachAnimTotalTime(m_hndl, m_AnimIndex))
-	{
-		animTime = 0.0f;
-	}
-	MV1SetAttachAnimTime(m_hndl, m_AnimIndex, animTime);
-	//----------------------------------------------------------
+		break;
+	default:
+
+		m_Pos.y += m_jumppower;
+		m_Pos = VAdd(m_Pos, Move(rot));
+
+		m_Speed = { 0.0f,0.0f,0.0f };
 
 
+
+
+
+		// アニメ処理-----------------------------------------------
+		if (m_walk != true && m_pState == PLSTATE_WALK)m_pState = PLSTATE_NORMAL;
+
+		//投げる処理優先
+		if (m_throwcount > 0)
+		{
+			m_throwcount--;
+			m_pState = PLSTATE_THROW;
+			//m_NowAnim = PLSTATE_NORMAL;
+			if (m_throwcount == 0)m_pState = PLSTATE_NORMAL;
+		}
+
+		//ダウンが最優先
+		//ここにダウンのアニメ
+
+		//ここまでにm_pStateを変更
+		if (m_NowAnim != m_pState)
+		{
+			for (int i = 0; i < PLSTATE_NUM; i++)
+			{
+				m_AnimIndex = MV1DetachAnim(m_hndl, i);
+
+			}
+			m_AnimIndex = MV1AttachAnim(m_hndl, m_pState);
+		}
+		float	animTime = MV1GetAttachAnimTime(m_hndl, m_AnimIndex);
+		animTime += ANIM_SPD * 2;
+		if (animTime >= MV1GetAttachAnimTotalTime(m_hndl, m_AnimIndex))
+		{
+			animTime = 0.0f;
+		}
+		MV1SetAttachAnimTime(m_hndl, m_AnimIndex, animTime);
+		//----------------------------------------------------------
+
+
+		break;
+	}
+	
+	
+
+	
+
+	
 
 }
 
@@ -268,10 +284,9 @@ VECTOR Player::GetCenter()
 	return res;
 }
 
-void Player::HitCale()
+void Player::HitEnemyCale()
 {
-	m_isActive = false;
-	m_pState = PLSTATE_DOWN;
+	m_pState = PLSTATE_DEAS;
 }
 
 void Player::HitGoal()

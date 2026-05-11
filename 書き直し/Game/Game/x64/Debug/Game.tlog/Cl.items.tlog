@@ -7,6 +7,8 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Collision\CollisionManager
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyA.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyA.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Field\field.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\field.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\Gimmick.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Gimmick.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\GimmickManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Collision\collision.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\collision.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Debug\debug.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\debug.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Input\input.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\input.obj

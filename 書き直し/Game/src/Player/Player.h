@@ -11,8 +11,7 @@ private:
 		PLSTATE_NORMAL,		//待機・移動状態
 		PLSTATE_WALK,		//歩く
 		PLSTATE_THROW,		//使う
-		PLSTATE_DOWN,		//捕まる
-		PLARATE_T,
+		PLSTATE_DEAS,		//捕まる
 
 		PLSTATE_NUM       // 状態の総数
 	};
@@ -34,6 +33,7 @@ private:
 	bool m_walk;
 	bool m_throw;
 	int m_throwcount;
+	int m_DeasCount;
 	//========================================
 	
 
@@ -92,7 +92,7 @@ public:
 
 
 	// ヒット後の処理
-	void HitCale();
+	void HitEnemyCale();
 	void HitGoal();
 
 	//ジャンプ情報取得・設定

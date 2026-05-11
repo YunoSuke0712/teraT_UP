@@ -11,9 +11,9 @@ public:
 
 	static void CheckHitFieldToPlayer(Field& fi,Player& pl);
 
+	static void CheckHitFieldToEnemy(Field& fi, EnemyManager& ene);
+
 	static void CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene);
-
-
 
 
 

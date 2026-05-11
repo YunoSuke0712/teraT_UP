@@ -13,14 +13,12 @@ static const int ROOT_NUM = 4;
 static const float SHOT_SPEED = 1.0f;
 
 static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
-static const float ENEMY_SIZE = 3.0f;							//敵の当たり判定
+static const float ENEMY_SIZE = 5.0f;							//敵の当たり判定
 static const float ENEMY_SPEED = 1.0f;							//敵の移動速度
 static const float ENEMY_P_SPEED = 1.5f;						//敵の移動速度
 static const float ENEMY_ROTATIONY = 0.0f;						//回転Y
 static const int   ENEMY_RE_COOL = 180;							//パトロールに戻る
-//static const int   ENEMY_STAN = 180;							//スタン時間
-//static const float SlOW_MAG = 0.25f;							//スロウ倍率
-//static const int   WAITCOUNT = 60;							//スタン時間
+
 
 //----------------------
 // コンストラクタ
@@ -28,7 +26,6 @@ static const int   ENEMY_RE_COOL = 180;							//パトロールに戻る
 EnemyA::EnemyA()
 {
 	Init();
-
 }
 
 //----------------------
@@ -51,21 +48,13 @@ void EnemyA::Init()
 	Condition_ID = PATROL;
 	m_rotationY = ENEMY_ROTATIONY;
 	m_rootHndl = HNDL_INIT;
+	m_RePatrol = ZERO_I;
 
 	MV1SetPosition(m_hndl, { 500.0f, -15.0f, 300.0f });
 
-
-	//// スケールを表示ステージとあわせる
-	//MV1SetScale(m_rootHndl, VGet(0.05f, 0.05f, 0.05f));
-	//// 初期値をセット
-	//// パスの0番目をスタート位置とする
-	//VECTOR	start = MV1GetFramePosition(m_rootHndl, ROOT_ID[0]);
-	//VECTOR	zero = { 0.0f, 0.0f, 0.0f };
-	//Model::SetPosition(start);
-	//Model::SetRot(zero);
-	//// 0番目のルートに配置したので、次の目的地は1
+	// 0番目のルートに配置したので、次の目的地は1
+	//
 	m_rootID = 1;
-	//// 敵の最初の行動を設定
 
 }
 
@@ -83,12 +72,9 @@ void EnemyA::Load(int Ahndl, int danagerHndl)
 	{
 		m_Dhndl = MV1DuplicateModel(danagerHndl);
 	}
-	if (m_rootHndl = -1)
+	if (m_rootHndl == -1)
 	{
 		m_rootHndl = MV1LoadModel("data/field/Map01/Map01_EnemyARoot_01.mv1");
-		//m_rootHndl = MV1LoadModel("data/field/KENY_map.mv1");
-
-
 	}
 }
 
@@ -108,16 +94,23 @@ void EnemyA::Exit()
 		MV1DeleteModel(m_Dhndl);
 		m_Dhndl = -1;
 	}
+	if (m_rootHndl != -1)
+	{
+		MV1DeleteModel(m_rootHndl);
+		m_rootHndl = -1;
+	}
 }
 
 //------------------------
-// カメラの座標計算
+// 毎フレーム更新
 //------------------------
 void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 {
 	MV1SetPosition(m_rootHndl, { 500.0f, -15.0f, 300.0f });
 	MV1SetScale(m_rootHndl, VGet(0.8f, 1.0f, 0.8f));
 	MV1SetupCollInfo(m_rootHndl);
+
+	m_Pos.y -= GRAVITY;
 
 	switch (Condition_ID)
 	{
@@ -140,13 +133,12 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 	case TRACKING_D:
 		break;
 	case PATROL_RE:
+		ReMove();
 		break;
 		//======================================================
 		//巡回
 		//======================================================
 	case PATROL:
-
-		if (Condition_ID == PATROL_RE)	MV1DrawModel(m_Dhndl);
 
 		if (IsInputTrg(KEY_CLICK))m_rootID++;
 		if (IsInputTrg(KEY_RCLICK))m_rootID = 0;
@@ -159,7 +151,7 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 }
 
 //------------------------
-// カメラの更新
+// 更新
 //------------------------
 void EnemyA::Update()
 {
@@ -175,8 +167,6 @@ void EnemyA::Update()
 	//MV1SetPosition(m_Dhndl, { m_remove_pos.x,m_remove_pos.y + 15,m_remove_pos.z });
 	MV1SetRotationXYZ(m_Dhndl, rot);
 	MV1SetScale(m_Dhndl, { 0.05f,0.05f,0.05f });
-
-
 }
 
 //------------------------
@@ -186,29 +176,25 @@ void EnemyA::Draw()
 {
 	if (!m_isActive) return;
 
-
 	MV1DrawModel(m_hndl);
 
-
-	
 	DrawFormatString(1200, 500, GetColor(25, 200, 100), "EposX:%f", m_Pos.x);
 	DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
 	DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
 	DrawFormatString(1200, 700, GetColor(25, 200, 100), ":%d", m_rootID);
 
-	
-
-
 	MV1DrawModel(m_rootHndl);
+	DrawSphere3D(GetCenter(), m_radius, 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
 
 	////DrawFormatString(1200, 800, GetColor(25, 200, 100), "x:%f",m_remove_pos.x);
 	////DrawFormatString(1200, 900, GetColor(25, 200, 100), "z:%f", m_remove_pos.z);
+
+	DrawEye();
 }
 
 //------------------------
 // 敵をリクエスト
 //------------------------
-//bool EnemyA::Request(const VECTOR& pos, const VECTOR& speed)
 bool EnemyA::Request(const VECTOR& pos)
 {
 	// すでに発射されている弾は生成失敗
@@ -242,27 +228,6 @@ void EnemyA::HitCale()
 	Condition_ID = STAN;
 
 }
-
-//------------------------
-// 視界後の処理
-//------------------------
-//void EnemyA::HitEye()
-//{
-//	if (Condition_ID != TRACKING_P && Condition_ID != STAN)
-//	{
-//		Condition_ID = TRACKING_P;
-//		GetRemovePos();
-//	}
-//}
-//
-//void EnemyA::HitEyeDecoy()
-//{
-//	if (Condition_ID != TRACKING_D && Condition_ID != STAN)
-//	{
-//		Condition_ID = TRACKING_D;
-//		GetRemovePos();
-//	}
-//}
 
 void EnemyA::MoveRoot(VECTOR P_pos)
 {
@@ -300,14 +265,11 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 	// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
 	float rot = atan2f(-dir.x, -dir.z);
 	SetRot(VGet(0.0f, rot, 0.0f));
-
-	// 一定範囲内に入れば、追いかける行動へ
-	if (IsNearTarget(P_pos, 50.0f) == true)
-	{
-		Condition_ID = TRACKING_P;
-	}
+	m_rotationY = rot;
 }
 
+
+//プレイヤーを追いかける
 void EnemyA::TargetPlayer(VECTOR P_pos)
 {
 	VECTOR targetPos = P_pos;
@@ -321,11 +283,11 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 
 
 	// 目的地までの距離が一定範囲内なら
-	if (len < 20.0f)
+	if (len < 5.0f)
 	{
 
 	}
-	else
+	else if (len < 25.0f)
 	{
 		// いったん正規化して
 		dir.y = 0.0f;
@@ -336,51 +298,181 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 		pos = VAdd(pos, dir);
 		SetPosition(pos);
 	}
-
-
+	else if(len < 250.0f)
+	{
+		// いったん正規化して
+		dir.y = 0.0f;
+		dir = VNorm(dir);
+		// 実際の移動速度に変更
+		dir = VScale(dir, ENEMY_SPEED);
+		// 速度を加算してキャラクターにセット
+		pos = VAdd(pos, dir);
+		SetPosition(pos);
+	}
+	else
+	{
+		Condition_ID = PATROL_RE;
+		m_RePatrol = ENEMY_RE_COOL;
+	}
 	// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
 	float rot = atan2f(-dir.x, -dir.z);
 	SetRot(VGet(0.0f, rot, 0.0f));
+	m_rotationY = rot;
 }
 
-
-
-
-
-//------------------------------
-//		ターゲットが近くにいるか判定
-//------------------------------
-bool	EnemyA::IsNearTarget(VECTOR playerPos, float radius)
+void EnemyA::ReMove()
 {
-	// 自分の座標取得
-	VECTOR pos = GetPosition();
-	// 目的地へのベクトル取得
-	VECTOR dir = VSub(playerPos, pos);
-	// 2点間の距離を調べる
-	float len = VSize(dir);
-	// 引数で指定された範囲内かで戻り値を決める
-	if (len < radius) return true;
-	else return false;
+	//戻るボーンの位置
+	VECTOR targetPos = MV1GetFramePosition(m_rootHndl, ROOT_ID[m_rootID]);
+
+	MV1SetPosition(m_Dhndl, VAdd(targetPos, { 0.0f,10.0f,0.0f }));
+	MV1DrawModel(m_Dhndl);
+
+	if (m_RePatrol > 0)
+	{
+		m_RePatrol--;
+	}
+	if (m_RePatrol <= 0)
+	{
+		Condition_ID = PATROL;
+		SetPosition(targetPos);
+	}
 }
 
 
 
 
 
-//
-//
-//void EnemyA::HitDecoy()
+////------------------------------
+////		ターゲットが近くにいるか判定
+////------------------------------
+//bool	EnemyA::IsNearTarget(VECTOR playerPos, float radius)
 //{
-//	if (Condition_ID != TRACKING_P)
-//	{
-//		Condition_ID = PATROL_RE;
-//	}
+//	// 自分の座標取得
+//	VECTOR pos = GetPosition();
+//	// 目的地へのベクトル取得
+//	VECTOR dir = VSub(playerPos, pos);
+//	// 2点間の距離を調べる
+//	float len = VSize(dir);
+//	// 引数で指定された範囲内かで戻り値を決める
+//	if (len < radius) return true;
+//	else return false;
 //}
+
+
+
+void EnemyA::DrawEye()
+{
+	//=====================================
+// 視界表示
+//=====================================
+
+// 敵の位置
+	VECTOR pos = m_Pos;
+
+	// 敵の向き
+	VECTOR dir;
+
+	// rotationYから向きを作る
+	dir.x = -sinf(m_rotationY);
+	dir.y = 0.0f;
+	dir.z = -cosf(m_rotationY);
+
+	// 正規化
+	dir = VNorm(dir);
+
+	// 視界距離
+	float range = 50.0f;
+
+	// 視野角
+	float angle = DX_PI_F / 4.0f; // 45度
+
+	//--------------------------------
+	// 左方向
+	//--------------------------------
+	VECTOR leftDir;
+
+	leftDir.x = dir.x * cosf(angle) - dir.z * sinf(angle);
+	leftDir.y = 0.0f;
+	leftDir.z = dir.x * sinf(angle) + dir.z * cosf(angle);
+
+	//--------------------------------
+	// 右方向
+	//--------------------------------
+	VECTOR rightDir;
+
+	rightDir.x = dir.x * cosf(-angle) - dir.z * sinf(-angle);
+	rightDir.y = 0.0f;
+	rightDir.z = dir.x * sinf(-angle) + dir.z * cosf(-angle);
+
+	//--------------------------------
+	// 線の終点
+	//--------------------------------
+	VECTOR centerEnd =
+	{
+		pos.x + dir.x * range,
+		pos.y + 10.0f,
+		pos.z + dir.z * range
+	};
+
+	VECTOR leftEnd =
+	{
+		pos.x + leftDir.x * range,
+		pos.y + 10.0f,
+		pos.z + leftDir.z * range
+	};
+
+	VECTOR rightEnd =
+	{
+		pos.x + rightDir.x * range,
+		pos.y + 10.0f,
+		pos.z + rightDir.z * range
+	};
+
+	//--------------------------------
+	// 視界描画
+	//--------------------------------
+
+	// 真ん中
+	DrawLine3D(
+		VGet(pos.x, pos.y + 10.0f, pos.z),
+		centerEnd,
+		GetColor(0, 0, 0)
+	);
+
+	// 左
+	DrawLine3D(
+		VGet(pos.x, pos.y + 10.0f, pos.z),
+		leftEnd,
+		GetColor(255, 0, 0)
+	);
+
+	// 右
+	DrawLine3D(
+		VGet(pos.x, pos.y + 10.0f, pos.z),
+		rightEnd,
+		GetColor(255, 0, 0)
+	);
+
+
+////--------------------------------
+//// GetDir() の確認用
+////--------------------------------
+//	VECTOR testDir = GetDir();
 //
-//void EnemyA::HitRelease()
-//{
-//	if (Condition_ID == TRACKING_P)
+//	testDir = VNorm(testDir);
+//
+//	VECTOR testEnd =
 //	{
-//		Condition_ID = PATROL_RE;
-//	}
-//}
+//		pos.x + testDir.x * 60.0f,
+//		pos.y + 15.0f,
+//		pos.z + testDir.z * 60.0f
+//	};
+//
+//	// 黄色線
+//	DrawLine3D(
+//		VGet(pos.x, pos.y + 15.0f, pos.z),
+//		testEnd,
+//		GetColor(0, 0, 255)
+//	);
+}

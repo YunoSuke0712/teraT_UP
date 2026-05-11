@@ -165,8 +165,18 @@ void PlayScene::Step()
 	m_player.Step(m_camera.GetRot());
 	m_enemy.Step(m_player.GetPosition(),1,{1,1,1});
 
+
+
+
+	// プレイヤーの生存フラグが消えたら、ゲーム終了へ
+	if (m_player.IsActive() == false) {m_state = END;}
+
+
+
 	//コリジョン
 	m_col.CheckHitFieldToPlayer(m_field, m_player);
+	m_col.CheckHitFieldToEnemy(m_field, m_enemy);
+	m_col.CheckHitPlayerToEnemy(m_player, m_enemy);
 	//
 
 	// すべての結果を反映させる===================

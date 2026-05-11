@@ -44,7 +44,7 @@ public:
 	void Exit();
 
 	// 全行動を処理する
-	void Step(VECTOR P_pos, int level,VECTOR D_pos);
+	void Step(VECTOR P_pos, int level, VECTOR D_pos);
 	// 更新処理
 	// すべての行動が終わったらDxLibに情報を渡す
 	void Update();
@@ -64,6 +64,12 @@ public:
 	void SetSoundCage(float num) { m_SoundCage += num; }
 	float  GetSoundCage() { return m_SoundCage; }
 
+
+	EnemyA* GetOneEnemyA(int ID) { return m_EneA_List[ID]; }
+	int GetEnemyANum() { return m_EneA_List.size(); }
+
+};
+
+
 	//void SetSoundCool() { m_SoundCool = SOUND_COOL_TIME; }
 	//int GetSoundCool() { return m_SoundCool; }
-};
