@@ -4,6 +4,7 @@
 #include"../Field/field.h"
 #include"../Player/Player.h"
 #include"../Enemy/EnemyManager.h"
+#include"../Gimmick/GimmickManager.h"
 
 //
 #include"../Camera/CameraManager.h"
@@ -28,6 +29,7 @@ private:
 	Field m_field;
 	Player m_player;
 	EnemyManager m_enemy;
+	GimmickManager m_gimmick;
 
 	CameraManager m_camera;   // ƒJƒƒ‰
 	CollisionManager m_col;

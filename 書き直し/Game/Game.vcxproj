@@ -28,7 +28,7 @@
     <ClCompile Include="src\Enemy\EnemyA.cpp" />
     <ClCompile Include="src\Enemy\EnemyManager.cpp" />
     <ClCompile Include="src\Field\field.cpp" />
-    <ClCompile Include="src\Gimmick\Gimmick.cpp" />
+    <ClCompile Include="src\Gimmick\Warp.cpp" />
     <ClCompile Include="src\Gimmick\GimmickManager.cpp" />
     <ClCompile Include="src\lib\Collision\collision.cpp" />
     <ClCompile Include="src\lib\Debug\debug.cpp" />
@@ -51,7 +51,7 @@
     <ClInclude Include="src\Enemy\EnemyA.h" />
     <ClInclude Include="src\Enemy\EnemyManager.h" />
     <ClInclude Include="src\Field\field.h" />
-    <ClInclude Include="src\Gimmick\Gimmick.h" />
+    <ClInclude Include="src\Gimmick\Warp.h" />
     <ClInclude Include="src\Gimmick\GimmickManager.h" />
     <ClInclude Include="src\lib\Collision\collision.h" />
     <ClInclude Include="src\lib\Common\common.h" />

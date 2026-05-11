@@ -120,7 +120,7 @@
     <ClCompile Include="src\Enemy\EnemyA.cpp">
       <Filter>ソース ファイル\src\Enemy</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gimmick\Gimmick.cpp">
+    <ClCompile Include="src\Gimmick\Warp.cpp">
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClCompile>
     <ClCompile Include="src\Gimmick\GimmickManager.cpp">
@@ -188,7 +188,7 @@
     <ClInclude Include="src\Enemy\EnemyA.h">
       <Filter>ソース ファイル\src\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="src\Gimmick\Gimmick.h">
+    <ClInclude Include="src\Gimmick\Warp.h">
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClInclude>
     <ClInclude Include="src\Gimmick\GimmickManager.h">

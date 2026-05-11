@@ -94,11 +94,10 @@ public:
 
 	// ƒqƒbƒgŒã‚Ìˆ—
 	void HitCale();
-	void HitEye();
-	void HitEyeDecoy();
-	void HitDecoy();
-
-	void HitRelease();
+	//void HitEye();
+	//void HitEyeDecoy();
+	//void HitDecoy();
+	//void HitRelease();
 
 	void SetEnemyID(int id) { m_EnemyID = id; }
 

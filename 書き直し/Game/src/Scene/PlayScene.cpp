@@ -96,7 +96,7 @@ void PlayScene::Draw()
 		m_field.Draw();
 		m_player.Draw();
 		m_enemy.Draw();
-		//m_item.Draw();
+		m_gimmick.Draw();
 		//m_shot.Draw();
 		//m_goal.Draw();
 		//m_line.Draw(m_player, SPZ_POS, m_goal.GetPos(),m_item.GetLevel());
@@ -138,6 +138,7 @@ void PlayScene::Init()
 	m_field.Init();
 	m_player.Init();
 	m_enemy.Init();
+	m_gimmick.Init();
 
 	m_camera.Init();
 
@@ -152,6 +153,7 @@ void PlayScene::Load()
 	m_field.Load();
 	m_player.Load();
 	m_enemy.Load();
+	m_gimmick.Load();
 	
 }
 
@@ -164,7 +166,7 @@ void PlayScene::Step()
 	m_field.Step();
 	m_player.Step(m_camera.GetRot());
 	m_enemy.Step(m_player.GetPosition(),1,{1,1,1});
-
+	m_gimmick.Step(m_player.GetPosition());
 
 
 

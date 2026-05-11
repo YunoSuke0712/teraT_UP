@@ -50,7 +50,6 @@ void EnemyA::Init()
 	m_rootHndl = HNDL_INIT;
 	m_RePatrol = ZERO_I;
 
-	MV1SetPosition(m_hndl, { 500.0f, -15.0f, 300.0f });
 
 	// 0番目のルートに配置したので、次の目的地は1
 	//
