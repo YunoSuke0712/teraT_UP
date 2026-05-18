@@ -1,8 +1,7 @@
 #include"Player.h"
 #include<math.h>
 #include"../lib/Common/common.h"
-#include"../lib/Input/input.h"
-#include"../lib/Input/PadInput.h"
+
 
 //Start
 static const VECTOR PLAYER_STARTPOS{ 1100.0f, 50.0f, 300.0f };		//開始位置
@@ -305,11 +304,11 @@ VECTOR Player::Move(VECTOR rot)
 
 
 	//ダッシュ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-	if (IsInputRel(KEY_DASH) || CGamePad::IsPadRelease(DX_INPUT_PAD1, BUTTON_RB))
+	if (m_input.IsInputRel(KEY_DASH) || CGamePad::IsPadRelease(DX_INPUT_PAD1, BUTTON_RB))
 	{
 		m_Stamina_Cool = STAMINA_COOL;
 	}
-	if ((IsInputRep(KEY_DASH) || CGamePad::IsPadKeep(DX_INPUT_PAD1, BUTTON_RB)) && m_DashStamina > 0)
+	if ((m_input.IsInputRep(KEY_DASH) || CGamePad::IsPadKeep(DX_INPUT_PAD1, BUTTON_RB)) && m_DashStamina > 0)
 	{
 		m_movespeed += DASH_SPEED_UP;
 		m_DashStamina--;
@@ -318,7 +317,7 @@ VECTOR Player::Move(VECTOR rot)
 	//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 
 
-	else if ((!IsInputRep(KEY_DASH) || CGamePad::IsPadKeep(DX_INPUT_PAD1, BUTTON_RB)) && m_Stamina_Cool <= 0)
+	else if ((!m_input.IsInputRep(KEY_DASH) || CGamePad::IsPadKeep(DX_INPUT_PAD1, BUTTON_RB)) && m_Stamina_Cool <= 0)
 	{
 		m_DashStamina += 2;
 		if (m_DashStamina >= 300)
@@ -326,7 +325,7 @@ VECTOR Player::Move(VECTOR rot)
 	}
 	//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 	//ジャンプ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-	if ((IsInputTrg(KEY_JUMP) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A)) /*&& m_jumpNow == false*/)
+	if ((m_input.IsInputTrg(KEY_JUMP) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A)) /*&& m_jumpNow == false*/)
 	{
 		m_jumpNow = true;
 		m_jumppower = JUMP_POWER;
@@ -352,22 +351,22 @@ VECTOR Player::Move(VECTOR rot)
 	float ly = 0.0f;
 
 	// キーボード入力
-	if (IsInputRep(KEY_RIGHT))
+	if (m_input.IsInputRep(KEY_RIGHT))
 	{
 		lx -= 1.0f;
 		m_RotModel.y = rot.y - DX_PI_F / 2;
 	}
-	if (IsInputRep(KEY_LEFT))
+	if (m_input.IsInputRep(KEY_LEFT))
 	{
 		lx += 1.0f;
 		m_RotModel.y = rot.y + DX_PI_F / 2;
 	}
-	if (IsInputRep(KEY_DOWN))
+	if (m_input.IsInputRep(KEY_DOWN))
 	{  
 		ly += 1.0f;
 		m_RotModel.y = rot.y;
 	}
-	if (IsInputRep(KEY_UP)) 
+	if (m_input.IsInputRep(KEY_UP))
 	{
 		ly -= 1.0f;
 		m_RotModel.y = rot.y - DX_PI_F;

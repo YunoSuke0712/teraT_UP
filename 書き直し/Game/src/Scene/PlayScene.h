@@ -9,6 +9,9 @@
 //
 #include"../Camera/CameraManager.h"
 #include "../Collision/CollisionManager.h"
+
+#include "../lib/Fade/Fade.h"
+
 //=========================================
 
 // •¡”‚ÌƒJƒƒ‰‚ğŠÇ—‚·‚é
@@ -33,7 +36,8 @@ private:
 
 	CameraManager m_camera;   // ƒJƒƒ‰
 	CollisionManager m_col;
-
+	CFade m_fade;
+	//CFade m_fade;
 	
 	//===============================================
 

@@ -2,22 +2,22 @@
 #include<math.h>
 #include"../lib/common/common.h"
 #include "../Field/field.h"
-#include "../lib/Input/input.h"
 
 //ルートの番号
 static const int ROOT_ID[] = { 1,4,7,10};
 //ルートの個数
 static const int ROOT_NUM = 4;
 
-// 敵の進む速度
-static const float SHOT_SPEED = 1.0f;
-
+static const VECTOR ROOT_POS = { 500.0f, -15.0f, 300.0f };		//ルートの位置
 static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
 static const float ENEMY_SIZE = 5.0f;							//敵の当たり判定
-static const float ENEMY_SPEED = 1.0f;							//敵の移動速度
-static const float ENEMY_P_SPEED = 1.5f;						//敵の移動速度
 static const float ENEMY_ROTATIONY = 0.0f;						//回転Y
+
+static const float ENEMY_SPEED = 1.0f;							//敵の移動速度
+static const float ENEMY_P_SPEED = 1.5f;						//敵の追跡速度
+
 static const int   ENEMY_RE_COOL = 180;							//パトロールに戻る
+
 
 
 //----------------------
@@ -73,7 +73,7 @@ void EnemyA::Load(int Ahndl, int danagerHndl)
 	}
 	if (m_rootHndl == -1)
 	{
-		m_rootHndl = MV1LoadModel("data/field/Map01/Map01_EnemyARoot_01.mv1");
+		m_rootHndl = MV1LoadModel("data/model/field/Map01/Map01_EnemyARoot_01.mv1");
 	}
 }
 
@@ -105,7 +105,8 @@ void EnemyA::Exit()
 //------------------------
 void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 {
-	MV1SetPosition(m_rootHndl, { 500.0f, -15.0f, 300.0f });
+	MV1SetPosition(m_rootHndl, ROOT_POS);
+
 	MV1SetScale(m_rootHndl, VGet(0.8f, 1.0f, 0.8f));
 	MV1SetupCollInfo(m_rootHndl);
 
@@ -139,8 +140,8 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 		//======================================================
 	case PATROL:
 
-		if (IsInputTrg(KEY_CLICK))m_rootID++;
-		if (IsInputTrg(KEY_RCLICK))m_rootID = 0;
+		if (m_input.IsInputTrg(KEY_CLICK))m_rootID++;
+		if (m_input.IsInputTrg(KEY_RCLICK))m_rootID = 0;
 		if (m_rootID > ROOT_NUM)m_rootID = 0;
 		
 		MoveRoot(P_pos);
@@ -177,10 +178,10 @@ void EnemyA::Draw()
 
 	MV1DrawModel(m_hndl);
 
-	DrawFormatString(1200, 500, GetColor(25, 200, 100), "EposX:%f", m_Pos.x);
-	DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
-	DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
-	DrawFormatString(1200, 700, GetColor(25, 200, 100), ":%d", m_rootID);
+	//DrawFormatString(1200, 500, GetColor(25, 200, 100), "EposX:%f", m_Pos.x);
+	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
+	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
+	//DrawFormatString(1200, 700, GetColor(25, 200, 100), ":%d", m_rootID);
 
 	MV1DrawModel(m_rootHndl);
 	DrawSphere3D(GetCenter(), m_radius, 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);

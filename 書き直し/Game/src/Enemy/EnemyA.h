@@ -1,10 +1,12 @@
 #pragma once
 #include<DxLib.h>
 #include <cmath>
+#include "../lib/Input/input.h"
 
 
 class EnemyA {
 private:
+	CInput m_input;
 
 	bool	m_isActive;         //生存フラグ
 	int		m_hndl;				//ハンドル

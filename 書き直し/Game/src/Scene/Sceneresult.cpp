@@ -1,6 +1,6 @@
 #include "sceneresult.h"
 #include <DxLib.h>
-#include "../lib/input/input.h"
+
 #include "../lib/input/PadInput.h"
 #include "../lib/common/common.h"
 
@@ -79,7 +79,7 @@ void Result::Load()
 //-----------------------
 void Result::Step()
 {
-	if (IsInputTrg(KEY_CLICK)
+	if (m_input.IsInputTrg(KEY_CLICK)
 		|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B)
 		|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A))
 	{

@@ -248,3 +248,126 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
 }
           
 
+void CollisionManager::CheckHitGimmickToPlayer(
+    GimmickManager& gim,
+    Player& pl)
+{
+    const int ITERATION = 10;
+
+    //--------------------------------
+    // Ori全取得
+    //--------------------------------
+    for (int i = 0; i < gim.GetGimmickNum(); i++)
+    {
+        Ori* oneOri = gim.GetOneOri(i);
+
+        //--------------------------------
+        // 非アクティブ
+        //--------------------------------
+        if (oneOri->GetIsActive() == false)
+        {
+            continue;
+        }
+
+        //--------------------------------
+        // プレイヤー情報
+        //--------------------------------
+        float p_radius = pl.GetRadius();
+
+        VECTOR pos = pl.GetPosition();
+
+        //--------------------------------
+        // 押し出し
+        //--------------------------------
+        for (int iter = 0; iter < ITERATION; iter++)
+        {
+            VECTOR p_pos = pl.GetCenter();
+
+            //--------------------------------
+            // Ori更新
+            //--------------------------------
+            MV1RefreshCollInfo(
+                oneOri->GetHndl()
+            );
+
+            //--------------------------------
+            // モデル衝突
+            //--------------------------------
+            MV1_COLL_RESULT_POLY_DIM res =
+                MV1CollCheck_Sphere(
+                    oneOri->GetHndl(),
+                    -1,
+                    p_pos,
+                    p_radius
+                );
+
+            //--------------------------------
+            // 当たっていない
+            //--------------------------------
+            if (res.HitNum == 0)
+            {
+                MV1CollResultPolyDimTerminate(res);
+                break;
+            }
+
+            //--------------------------------
+            // 最大押し出し
+            //--------------------------------
+            float maxLen = 0.0f;
+
+            VECTOR bestPush = { 0,0,0 };
+
+            for (int j = 0; j < res.HitNum; j++)
+            {
+                VECTOR norm =
+                    res.Dim[j].Normal;
+
+                VECTOR sub =
+                    VSub(
+                        res.Dim[j].HitPosition,
+                        p_pos
+                    );
+
+                float len = VSize(sub);
+
+                len = p_radius - len;
+
+                if (len <= 0.0f)
+                {
+                    continue;
+                }
+
+                //--------------------------------
+                // 一番深いもの
+                //--------------------------------
+                if (len > maxLen)
+                {
+                    maxLen = len;
+
+                    bestPush =
+                        VScale(norm, len);
+                }
+            }
+
+            //--------------------------------
+            // プレイヤー押し出し
+            //--------------------------------
+            pos = VAdd(pos, bestPush);
+
+            pl.SetPosition(pos);
+
+            //--------------------------------
+            // 解放
+            //--------------------------------
+            MV1CollResultPolyDimTerminate(res);
+
+            //--------------------------------
+            // 終了
+            //--------------------------------
+            if (maxLen < 0.001f)
+            {
+                break;
+            }
+        }
+    }
+}

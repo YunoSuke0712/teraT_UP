@@ -1,6 +1,5 @@
 #include"SceneManager.h"
-#include"../System/SoundManager.h"
-#include"../lib/input/input.h"
+#include"../lib/Sound/SoundManager.h"
 #include"../lib/input/PadInput.h"
 
 
@@ -17,9 +16,14 @@ SceneManager::SceneManager()
 
 
 	//キー入力情報の初期化
-	InitInput();
+	m_input.InitInput();
 	CGamePad::InitGamePad();
 	CGamePad::GetPadNumState();
+
+	//fade
+	m_fade.InitFade();
+
+	
 }
 
 
@@ -37,7 +41,7 @@ int SceneManager::Loop()
 	int result = -1;
 
 	//キー入力情報を更新
-	UpdateInput();
+	m_input.UpdateInput();
 
 	switch (m_sceneID)
 	{
@@ -65,6 +69,7 @@ int SceneManager::Loop()
 
 	}
 
+	m_fade.StepFade();
 	// 本編が終了したかどうかを外部に伝える
 	return result;
 }
@@ -92,6 +97,8 @@ void SceneManager::Draw()
 
 		break;
 	}
+
+	m_fade.DrawFade();
 }
 
 

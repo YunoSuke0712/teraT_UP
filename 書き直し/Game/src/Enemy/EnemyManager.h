@@ -32,6 +32,8 @@ private:
 	float m_SoundCage;
 	int m_SoundCool;
 
+	void Map1EnemyData();
+
 public:
 	// コンストラクタ
 	EnemyManager();
@@ -68,8 +70,9 @@ public:
 	EnemyA* GetOneEnemyA(int ID) { return m_EneA_List[ID]; }
 	int GetEnemyANum() { return m_EneA_List.size(); }
 
+
+
+
 };
 
 
-	//void SetSoundCool() { m_SoundCool = SOUND_COOL_TIME; }
-	//int GetSoundCool() { return m_SoundCool; }

@@ -1,5 +1,5 @@
 #include"PlayScene.h"
-#include"../System/SoundManager.h"
+#include"../lib/Sound/SoundManager.h"
 #include"../lib/input/input.h"
 #include"../lib/input/PadInput.h"
 
@@ -38,7 +38,8 @@ int PlayScene::Loop()
 	{
 	case PlayScene::INIT:
 		Init();
-		
+
+
 		m_state = PlayScene::LOAD;  // 次へ進む
 		break;
 
@@ -46,6 +47,10 @@ int PlayScene::Loop()
 		Load();
 		//ゲーム本編の音を鳴らす
 		SoundManager::Play(SoundManager::BGM_GAME,DX_PLAYTYPE_LOOP);
+		m_fade.RequestFadeIn();
+
+
+
 		m_state = PlayScene::MAIN;  // 次へ進む
 		break;
 
@@ -60,6 +65,7 @@ int PlayScene::Loop()
 		SoundManager::AllStop();
 		m_state = PlayScene::INIT;  // 次へ進む
 		result = 0;
+		m_fade.RequestFadeOut();
 		break;
 
 	case PlayScene::CLEAR:
@@ -131,7 +137,8 @@ void PlayScene::Draw()
 //----------------------
 // 初期化
 //----------------------
-void PlayScene::Init()
+void PlayScene::Init(
+)
 {
 	// それぞれのカメラを初期化
 
@@ -166,7 +173,7 @@ void PlayScene::Step()
 	m_field.Step();
 	m_player.Step(m_camera.GetRot());
 	m_enemy.Step(m_player.GetPosition(),1,{1,1,1});
-	m_gimmick.Step(m_player.GetPosition());
+	m_gimmick.Step(m_player);
 
 
 
@@ -179,6 +186,7 @@ void PlayScene::Step()
 	m_col.CheckHitFieldToPlayer(m_field, m_player);
 	m_col.CheckHitFieldToEnemy(m_field, m_enemy);
 	m_col.CheckHitPlayerToEnemy(m_player, m_enemy);
+	m_col.CheckHitGimmickToPlayer(m_gimmick, m_player);
 	//
 
 	// すべての結果を反映させる===================
@@ -198,6 +206,7 @@ void PlayScene::Exit()
 	m_field.Exit();
 	m_player.Exit();
 	m_enemy.Exit();
+	m_gimmick.Exit();
 	
 }
 

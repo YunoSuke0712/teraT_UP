@@ -6,8 +6,8 @@ static const char ENEMYB_MODEL_PATH[] = "data/model/enemy/enemyB.mv1";
 static const char ENEMYB2_MODEL_PATH[] = "data/model/enemy/enemyB2.mv1";
 static const char DANAGER_MODEL_PATH[] = "data/model/enemy/danger.mv1";
 
-static const char CsvA[] = "data/csv/Map01/EnemyA.csv";
-static const char CsvB[] = "data/csv/Map01/EnemyB.csv";
+static const char MAP1_ENEMY_A[] = "data/csv/Map01/EnemyA.csv";
+static const char MAP1_ENEMY_B[] = "data/csv/Map01/EnemyB.csv";
 
 
 
@@ -27,9 +27,7 @@ void EnemyManager::Init()
 	{
 		m_EnemyA[i].SetEnemyID(i);
 		m_EnemyA[i].Init();
-
 	}
-
 
 	m_SoundCage = 0;
 }
@@ -37,34 +35,7 @@ void EnemyManager::Init()
 //ロード
 void EnemyManager::Load()
 {
-	int Ahndl = MV1LoadModel(ENEMY_MODEL_PATH);
-	int Bhndl = MV1LoadModel(ENEMYB_MODEL_PATH);
-	int Bhndll = MV1LoadModel(ENEMYB2_MODEL_PATH);
-	int Dangerhndl = MV1LoadModel(DANAGER_MODEL_PATH);
-
-	int PosHndl = FileRead_open(CsvA);
-	FILE* FilePointer;
-	if (fopen_s(&FilePointer, CsvA, "r") != 0)return;
-	ReadPosData tmp = { 0 };
-	while (FileRead_eof(PosHndl) == 0)
-	{
-		FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_X);
-		FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Y);
-		FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Z);
-
-		EnemyA* tEmp;
-		tEmp = new EnemyA();
-		tEmp->SetPosition(VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z));
-		m_EneA_List.push_back(tEmp);
-
-		tEmp->Load(Ahndl, Dangerhndl);
-
-		m_InfoList.push_back(tmp);
-	}
-	fclose(FilePointer);
-
-	MV1DeleteModel(Ahndl);
-	MV1DeleteModel(Dangerhndl);
+	Map1EnemyData();
 }
 
 //ループ
@@ -128,3 +99,44 @@ void EnemyManager::Update()
 	
 }
 
+
+void EnemyManager::Map1EnemyData()
+{
+	int Ahndl = MV1LoadModel(ENEMY_MODEL_PATH);
+	int Bhndl = MV1LoadModel(ENEMYB_MODEL_PATH);
+	int Dangerhndl = MV1LoadModel(DANAGER_MODEL_PATH);
+
+	int PosHndl = FileRead_open(MAP1_ENEMY_A);
+	FILE* FilePointer;
+	if (fopen_s(&FilePointer, MAP1_ENEMY_A, "r") != 0)return;
+	ReadPosData tmp = { 0 };
+
+	while (true)
+	{
+		int x = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_X);
+		int y = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Y);
+		int z = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Z);
+
+		// どれか失敗したら終了
+		if (x == -1 || y == -1 || z == -1)
+		{
+			break;
+		}
+
+		EnemyA* tEmp = new EnemyA();
+
+		tEmp->SetPosition(
+			VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z)
+		);
+
+		m_EneA_List.push_back(tEmp);
+
+		tEmp->Load(Ahndl, Dangerhndl);
+
+		m_InfoList.push_back(tmp);
+	}
+	fclose(FilePointer);
+
+	MV1DeleteModel(Ahndl);
+	MV1DeleteModel(Dangerhndl);
+}

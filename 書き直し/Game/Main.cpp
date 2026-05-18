@@ -34,7 +34,7 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	SetMouseDispFlag(FALSE);
 	//一番最初に１回だけやる処理
 	SetDrawScreen(DX_SCREEN_BACK);
-
+	Debug m_debug;
 
 
 	// 当たり判定の球をきれいに表示
@@ -48,7 +48,7 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	CameraManager camera;
 	camera.Init();
 	//fps初期化
-	InitFps();
+	m_debug.InitFps();
 
 
 	SceneManager scene;
@@ -59,12 +59,12 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 		//エスケープキーが押されたら終了
 		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1) break;
 		//想定のフレームに到達していなければ松の木
-		if (IsNextFame() == false)continue;
+		if (m_debug.IsNextFame() == false)continue;
 
 		ClearDrawScreen();	// 画面クリア
 
 		if (scene.Loop() != -1)break;
-		StepFps();
+		m_debug.StepFps();
 
 		scene.Draw();
 

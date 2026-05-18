@@ -1,4 +1,6 @@
 #pragma once
+#include "../lib/input/input.h"
+#include "../lib/Fade/Fade.h"
 
 
 //’è‹`ŠÖ˜A---------------------------
@@ -11,6 +13,9 @@ static const int CARD_MAX = 3;
 class CTitle
 {
 private:
+	CInput m_input;
+	CFade m_fade;
+
 	enum tagTitleScene {
 		INIT,
 		LOAD,

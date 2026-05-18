@@ -1,5 +1,5 @@
 #pragma once
-
+#include "../lib/input/input.h"
 //’è‹`ŠÖ˜A---------------------------
 //-----------------------------------
 
@@ -8,6 +8,7 @@
 class Result
 {
 private:
+	CInput m_input;
 
 	enum tagResultScene {
 		INIT,

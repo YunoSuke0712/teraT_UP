@@ -1,11 +1,15 @@
 #pragma once
 #include<DxLib.h>
+#include"../lib/Input/input.h"
+#include"../lib/Input/PadInput.h"
+
 
 
 
 
 class Player {
 private:
+	CInput m_input;
 
 	enum tagPlayerState {
 		PLSTATE_NORMAL,		//‘Ò‹@EˆÚ“®ó‘Ô

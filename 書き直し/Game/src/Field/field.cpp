@@ -27,16 +27,7 @@ void Field::Init()
 	m_skyhndll = HNDL_INIT;
 	m_vPos = fieldPos;            // 座標
 
-	
-	for (int i = 0; i < GIMMICK_MAX; i++)
-	{
-	m_Gimmick_hndl[i] = -1;
-	}
-
 	SkyRotY = 0;
-
-	for (int GIMMICK_ID = 0;GIMMICK_ID < GIMMICK_MAX;GIMMICK_ID++)
-		m_Gimmick_active[GIMMICK_ID] = true;
 }
 
 
@@ -44,25 +35,14 @@ void Field::Load()
 {
 	if (m_hndl == -1)
 	{
-		m_hndl = MV1LoadModel("data/field/KENY_map.mv1");
+		m_hndl = MV1LoadModel("data/model/field/Map01/Map_01.mv1");
 		//子リジョン情報構築
 	}
-	if (m_Gimmick_hndl[0] == -1)
-	{
-		m_Gimmick_hndl[0] = MV1LoadModel("data/field/door_1.mv1");
-	}
-	if (m_Gimmick_hndl[1] == -1)
-	{
-		m_Gimmick_hndl[1] = MV1LoadModel("data/field/botan.mv1");
-	}
-	if (m_Gimmick_hndl[2] == -1)
-	{
-		m_Gimmick_hndl[2] = MV1LoadModel("data/field/ori.mv1");
-	}
+	
 
 	if (m_skyhndll == -1)
 	{
-		m_skyhndll = MV1LoadModel("data/sky/sky.mv1");
+		m_skyhndll = MV1LoadModel("data/model/sky/sky.mv1");
 	}
 }
 
@@ -90,27 +70,6 @@ void Field::Updata()
 	VECTOR rot{ 0.0,SkyRotY,0.0f };
 	MV1SetRotationXYZ(m_skyhndll, rot);
 
-	//ギミック
-	for (int i = 0; i < GIMMICK_MAX; i++)
-	{
-		if (m_Gimmick_hndl[i] == -1)return;
-		switch (i)
-		{
-		case 0:
-			MV1SetPosition(m_Gimmick_hndl[0], { 500.0f,-15.0f,300.0f });
-			break;
-		case 1:
-			MV1SetPosition(m_Gimmick_hndl[1], { 720.0f,0.0f,-100.0f });
-			break;
-		case 2:
-			MV1SetPosition(m_Gimmick_hndl[2], fieldPos);
-			break;
-
-		}
-
-		MV1SetScale(m_Gimmick_hndl[i], fieldScale);
-		MV1SetupCollInfo(m_Gimmick_hndl[i]);
-	}
 }
 
 
@@ -126,17 +85,6 @@ void Field::Exit()
 		m_hndl = -1;
 	}
 
-	for (int i = 0; i < GIMMICK_MAX; i++)
-	{
-		if (m_Gimmick_hndl[i] != -1) {
-			m_Gimmick_hndl[i] = -1;
-			MV1DeleteModel(m_Gimmick_hndl[i]);
-			//念のため不要になったコリジョン情報を削除
-			MV1TerminateCollInfo(m_Gimmick_hndl[i]);
-			MV1DeleteModel(m_Gimmick_hndl[i]);
-			m_Gimmick_hndl[i] = -1;
-		}
-	}
 	if (m_skyhndll != -1) {
 		m_skyhndll = -1;
 		MV1DeleteModel(m_skyhndll);
@@ -147,12 +95,6 @@ void Field::Exit()
 void Field::Draw()
 {
 	MV1DrawModel(m_hndl);
-
-	//ギミック
-	if(m_Gimmick_active[0])MV1DrawModel(m_Gimmick_hndl[0]);
-	MV1DrawModel(m_Gimmick_hndl[1]);
-	if (m_Gimmick_active[2])MV1DrawModel(m_Gimmick_hndl[2]);
-
 	MV1DrawModel(m_skyhndll);
 }
 

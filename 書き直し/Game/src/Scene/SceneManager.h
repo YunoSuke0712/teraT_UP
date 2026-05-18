@@ -2,6 +2,9 @@
 #include"PlayScene.h"
 #include"Scenetitle.h"
 #include"Sceneresult.h"
+#include"../lib/input/input.h"
+#include"../lib/Fade/Fade.h"
+
 
 
 
@@ -15,6 +18,9 @@ private:
 		GAME,
 		RESULT,
 	};
+
+	CInput m_input;
+	CFade m_fade;
 
 	PlayScene m_play;
 	tagScene m_sceneID;         // Œ»İ‚Ìó‘Ô‘JˆÚ

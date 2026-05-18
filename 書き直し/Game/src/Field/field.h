@@ -3,8 +3,6 @@
 //#include "../Plyaer/Player.h
 
 
-static const int GIMMICK_MAX = 5;
-
 class Field
 {
 private:
@@ -13,11 +11,9 @@ private:
 	int m_hndl;			//フィールド
 	int m_skyhndll;		//すかい
 
-	int m_Gimmick_hndl[GIMMICK_MAX];
 	float SkyRotY;
 	bool m_isHitFlag;
 	
-	bool m_Gimmick_active[GIMMICK_MAX];
 	//０：P鍵	１：スイッチ　２：檻　
 
 public:

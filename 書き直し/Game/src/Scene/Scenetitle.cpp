@@ -1,8 +1,10 @@
 #include "scenetitle.h"
 #include <DxLib.h>
-#include "../lib/input/input.h"
 #include "../lib/input/PadInput.h"
 #include "../lib/common/common.h"
+
+#include "../lib/fade/fade.h"
+
 
 static const float CARD_SPEED = 20.0f;
 static const float CARD_SELECT_POS  = 100.0f;
@@ -44,6 +46,7 @@ int CTitle::Loop()
 		
 		break;
 	case CTitle::ENDWAIT://フェードなどを使うとき
+		if(m_fade.IsEndFadeOut())
 		m_state = END;
 		break;
 	case CTitle::END:
@@ -88,6 +91,7 @@ void CTitle::Init()
 //ロード管理
 void CTitle::Load()
 {
+	m_fade.RequestFadeIn();
 
 	if (m_hndl[0] == -1)
 		m_hndl[0] = LoadGraph("data/game/title/title.png");
@@ -137,7 +141,7 @@ void CTitle::Step()
 	switch (m_TitleSelect)
 	{
 	case Fast:
-		if (IsInputTrg(KEY_CLICK)
+		if (m_input.IsInputTrg(KEY_CLICK)
 			|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B)
 			|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A))
 		{
@@ -146,13 +150,13 @@ void CTitle::Step()
 		break;
 	case Select:				//タイトル選択画面
 		//選択切り替え
-		if ((IsInputTrg(KEY_UP)
+		if ((m_input.IsInputTrg(KEY_UP)
 			|| CGamePad::IsPush_Cross(UP))
 			&& !m_UI_active)
 		{
 			m_NowSelect--;
 		}
-		if ((IsInputTrg(KEY_DOWN)
+		if ((m_input.IsInputTrg(KEY_DOWN)
 			|| CGamePad::IsPush_Cross(DOWN))
 			&& !m_UI_active)
 		{
@@ -163,21 +167,23 @@ void CTitle::Step()
 		switch (m_NowSelect)
 		{
 		case 2:
-			if (IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
 			{
 				UISwitch();
 			}
 			break;
 		case 1:
-			if (IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
 			{
 				UISwitch();
 			}
 			break;
 		case 0:
-			if (IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
 			{
-				m_state = END;
+				m_fade.RequestFadeOut();
+
+				m_state = ENDWAIT;
 			}
 			break;
 		}
@@ -232,7 +238,7 @@ void CTitle::Draw()
 			case 2:
 				DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
 					1.0, 0.0, m_hndl[6], TRUE);
-			break;
+				break;
 			case 1:
 				DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
 					1.0, 0.0, m_hndl[7], TRUE);

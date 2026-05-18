@@ -13,13 +13,13 @@ static INPUT_DATA g_inputData;
 //-----------------------------
 //キー入力情報の初期化
 //-----------------------------
-void InitInput()
+void CInput::InitInput()
 {
 	g_inputData.m_NowKey = g_inputData.m_PrevKey = 0;
 }
 
 //キー入力情報を更新
-void UpdateInput()
+void CInput::UpdateInput()
 {
 	//最新情報は1フレーム前の情報になる
 	g_inputData.m_PrevKey = g_inputData.m_NowKey;
@@ -89,7 +89,7 @@ void UpdateInput()
 
 }
 //キーを押したか（通常判定）
-bool IsInputRep(unsigned int key)
+bool CInput::IsInputRep(unsigned int key)
 {
 	if ((g_inputData.m_NowKey & key) != 0)
 	{
@@ -101,7 +101,7 @@ bool IsInputRep(unsigned int key)
 	}
 }
 //キーを押したか（トリガー判定）
-bool IsInputTrg(unsigned int key)
+bool CInput::IsInputTrg(unsigned int key)
 {
 	if ((g_inputData.m_NowKey & key) &&
 		!(g_inputData.m_PrevKey & key)) return true;
@@ -110,7 +110,7 @@ bool IsInputTrg(unsigned int key)
 }
 
 
-bool IsInputRel(unsigned int key)
+bool CInput::IsInputRel(unsigned int key)
 {
 	// 前のフレームで押していて、今は押していない
 	if ((g_inputData.m_PrevKey & key) &&

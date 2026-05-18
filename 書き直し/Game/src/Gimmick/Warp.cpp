@@ -2,9 +2,8 @@
 #include<math.h>
 #include"../lib/common/common.h"
 #include "../Field/field.h"
-#include "../lib/Input/input.h"
 
-static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
+static const VECTOR GIMMICK_SCALE{ 0.1f,0.1f,0.1f };					//敵のサイズ
 static const float WARP_SIZE = 5.0f;							//敵の当たり判定
 
 
@@ -35,6 +34,7 @@ void Warp::Init()
 		m_isActive[i] = true;
 		m_hndl[i] = HNDL_INIT;
 		m_rotationY[i] = ZERO_F;
+
 	}
 
 }
@@ -42,7 +42,7 @@ void Warp::Init()
 //--------------------------
 // モデルデータのロード
 //--------------------------
-void Warp::Load(int Ahndl, int BHndl)
+void Warp::Load(int Ahndl, int Bhndl)
 {
 	for (int i = 0;i < WarpMaxNum;i++)
 	{
@@ -52,6 +52,14 @@ void Warp::Load(int Ahndl, int BHndl)
 			m_hndl[i] = MV1DuplicateModel(Ahndl);
 		}
 	}
+
+	m_hndl[0] = MV1DuplicateModel(Ahndl);
+	m_hndl[1] = MV1DuplicateModel(Bhndl);
+	MV1SetPosition(m_hndl[0], GetPositionA());
+	MV1SetPosition(m_hndl[1], GetPositionB());
+	MV1SetScale(m_hndl[0], GIMMICK_SCALE);
+	MV1SetScale(m_hndl[1], GIMMICK_SCALE);
+
 }
 
 //--------------------------
@@ -73,11 +81,49 @@ void Warp::Exit()
 //------------------------
 // 毎フレーム更新
 //------------------------
-void Warp::Step(VECTOR P_pos)
+void Warp::Step(Player& player)
 {
-	//MV1SetPosition(m_rootHndl, { 500.0f, -15.0f, 300.0f });
-	//MV1SetScale(m_rootHndl, VGet(0.8f, 1.0f, 0.8f));
+	bool Active = false;
 
+	if (!Active)
+	{
+		VECTOR targetPos = player.GetCenter();
+		// 自分の座標取得
+		VECTOR pos = GetCenterB();
+		// 目的地へのベクトル取得
+		VECTOR dir = VSub(targetPos, pos);
+		// 目的地までの距離を取得
+		float len = VSize(dir);
+		// 目的地までの距離が一定範囲内なら
+		if (len < 15.0f)
+		{
+			if (m_input.IsInputTrg(KEY_CLICK))
+			{
+				player.SetPosition(GetCenterA());
+				Active = true;
+			}
+		}
+	}
+
+	if (!Active)
+	{
+		VECTOR targetPos = player.GetCenter();
+		// 自分の座標取得
+		VECTOR pos = GetCenterA();
+		// 目的地へのベクトル取得
+		VECTOR dir = VSub(targetPos, pos);
+		// 目的地までの距離を取得
+		float len = VSize(dir);
+		// 目的地までの距離が一定範囲内なら
+		if (len < 15.0f)
+		{
+			if (m_input.IsInputTrg(KEY_CLICK))
+			{
+				player.SetPosition(GetCenterB());
+				Active = true;
+			}
+		}
+	}
 }
 
 //------------------------
@@ -85,7 +131,6 @@ void Warp::Step(VECTOR P_pos)
 //------------------------
 void Warp::Update()
 {
-
 
 }
 
@@ -107,13 +152,14 @@ void Warp::Draw()
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
 
 	DrawSphere3D(GetCenterA(), m_radius[0], 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
-	DrawSphere3D(GetCenterB(), m_radius[1], 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
+	DrawSphere3D(GetCenterB(), m_radius[1], 16, GetColor(255, 255, 255), GetColor(255, 255, 255), true);
 
-
+	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "A:%f,%f,%f", m_Pos[0].x, m_Pos[0].y, m_Pos[0].z);
+	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "B:%f,%f,%f", m_Pos[1].x, m_Pos[1].y, m_Pos[1].z);
 }
 
 //------------------------
-// 敵をリクエスト
+// 敵をリクエスト//未使用
 //------------------------
 bool Warp::Request(const VECTOR& pos)
 {

@@ -43,9 +43,6 @@
     <Filter Include="ソース ファイル\src\Player">
       <UniqueIdentifier>{0007951f-4c06-4840-89ad-30eae066e26c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\src\System">
-      <UniqueIdentifier>{d1df2f82-243a-40f9-9117-28e5dae2be93}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\src\Field">
       <UniqueIdentifier>{afcee681-3b4a-49ff-a28c-598e9a8dee00}</UniqueIdentifier>
     </Filter>
@@ -57,6 +54,12 @@
     </Filter>
     <Filter Include="ソース ファイル\src\Gimmick">
       <UniqueIdentifier>{aa2195eb-e767-41bb-a7f8-1393bf824fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Sound">
+      <UniqueIdentifier>{6f2f583a-6c3c-4b88-86e1-08a5f5724cfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Fade">
+      <UniqueIdentifier>{b4a1dda7-6e15-49f6-9f9b-f50dea7cd17a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,9 +99,6 @@
     <ClCompile Include="src\Player\Player.cpp">
       <Filter>ソース ファイル\src\Player</Filter>
     </ClCompile>
-    <ClCompile Include="src\System\SoundManager.cpp">
-      <Filter>ソース ファイル\src\System</Filter>
-    </ClCompile>
     <ClCompile Include="src\Scene\PlayScene.cpp">
       <Filter>ソース ファイル\src\Scene</Filter>
     </ClCompile>
@@ -124,6 +124,15 @@
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClCompile>
     <ClCompile Include="src\Gimmick\GimmickManager.cpp">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Sound\SoundManager.cpp">
+      <Filter>ソース ファイル\src\lib\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Fade\Fade.cpp">
+      <Filter>ソース ファイル\src\lib\Fade</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gimmick\Ori.cpp">
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,9 +173,6 @@
     <ClInclude Include="src\Player\Player.h">
       <Filter>ソース ファイル\src\Player</Filter>
     </ClInclude>
-    <ClInclude Include="src\System\SoundManager.h">
-      <Filter>ソース ファイル\src\System</Filter>
-    </ClInclude>
     <ClInclude Include="src\Scene\PlayScene.h">
       <Filter>ソース ファイル\src\Scene</Filter>
     </ClInclude>
@@ -192,6 +198,15 @@
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClInclude>
     <ClInclude Include="src\Gimmick\GimmickManager.h">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Sound\SoundManager.h">
+      <Filter>ソース ファイル\src\lib\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Fade\Fade.h">
+      <Filter>ソース ファイル\src\lib\Fade</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gimmick\Ori.h">
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClInclude>
   </ItemGroup>
