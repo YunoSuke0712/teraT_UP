@@ -398,6 +398,7 @@ void CTitle::Draw()
 
 	}
 
+	DrawFormatString(250, 250, ColorBLUE, "%d",m_data.GetPlayMapID());
 
 }
 

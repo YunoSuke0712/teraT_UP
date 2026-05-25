@@ -3,10 +3,6 @@
 #include"../lib/Input/input.h"
 #include"../lib/Input/PadInput.h"
 
-
-
-
-
 class CData {
 private:
 	CInput m_input;
@@ -21,5 +17,6 @@ public:
 
 public:
 	void SetPlayMapID(int id) { m_PlayMapID = id; }
+	int	 GetPlayMapID() { return  m_PlayMapID; }
 
 };

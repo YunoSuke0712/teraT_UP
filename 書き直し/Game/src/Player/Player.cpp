@@ -14,7 +14,7 @@ static const float MOVE_SPEED = 0.8f;								//プレイヤーの進む速度
 static const int   STAMINA_COOL = 120;								//スタミナ回復速度
 static const float PLAYER_RADIUS{ 4.5f };							//当たり判定
 static const float JUMP_POWER = 6.0f;								//ジャンプ力
-static const float DASH_SPEED_UP = 5.0f;							//ダッシュ
+static const float DASH_SPEED_UP = 1.0f;							//ダッシュ
 //アニメーション===
 static const float	ANIM_SPD = F1;					//アニメーション速度
 static const int THROW_COUNT = 15;					//投げるアニメーション時間

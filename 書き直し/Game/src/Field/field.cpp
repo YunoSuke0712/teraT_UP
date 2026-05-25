@@ -33,11 +33,26 @@ void Field::Init()
 
 void Field::Load()
 {
-	if (m_hndl == -1)
+	int a = m_Data.GetPlayMapID();
+
+	switch (m_Data.GetPlayMapID())
 	{
-		m_hndl = MV1LoadModel("data/model/field/Map01/Map_01.mv1");
-		//子リジョン情報構築
+	case 1:
+		if (m_hndl == -1)
+		{
+			m_hndl = MV1LoadModel("data/model/field/Map01/Map_01.mv1");
+		}
+		break;
+	case 2:
+		if (m_hndl == -1)
+		{
+			m_hndl = MV1LoadModel("data/model/field/Map02/Map_02.mv1");
+			//子リジョン情報構築
+		}
+		break;
 	}
+
+
 	
 
 	if (m_skyhndll == -1)

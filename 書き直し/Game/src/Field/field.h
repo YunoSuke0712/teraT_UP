@@ -1,11 +1,12 @@
 #pragma once
 #include <DxLib.h>
-//#include "../Plyaer/Player.h
-
+#include "../Data/Data.h"
 
 class Field
 {
 private:
+	CData m_Data;
+
 	VECTOR m_vPos;            // 座標
 
 	int m_hndl;			//フィールド

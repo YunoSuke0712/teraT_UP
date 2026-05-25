@@ -5,6 +5,25 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(71,46
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(74,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   (ソース ファイル 'Main.cpp' をコンパイルしています)
   
+  CollisionManager.cpp
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(71,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Collision/CollisionManager.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(74,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Collision/CollisionManager.cpp' をコンパイルしています)
+  
+  Data.cpp
+  field.cpp
+  Ori.cpp
+  TreasureGoal.cpp
+  Warp.cpp
+  PlayScene.cpp
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(71,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/PlayScene.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(74,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/PlayScene.cpp' をコンパイルしています)
+  
   SceneManager.cpp
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(71,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   (ソース ファイル 'src/Scene/SceneManager.cpp' をコンパイルしています)
