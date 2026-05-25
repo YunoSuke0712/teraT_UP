@@ -43,9 +43,9 @@ private:
 	TreasureGoal m_Tre[GIMMICK_MAX_NUM];
 	//===
 
-	void LoadWarp();
-	void LoadOri();
-	void LoadTre_Goal();
+	void LoadWarp(int mapID);
+	void LoadOri(int mapID);
+	void LoadTre_Goal(int mapID);
 
 
 public:
@@ -55,7 +55,7 @@ public:
 	// 初期化
 	void Init();
 	// モデルデータのロード
-	void Load();
+	void Load(int mapID);
 	// 終了時のデータ破棄など
 	void Exit();
 

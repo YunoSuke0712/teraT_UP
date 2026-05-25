@@ -5,7 +5,7 @@
 class Field
 {
 private:
-	CData m_Data;
+
 
 	VECTOR m_vPos;            // 座標
 
@@ -23,7 +23,7 @@ public:
 
 	void Init();
 	// モデルデータのロード
-	void Load();
+	void Load(int mapID);
 	// 終了時のデータ破棄など
 	void Exit();
 	// 描画処理

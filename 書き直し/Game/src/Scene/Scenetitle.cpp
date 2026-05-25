@@ -144,6 +144,8 @@ void CTitle::Load()
 //-----------------------
 void CTitle::Step()
 {
+	CData* data = CData::GetInstance();
+
 	//ƒZƒŒƒNƒgã‰ºˆÚ“®
 	if (m_TitleSelect != Fast)
 	{
@@ -204,7 +206,8 @@ void CTitle::Step()
 			{
 				m_fade.RequestFadeOut();
 				m_state = ENDWAIT;
-				m_data.SetPlayMapID(1);
+				data->SetPlayMapID(1);
+				
 			}
 			break;
 		case 1:
@@ -212,7 +215,7 @@ void CTitle::Step()
 			{
 				m_fade.RequestFadeOut();
 				m_state = ENDWAIT;
-				m_data.SetPlayMapID(2);
+				data->SetPlayMapID(2);
 
 			}
 			break;
@@ -221,7 +224,7 @@ void CTitle::Step()
 			{
 				m_fade.RequestFadeOut();
 				m_state = ENDWAIT;
-				m_data.SetPlayMapID(3);
+				data->SetPlayMapID(3);
 			}
 			break;
 		}

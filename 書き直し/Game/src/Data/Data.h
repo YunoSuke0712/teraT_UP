@@ -19,4 +19,16 @@ public:
 	void SetPlayMapID(int id) { m_PlayMapID = id; }
 	int	 GetPlayMapID() { return  m_PlayMapID; }
 
+
+
+public:
+
+	//‡A
+	static CData* GetInstance();
+	//‡D
+	static void DeleteInstance();
+private:
+	//‡@
+	static CData* m_Instance;
+
 };

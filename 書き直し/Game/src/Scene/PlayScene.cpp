@@ -90,6 +90,8 @@ int PlayScene::Loop()
 //----------------------
 void PlayScene::Draw()
 {
+	CData* data = CData::GetInstance();
+
 	switch (m_state)
 	{
 	case PlayScene::INIT:
@@ -104,7 +106,6 @@ void PlayScene::Draw()
 		m_enemy.Draw();
 		m_gimmick.Draw();
 		//m_shot.Draw();
-		//m_goal.Draw();
 		//m_line.Draw(m_player, SPZ_POS, m_goal.GetPos(),m_item.GetLevel());
 		// 
 		m_camera.Draw();
@@ -157,10 +158,12 @@ void PlayScene::Init(
 //----------------------
 void PlayScene::Load()
 {
-	m_field.Load();
+	CData* data = CData::GetInstance(); ////Dataはこれをコピーして頭に張り付ける
+
+	m_field.Load(data->GetPlayMapID());
 	m_player.Load();
-	m_enemy.Load();
-	m_gimmick.Load();
+	m_enemy.Load(data->GetPlayMapID());
+	m_gimmick.Load(data->GetPlayMapID());
 	
 }
 
@@ -169,6 +172,8 @@ void PlayScene::Load()
 //----------------------
 void PlayScene::Step()
 {
+	CData* data = CData::GetInstance();
+
 
 	m_field.Step();
 	m_player.Step(m_camera.GetRot());

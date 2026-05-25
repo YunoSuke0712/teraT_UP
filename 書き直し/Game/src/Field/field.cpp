@@ -31,11 +31,10 @@ void Field::Init()
 }
 
 
-void Field::Load()
+void Field::Load(int mapID)
 {
-	int a = m_Data.GetPlayMapID();
 
-	switch (m_Data.GetPlayMapID())
+	switch (mapID)
 	{
 	case 1:
 		if (m_hndl == -1)
@@ -59,6 +58,8 @@ void Field::Load()
 	{
 		m_skyhndll = MV1LoadModel("data/model/sky/sky.mv1");
 	}
+
+
 }
 
 

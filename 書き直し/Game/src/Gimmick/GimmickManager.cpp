@@ -7,10 +7,30 @@ static const char BUTTON_MODEL_PATH[] = "data/model/gimmick/button.mv1";
 static const char TREASURE_MODEL_PATH[] = "data/model/gimmick/treasure.mv1";
 static const char GOAL_MODEL_PATH[] = "data/model/gimmick/goal.mv1";
 
+//	マップごとのギミックの配置保存場所
+static const char Csv_Warp[][255] =
+{ 
+	{""} ,//map0は存在しない
+	{"data/csv/Map01/Warp.csv" } ,
+	{"data/csv/Map02/Warp.csv" } ,
+	{"data/csv/Map03/Warp.csv" } ,
+};
 
-static const char Csv_Warp[] = "data/csv/Map01/Warp.csv";
-static const char Csv_Ori[] = "data/csv/Map01/Ori.csv";
-static const char Csv_TreGoal[] = "data/csv/Map01/TreGoal.csv";
+static const char Csv_Ori[][255] =
+{
+	{""} ,//map0は存在しない
+	{"data/csv/Map01/Ori.csv" } ,
+	{"data/csv/Map02/Ori.csv" } ,
+	{"data/csv/Map03/Ori.csv"} ,
+};
+
+static const char Csv_TreGoal[][255] =
+{
+	{""} ,//map0は存在しない
+	{"data/csv/Map01/TreGoal.csv" } ,
+	{"data/csv/Map02/TreGoal.csv" } ,
+	{"data/csv/Map03/TreGoal.csv" } ,
+};
 
 
 
@@ -40,14 +60,14 @@ void GimmickManager::Init()
 }
 
 //ロード
-void GimmickManager::Load()
+void GimmickManager::Load(int mapID)
 {
 	//ワープ
-	LoadWarp();
+	LoadWarp(mapID);
 	//檻
-	LoadOri();
+	LoadOri(mapID);
 	//
-	LoadTre_Goal();
+	LoadTre_Goal(mapID);
 }
 
 //ループ
@@ -168,15 +188,16 @@ void GimmickManager::Update()
 
 
 
-void GimmickManager::LoadWarp()
+void GimmickManager::LoadWarp(int mapID)
 {
 	int Ahndl = MV1LoadModel(WAEP_MODEL_PATH);
 	int Bhndl = MV1LoadModel(WAEP_MODEL_PATH);
 
-	int PosHndl = FileRead_open(Csv_Warp);
+	int PosHndl = FileRead_open(Csv_Warp[mapID]);
+
 
 	FILE* FilePointer;
-	if (fopen_s(&FilePointer, Csv_Warp, "r") != 0)return;
+	if (fopen_s(&FilePointer, Csv_Warp[mapID], "r") != 0)return;
 	ReadPosData tmp = { 0 };
 
 	while (true)
@@ -220,15 +241,15 @@ void GimmickManager::LoadWarp()
 
 
 
-void GimmickManager::LoadOri()
+void GimmickManager::LoadOri(int mapID)
 {
 	int Ahndl = MV1LoadModel(ORI_MODEL_PATH);
 	int Bhndl = MV1LoadModel(BUTTON_MODEL_PATH);
 
-	int PosHndl = FileRead_open(Csv_Ori);
+	int PosHndl = FileRead_open(Csv_Ori[mapID]);
 
 	FILE* FilePointer;
-	if (fopen_s(&FilePointer, Csv_Ori, "r") != 0)return;
+	if (fopen_s(&FilePointer, Csv_Ori[mapID], "r") != 0)return;
 	ReadPosData tmp = { 0 };
 
 	while (true)
@@ -284,15 +305,15 @@ void GimmickManager::LoadOri()
 
 
 
-void GimmickManager::LoadTre_Goal()
+void GimmickManager::LoadTre_Goal(int mapID)
 {
 	int Ahndl = MV1LoadModel(TREASURE_MODEL_PATH);
 	int Bhndl = MV1LoadModel(GOAL_MODEL_PATH);
 
-	int PosHndl = FileRead_open(Csv_TreGoal);
+	int PosHndl = FileRead_open(Csv_TreGoal[mapID]);
 
 	FILE* FilePointer;
-	if (fopen_s(&FilePointer, Csv_TreGoal, "r") != 0)return;
+	if (fopen_s(&FilePointer, Csv_TreGoal[mapID], "r") != 0)return;
 	ReadPosData tmp = { 0 };
 
 	while (true)

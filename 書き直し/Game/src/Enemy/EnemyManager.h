@@ -32,7 +32,7 @@ private:
 	float m_SoundCage;
 	int m_SoundCool;
 
-	void Map1EnemyData();
+	void EnemyAData(int mapID);
 
 public:
 	// コンストラクタ
@@ -41,7 +41,7 @@ public:
 	// 初期化
 	void Init();
 	// モデルデータのロード
-	void Load();
+	void Load(int mapID);
 	// 終了時のデータ破棄など
 	void Exit();
 

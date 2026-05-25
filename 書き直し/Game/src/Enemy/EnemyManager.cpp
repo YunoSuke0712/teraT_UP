@@ -6,9 +6,21 @@ static const char ENEMYB_MODEL_PATH[] = "data/model/enemy/enemyB.mv1";
 static const char ENEMYB2_MODEL_PATH[] = "data/model/enemy/enemyB2.mv1";
 static const char DANAGER_MODEL_PATH[] = "data/model/enemy/danger.mv1";
 
-static const char MAP1_ENEMY_A[] = "data/csv/Map01/EnemyA.csv";
-static const char MAP1_ENEMY_B[] = "data/csv/Map01/EnemyB.csv";
+static const char MAP1_ENEMY_A[][200] =
+{
+	{""},
+	{"data/csv/Map01/EnemyA.csv"},
+	{"data/csv/Map02/EnemyA.csv"},
+	{"data/csv/Map03/EnemyA.csv"},
+};
 
+static const char MAP1_ENEMY_B[][200] =
+{
+	{""},
+	{"data/csv/Map01/EnemyB.csv"},
+	{"data/csv/Map02/EnemyB.csv"},
+	{"data/csv/Map03/EnemyB.csv"},
+};
 
 
 // 敵の再出現時間
@@ -29,13 +41,19 @@ void EnemyManager::Init()
 		m_EnemyA[i].Init();
 	}
 
+	//for (int i = 0; i < ENEMYA_MAX_NUM; i++)
+	//{
+	//	//m_EnemyB[i].SetEnemyID(i);
+	//	//m_EnemyB[i].Init();
+	//}
+
 	m_SoundCage = 0;
 }
 
 //ロード
-void EnemyManager::Load()
+void EnemyManager::Load(int mapID)
 {
-	Map1EnemyData();
+	EnemyAData(mapID);
 }
 
 //ループ
@@ -100,15 +118,16 @@ void EnemyManager::Update()
 }
 
 
-void EnemyManager::Map1EnemyData()
+void EnemyManager::EnemyAData(int mapID)
 {
 	int Ahndl = MV1LoadModel(ENEMY_MODEL_PATH);
-	int Bhndl = MV1LoadModel(ENEMYB_MODEL_PATH);
 	int Dangerhndl = MV1LoadModel(DANAGER_MODEL_PATH);
 
-	int PosHndl = FileRead_open(MAP1_ENEMY_A);
+	int PosHndl = FileRead_open(MAP1_ENEMY_A[mapID]);
+
+
 	FILE* FilePointer;
-	if (fopen_s(&FilePointer, MAP1_ENEMY_A, "r") != 0)return;
+	if (fopen_s(&FilePointer, MAP1_ENEMY_A[mapID], "r") != 0)return;
 	ReadPosData tmp = { 0 };
 
 	while (true)
