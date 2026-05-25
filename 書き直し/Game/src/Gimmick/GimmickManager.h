@@ -2,7 +2,7 @@
 
 #include"Warp.h"
 #include"Ori.h"
-
+#include"TreasureGoal.h"
 
 #include <list>
 #include <vector>
@@ -37,12 +37,16 @@ private:
 	Warp m_Warp[GIMMICK_MAX_NUM];
 	//===檻
 	vector<Ori*> m_Ori_List;
-	Warp m_Ori[GIMMICK_MAX_NUM];
+	Ori m_Ori[GIMMICK_MAX_NUM];
+	//===宝ゴール
+	vector<TreasureGoal*> m_Tre_Goal_List;
+	TreasureGoal m_Tre[GIMMICK_MAX_NUM];
 	//===
-
 
 	void LoadWarp();
 	void LoadOri();
+	void LoadTre_Goal();
+
 
 public:
 	// コンストラクタ

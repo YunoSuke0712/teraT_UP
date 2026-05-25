@@ -52,5 +52,9 @@ float RadToDeg(float rad);	//ラジアン→度変換
 // m_Rot.y =ラジアン値													↓
 //drawFormatString(10,10,GetColor(0,0,0), 　"m_rotY:%.1f 度",　　RedToDeg(m_Rot.y)　　)
 //のようにすると度で表示できる
+//
+float CosDeg(float cos);
+
+float SinDeg(float sin);
 
 #endif

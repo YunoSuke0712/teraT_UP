@@ -25,10 +25,12 @@
     <ClCompile Include="src\Camera\EventCamera.cpp" />
     <ClCompile Include="src\Camera\PlayerCamera.cpp" />
     <ClCompile Include="src\Collision\CollisionManager.cpp" />
+    <ClCompile Include="src\Data\Data.cpp" />
     <ClCompile Include="src\Enemy\EnemyA.cpp" />
     <ClCompile Include="src\Enemy\EnemyManager.cpp" />
     <ClCompile Include="src\Field\field.cpp" />
     <ClCompile Include="src\Gimmick\Ori.cpp" />
+    <ClCompile Include="src\Gimmick\TreasureGoal.cpp" />
     <ClCompile Include="src\Gimmick\Warp.cpp" />
     <ClCompile Include="src\Gimmick\GimmickManager.cpp" />
     <ClCompile Include="src\lib\Collision\collision.cpp" />
@@ -40,6 +42,7 @@
     <ClCompile Include="src\lib\Sound\SoundManager.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\Scene\PlayScene.cpp" />
+    <ClCompile Include="src\Scene\SceneClearresult.cpp" />
     <ClCompile Include="src\Scene\SceneManager.cpp" />
     <ClCompile Include="src\Scene\Sceneresult.cpp" />
     <ClCompile Include="src\Scene\Scenetitle.cpp" />
@@ -50,10 +53,12 @@
     <ClInclude Include="src\Camera\EventCamera.h" />
     <ClInclude Include="src\Camera\PlayerCamera.h" />
     <ClInclude Include="src\Collision\CollisionManager.h" />
+    <ClInclude Include="src\Data\Data.h" />
     <ClInclude Include="src\Enemy\EnemyA.h" />
     <ClInclude Include="src\Enemy\EnemyManager.h" />
     <ClInclude Include="src\Field\field.h" />
     <ClInclude Include="src\Gimmick\Ori.h" />
+    <ClInclude Include="src\Gimmick\TreasureGoal.h" />
     <ClInclude Include="src\Gimmick\Warp.h" />
     <ClInclude Include="src\Gimmick\GimmickManager.h" />
     <ClInclude Include="src\lib\Collision\collision.h" />
@@ -66,6 +71,7 @@
     <ClInclude Include="src\lib\Sound\SoundManager.h" />
     <ClInclude Include="src\Player\Player.h" />
     <ClInclude Include="src\Scene\PlayScene.h" />
+    <ClInclude Include="src\Scene\SceneClearresult.h" />
     <ClInclude Include="src\Scene\SceneManager.h" />
     <ClInclude Include="src\Scene\Sceneresult.h" />
     <ClInclude Include="src\Scene\Scenetitle.h" />

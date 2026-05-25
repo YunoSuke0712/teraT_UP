@@ -4,7 +4,7 @@
 #include "../Field/field.h"
 
 static const VECTOR GIMMICK_SCALE{ 0.1f,0.1f,0.1f };					//“G‚ÌƒTƒCƒY
-static const float WARP_SIZE = 5.0f;							//“G‚Ì“–‚½‚è”»’è
+static const float WARP_SIZE = 5.0f;									//“G‚Ì“–‚½‚è”»’è
 
 
 //----------------------
@@ -151,8 +151,8 @@ void Warp::Draw()
 	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
 
-	DrawSphere3D(GetCenterA(), m_radius[0], 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
-	DrawSphere3D(GetCenterB(), m_radius[1], 16, GetColor(255, 255, 255), GetColor(255, 255, 255), true);
+	//DrawSphere3D(GetCenterA(), m_radius[0], 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
+	//DrawSphere3D(GetCenterB(), m_radius[1], 16, GetColor(255, 255, 255), GetColor(255, 255, 255), true);
 
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "A:%f,%f,%f", m_Pos[0].x, m_Pos[0].y, m_Pos[0].z);
 	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "B:%f,%f,%f", m_Pos[1].x, m_Pos[1].y, m_Pos[1].z);

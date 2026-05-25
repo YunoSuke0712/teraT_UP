@@ -95,5 +95,20 @@ enum GIMMICK
 };
 
 
+enum Condition {
+	STOP,			 // ’âŽ~
+	STAN,			 //‹Câ
+	PATROL,			 //„‰ñ
+	IN_P,			 //Ž‹ŠE‚ÉP‚ª“ü‚é
+	DISCOVERY_P,	 //P‚ð”­Œ©‚·‚é
+	TRACKING_P,		 //P‚ð’ÇÕ‚·‚é
+	TRACKING_D,		 //P‚ð’ÇÕ‚·‚é
+	IN_ITEM,		 //Ž‹ŠE‚ÉI‚ª“ü‚é
+	DISCOVERY_ITEM,	 //I‚ð”­Œ©‚·‚é
+	TRACKING_ITEM,	 //I‚ð’ÇÕ‚·‚é
+	PATROL_RE,		 //„‰ñ‚É–ß‚é
 
+	NOW_MOTION,		 //ƒ‚[ƒVƒ‡ƒ“’†
+	WAIT,		     //‘Ò‚Â
+};
 

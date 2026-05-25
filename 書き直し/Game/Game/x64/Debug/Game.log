@@ -1,2 +1,35 @@
-﻿  Ori.cpp
+﻿  Main.cpp
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(71,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'Main.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(74,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'Main.cpp' をコンパイルしています)
+  
+  SceneManager.cpp
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(71,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/SceneManager.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(74,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/SceneManager.cpp' をコンパイルしています)
+  
+  Scenetitle.cpp
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(290,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(293,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(296,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(303,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(305,18): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(309,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(311,18): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(315,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(317,18): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(364,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(367,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(370,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(377,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(379,18): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(383,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(385,18): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(389,32): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp(391,18): warning C4244: '引数': 'const float' から 'int' への変換です。データが失われる可能性があります。
+  コードを生成中...
   Game.vcxproj -> C:\Users\2409411\Desktop\oreore\書き直し\Game\x64\Debug\Game.exe

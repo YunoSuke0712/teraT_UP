@@ -60,6 +60,12 @@ int SceneManager::Loop()
 
 		}
 
+		if (result == 1)
+		{
+			m_sceneID = SceneManager::CLEAR;
+
+		}
+
 		break;
 	}
 	case SceneManager::RESULT:
@@ -67,6 +73,10 @@ int SceneManager::Loop()
 			m_sceneID = TITLE;
 		break;
 
+	case SceneManager::CLEAR:
+		if (m_clear.Loop() != -1)
+			m_sceneID = TITLE;
+		break;
 	}
 
 	m_fade.StepFade();
@@ -94,7 +104,11 @@ void SceneManager::Draw()
 	case SceneManager::RESULT:
 		m_result.Draw();
 		DrawFormatString(25, 25, GetColor(255, 255, 0), "‚è‚´‚é‚Æ");
+		break;
 
+	case SceneManager::CLEAR:
+		m_clear.Draw();
+		DrawFormatString(25, 25, GetColor(255, 255, 0), "‚­‚è‚ ");
 		break;
 	}
 

@@ -2,6 +2,8 @@
 #include<DxLib.h>
 #include <cmath>
 #include "../lib/Input/input.h"
+#include"../lib/common/common.h"
+
 
 
 class EnemyA {
@@ -25,25 +27,16 @@ private:
 	//視界
 	VECTOR m_Dir;
 	bool m_IsFindPlayer;
+
+	int m_StanTime;
 	int m_RePatrol;
 
+	int m_SaveTimer;
+	VECTOR m_SaveTraget;
+	int m_SaveID;
 
-	enum Condition {
-		STOP,			 // 停止
-		PATROL,			 //巡回
-		IN_P,			 //視界にPが入る
-		DISCOVERY_P,	 //Pを発見する
-		TRACKING_P,		 //Pを追跡する
-		TRACKING_D,		 //Pを追跡する
-		IN_ITEM,		 //視界にIが入る
-		DISCOVERY_ITEM,	 //Iを発見する
-		TRACKING_ITEM,	 //Iを追跡する
-		PATROL_RE,		 //巡回に戻る
-		STAN,			 //気絶
-		NOW_MOTION,		 //モーション中
-		WAIT,		     //待つ
-	};
-	Condition Condition_ID;
+	int Condition_ID;
+
 
 
 
@@ -52,8 +45,10 @@ private:
 	void ReMove();
 
 
-	bool IsNearTarget(VECTOR playerPos, float radius);
+	//bool IsNearTarget(VECTOR playerPos, float radius);
 	void DrawEye();
+
+	bool BehindAttack(VECTOR P_Pos);
 
 public:
 	// コンストラクタ・デストラクタ
@@ -84,11 +79,14 @@ public:
 
 	// 生存情報取得・設定
 	bool GetIsActive() { return m_isActive; }
+	int  GetCondition() { return Condition_ID; }
+
 	// 座標取得
 	VECTOR GetPosition() { return m_Pos; }
 	VECTOR GetCenter();
 	// 座標を指定
 	void SetPosition(VECTOR POS) { m_Pos = POS; }
+	void SetSaveTargetPos(VECTOR POS) { m_Pos = POS; }
 	//向き
 	void SetRot(VECTOR rot) { m_rot = rot; }
 
@@ -117,18 +115,13 @@ public:
 
 	void SetFindPlayer(bool flag) { m_IsFindPlayer = flag; }
 
-	void SetCondition_TRACKING_P() { Condition_ID = TRACKING_P; }
+	void SetCondition(int id) { Condition_ID = id; }
 
 
 	
 	// 当たり判定の半径サイズを取得
 	float GetRadius() { return m_radius; }
-
-
-
-
-
-
+	//
 
 	
 };

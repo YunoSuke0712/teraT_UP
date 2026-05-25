@@ -6,7 +6,7 @@
 static const VECTOR GIMMICK_SCALE{ 0.75f,1.5f,0.75f };					//サイズ
 static const float WARP_SIZE = 5.0f;									//当たり判定
 
-
+static const float MaxDownPos = -200;
 //----------------------
 // コンストラクタ
 //----------------------
@@ -36,7 +36,7 @@ void Ori::Init()
 		m_rotationY[i] = ZERO_F;
 
 	}
-
+	m_OriActive = false;
 }
 
 //--------------------------
@@ -59,6 +59,7 @@ void Ori::Load(int Ahndl, int Bhndl)
 	MV1SetPosition(m_hndl[1], GetPositionB());
 	MV1SetScale(m_hndl[0], GIMMICK_SCALE);
 	MV1SetScale(m_hndl[1], GIMMICK_SCALE);
+
 
 }
 
@@ -97,31 +98,34 @@ void Ori::Step(Player& player)
 		// 目的地までの距離が一定範囲内なら
 		if (len < 15.0f)
 		{
-			if (m_input.IsInputTrg(KEY_CLICK))
+			if (Active == false && m_input.IsInputTrg(KEY_CLICK) && m_OriActive == false)
 			{
-				player.SetPosition(GetCenterA());
 				Active = true;
+				m_OriActive = true;
+			}
+
+			if (Active == false && m_input.IsInputTrg(KEY_CLICK) && m_OriActive == true)
+			{
+				Active = true;
+				m_OriActive = false;
+
 			}
 		}
 	}
 
-	if (!Active)
+	if (m_OriActive == true)
 	{
-		VECTOR targetPos = player.GetCenter();
-		// 自分の座標取得
-		VECTOR pos = GetCenterA();
-		// 目的地へのベクトル取得
-		VECTOR dir = VSub(targetPos, pos);
-		// 目的地までの距離を取得
-		float len = VSize(dir);
-		// 目的地までの距離が一定範囲内なら
-		if (len < 15.0f)
+		if (m_Pos[0].y > MaxDownPos)
 		{
-			if (m_input.IsInputTrg(KEY_CLICK))
-			{
-				player.SetPosition(GetCenterB());
-				Active = true;
-			}
+			m_Pos[0].y--;
+		}
+	}
+
+	if (m_OriActive == false)
+	{
+		if (m_Pos[0].y < m_InitPos.y)
+		{
+			m_Pos[0].y++;
 		}
 	}
 }
@@ -131,7 +135,7 @@ void Ori::Step(Player& player)
 //------------------------
 void Ori::Update()
 {
-
+	MV1SetPosition(m_hndl[0], GetPositionA());
 }
 
 //------------------------
@@ -151,8 +155,8 @@ void Ori::Draw()
 	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
 
-	DrawSphere3D(GetCenterA(), m_radius[0], 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
-	DrawSphere3D(GetCenterB(), m_radius[1], 16, GetColor(255, 255, 255), GetColor(255, 255, 255), true);
+	//DrawSphere3D(GetCenterA(), m_radius[0], 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
+	//DrawSphere3D(GetCenterB(), m_radius[1], 16, GetColor(255, 255, 255), GetColor(255, 255, 255), true);
 
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "A:%f,%f,%f", m_Pos[0].x, m_Pos[0].y, m_Pos[0].z);
 	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "B:%f,%f,%f", m_Pos[1].x, m_Pos[1].y, m_Pos[1].z);

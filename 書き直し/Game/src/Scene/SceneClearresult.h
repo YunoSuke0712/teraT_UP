@@ -1,14 +1,14 @@
 #pragma once
-
+#include "../lib/input/input.h"
 
 //’è‹`ŠÖ˜A---------------------------
 //-----------------------------------
 
 
-
 class ClearResult
 {
 private:
+	CInput m_input;
 
 	enum tagResultScene {
 		INIT,
@@ -18,7 +18,6 @@ private:
 		ENDWAIT,
 		END,
 	};
-
 
 	tagResultScene m_state;
 	int m_hndl;
@@ -49,7 +48,5 @@ private:
 
 
 };
-
-
 
 

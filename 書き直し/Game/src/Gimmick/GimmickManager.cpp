@@ -3,9 +3,15 @@
 // モデルデータのパス
 static const char WAEP_MODEL_PATH[] = "data/model/gimmick/warp.mv1";
 static const char ORI_MODEL_PATH[] = "data/model/gimmick/ori.mv1";
+static const char BUTTON_MODEL_PATH[] = "data/model/gimmick/button.mv1";
+static const char TREASURE_MODEL_PATH[] = "data/model/gimmick/treasure.mv1";
+static const char GOAL_MODEL_PATH[] = "data/model/gimmick/goal.mv1";
+
 
 static const char Csv_Warp[] = "data/csv/Map01/Warp.csv";
 static const char Csv_Ori[] = "data/csv/Map01/Ori.csv";
+static const char Csv_TreGoal[] = "data/csv/Map01/TreGoal.csv";
+
 
 
 
@@ -27,6 +33,9 @@ void GimmickManager::Init()
 		m_Ori[i].SetID(i);
 		m_Ori[i].Init();
 		//
+		m_Tre[i].SetID(i);
+		m_Tre[i].Init();
+		//
 	}
 }
 
@@ -37,6 +46,8 @@ void GimmickManager::Load()
 	LoadWarp();
 	//檻
 	LoadOri();
+	//
+	LoadTre_Goal();
 }
 
 //ループ
@@ -52,7 +63,11 @@ void GimmickManager::Step(Player& player)
 	{
 		A->Step(player);
 	}
-
+	//
+	for (auto A : m_Tre_Goal_List)
+	{
+		A->Step(player);
+	}
 }
 
 //描画
@@ -65,6 +80,11 @@ void GimmickManager::Draw()
 	}
 	//
 	for (auto A : m_Ori_List)
+	{
+		A->Draw();
+	}
+	//
+	for (auto A : m_Tre_Goal_List)
 	{
 		A->Draw();
 	}
@@ -87,10 +107,18 @@ void GimmickManager::Exit()
 
 		delete A; // メモリ解放
 	}
+	//
+	for (auto A : m_Tre_Goal_List)
+	{
+		A->Exit();
+
+		delete A; // メモリ解放
+	}
+
 
 	m_Warp_List.clear(); // リストを空にする
 	m_Ori_List.clear(); // リストを空にする
-
+	m_Tre_Goal_List.clear();
 
 	m_InfoList.clear();  // 座標情報も消す
 }
@@ -106,6 +134,11 @@ void GimmickManager::Request(VECTOR P_pos)
 	}
 	//
 	for (auto A : m_Ori_List)
+	{
+		A->Request(P_pos);
+	}
+	//
+	for (auto A : m_Tre_Goal_List)
 	{
 		A->Request(P_pos);
 	}
@@ -126,7 +159,11 @@ void GimmickManager::Update()
 	{
 		A->Update();
 	}
-	
+	//
+	for (auto A : m_Tre_Goal_List)
+	{
+		A->Update();
+	}
 }
 
 
@@ -186,7 +223,7 @@ void GimmickManager::LoadWarp()
 void GimmickManager::LoadOri()
 {
 	int Ahndl = MV1LoadModel(ORI_MODEL_PATH);
-	int Bhndl = MV1LoadModel(WAEP_MODEL_PATH);
+	int Bhndl = MV1LoadModel(BUTTON_MODEL_PATH);
 
 	int PosHndl = FileRead_open(Csv_Ori);
 
@@ -228,7 +265,72 @@ void GimmickManager::LoadOri()
 			tmp.m_RotA_Y
 		);
 
+		tEmp->GetInitPosA(
+			VGet(tmp.m_PosA_X, tmp.m_PosA_Y, tmp.m_PosA_Z)
+		);
+
 		m_Ori_List.push_back(tEmp);
+
+		tEmp->Load(Ahndl, Bhndl);
+
+		m_InfoList.push_back(tmp);
+	}
+	fclose(FilePointer);
+
+	MV1DeleteModel(Ahndl);
+	MV1DeleteModel(Bhndl);
+}
+
+
+
+
+void GimmickManager::LoadTre_Goal()
+{
+	int Ahndl = MV1LoadModel(TREASURE_MODEL_PATH);
+	int Bhndl = MV1LoadModel(GOAL_MODEL_PATH);
+
+	int PosHndl = FileRead_open(Csv_TreGoal);
+
+	FILE* FilePointer;
+	if (fopen_s(&FilePointer, Csv_TreGoal, "r") != 0)return;
+	ReadPosData tmp = { 0 };
+
+	while (true)
+	{
+		int axp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_X);
+		int ayp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Y);
+		int azp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Z);
+
+		int bxp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_X);
+		int byp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Y);
+		int bzp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Z);
+
+		int axr = FileRead_scanf(PosHndl, "%f,", &tmp.m_RotA_Y);
+
+		// どれか失敗したら終了
+		if (axp == -1 || ayp == -1 || azp == -1 ||
+			bxp == -1 || byp == -1 || bzp == -1 ||
+			axr == -1)
+		{
+			break;
+		}
+
+		TreasureGoal* tEmp = new TreasureGoal();
+
+		tEmp->SetPositionA(
+			VGet(tmp.m_PosA_X, tmp.m_PosA_Y, tmp.m_PosA_Z)
+		);
+
+		tEmp->SetPositionB(
+			VGet(tmp.m_PosB_X, tmp.m_PosB_Y, tmp.m_PosB_Z)
+		);
+
+		tEmp->SetRotationA(
+			tmp.m_RotA_Y
+		);
+
+
+		m_Tre_Goal_List.push_back(tEmp);
 
 		tEmp->Load(Ahndl, Bhndl);
 

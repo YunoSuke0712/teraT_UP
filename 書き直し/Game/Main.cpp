@@ -40,7 +40,7 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	// “–‚½‚è”»’è‚Ì‹…‚ğ‚«‚ê‚¢‚É•\¦
 	SetUseZBuffer3D(TRUE);
 	SetWriteZBuffer3D(TRUE);
-	
+
 
 	// ”wŒi‚Ì‰Šú‰»
 	VECTOR vGroundPos{ 0.0f,0.0f,0.0f };

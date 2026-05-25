@@ -104,14 +104,14 @@ void CTitle::Load()
 	if (m_hndl[4] == -1)
 		m_hndl[4] = LoadGraph("data/game/title/card2.png");
 	if (m_hndl[5] == -1)
-		m_hndl[5] = LoadGraph("data/game/title/select.png");
+		m_hndl[5] = LoadGraph("data/game/title/");
 	
 	if (m_hndl[6] == -1)
-		m_hndl[6] = LoadGraph("data/game/title/title_select1.png");
+		m_hndl[6] = LoadGraph("data/game/title/title_select0.png");
 	if (m_hndl[7] == -1)
-		m_hndl[7] = LoadGraph("data/game/title/title_select2.png");
+		m_hndl[7] = LoadGraph("data/game/title/title_select1.png");
 	if (m_hndl[8] == -1)
-		m_hndl[8] = LoadGraph("data/game/title/title_select3.png");
+		m_hndl[8] = LoadGraph("data/game/title/title_select2.png");
 
 	if (m_hndl[9] == -1)
 		m_hndl[9] = LoadGraph("data/game/title/UI1.png");
@@ -127,6 +127,12 @@ void CTitle::Load()
 	if (m_hndl[14] == -1)
 		m_hndl[14] = LoadGraph("data/game/title/card22.png");
 
+	if (m_hndl[15] == -1)
+		m_hndl[15] = LoadGraph("data/game/title/card000.png");
+	if (m_hndl[16] == -1)
+		m_hndl[16] = LoadGraph("data/game/title/card111.png");
+	if (m_hndl[17] == -1)
+		m_hndl[17] = LoadGraph("data/game/title/card222.png");
 
 	m_state = STARTWAIT;
 
@@ -138,17 +144,9 @@ void CTitle::Load()
 //-----------------------
 void CTitle::Step()
 {
-	switch (m_TitleSelect)
+	//セレクト上下移動
+	if (m_TitleSelect != Fast)
 	{
-	case Fast:
-		if (m_input.IsInputTrg(KEY_CLICK)
-			|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B)
-			|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A))
-		{
-			m_TitleSelect = Select;
-		}
-		break;
-	case Select:				//タイトル選択画面
 		//選択切り替え
 		if ((m_input.IsInputTrg(KEY_UP)
 			|| CGamePad::IsPush_Cross(UP))
@@ -162,14 +160,26 @@ void CTitle::Step()
 		{
 			m_NowSelect++;
 		}
+	}
 
+	switch (m_TitleSelect)
+	{
+	case Fast://一枚絵
+		if (m_input.IsInputTrg(KEY_CLICK)
+			|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B)
+			|| CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A))
+		{
+			m_TitleSelect = Select;
+		}
+		break;
+	case Select://タイトル選択画面
 		//選択中のカード別処理
 		switch (m_NowSelect)
 		{
-		case 2:
+		case 0:
 			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
 			{
-				UISwitch();
+				m_TitleSelect = Map;
 			}
 			break;
 		case 1:
@@ -178,19 +188,52 @@ void CTitle::Step()
 				UISwitch();
 			}
 			break;
+		case 2:
+			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			{
+				UISwitch();
+			}
+			break;
+		}
+		break;
+	case Map:
+		switch (m_NowSelect)
+		{
 		case 0:
 			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
 			{
 				m_fade.RequestFadeOut();
-
 				m_state = ENDWAIT;
+				m_data.SetPlayMapID(1);
+			}
+			break;
+		case 1:
+			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			{
+				m_fade.RequestFadeOut();
+				m_state = ENDWAIT;
+				m_data.SetPlayMapID(2);
+
+			}
+			break;
+		case 2:
+			if (m_input.IsInputTrg(KEY_CLICK) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+			{
+				m_fade.RequestFadeOut();
+				m_state = ENDWAIT;
+				m_data.SetPlayMapID(3);
 			}
 			break;
 		}
 
+		break;
+	}
 
+
+
+	if (m_TitleSelect != Fast)
+	{
 		//見た目用ーーーー
-		
 		//カード移動
 		for (int i = 0; i < CARD_MAX; i++)
 		{
@@ -204,12 +247,7 @@ void CTitle::Step()
 		if (m_NowSelect <= -1)m_NowSelect = 2;
 		if (m_NowSelect >= 3)m_NowSelect = 0;
 
-
-
-		break;
 	}
-
-	//m_state = END;
 }
 //---------------------------
 //	タイトル画面の描画管理
@@ -223,27 +261,22 @@ void CTitle::Draw()
 		//一枚絵
 		DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
 			1.0, 0.0, m_hndl[0], TRUE);
-		break;
+
+	break;
 	case Select:
 		//選択画面
-
-
-		//DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
-		//	1.0, 0.0, m_hndl[1], TRUE);
-
-
 		//タイトル背景
 		switch (m_NowSelect)
 		{
-			case 2:
+			case 0:
 				DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
 					1.0, 0.0, m_hndl[6], TRUE);
-				break;
+			break;
 			case 1:
 				DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
 					1.0, 0.0, m_hndl[7], TRUE);
 			break;
-			case 0:
+			case 2:
 				DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
 					1.0, 0.0, m_hndl[8], TRUE);
 			break;
@@ -304,10 +337,67 @@ void CTitle::Draw()
 				1.0, 0.0, m_hndl[10], TRUE);
 			break;
 		}
+	break;
+	case Map:
+		//タイトル背景
+		switch (m_NowSelect)
+		{
+		case 0:
+			DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[6], TRUE);
+			break;
+		case 1:
+			DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[7], TRUE);
+			break;
+		case 2:
+			DrawRotaGraph((int)(TITLE_SIZE_X * 0.5f), (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[8], TRUE);
+			break;
+		}
 
-		
+		//ハイスコア
+
+
+		//カード
+		if (m_NowSelect != 0)
+			DrawRotaGraph(m_cardPosX[0], (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[2], TRUE);
+		if (m_NowSelect != 1)
+			DrawRotaGraph(m_cardPosX[1], (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[3], TRUE);
+		if (m_NowSelect != 2)
+			DrawRotaGraph(m_cardPosX[2], (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[4], TRUE);
+
+		//選択カード
+		switch (m_NowSelect)
+		{
+		case 0:
+			DrawRotaGraph(m_cardPosX[0] - CARD_SELECT_POS, (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[15], TRUE);
+			DrawRotaGraph(STICK_SELECT_POS, (int)(TITLE_SIZE_Y * 0.5f - 270.0f),
+				1.0, 0.0, m_hndl[5], TRUE);
+			break;
+		case 1:
+			DrawRotaGraph(m_cardPosX[1] - CARD_SELECT_POS, (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[16], TRUE);
+			DrawRotaGraph(STICK_SELECT_POS, (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[5], TRUE);
+			break;
+		case 2:
+			DrawRotaGraph(m_cardPosX[2] - CARD_SELECT_POS, (int)(TITLE_SIZE_Y * 0.5f),
+				1.0, 0.0, m_hndl[17], TRUE);
+			DrawRotaGraph(STICK_SELECT_POS, (int)(TITLE_SIZE_Y * 0.5f + 270.0f),
+				1.0, 0.0, m_hndl[5], TRUE);
+			break;
+		}
+
+
+	break;
 
 	}
+
 
 }
 

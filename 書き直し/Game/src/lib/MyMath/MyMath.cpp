@@ -396,5 +396,17 @@ float DegToRad(float deg)
 //ラジアン　→　度
 float RadToDeg(float rad)
 {
-	return rad * 180 / DX_PI_F;
+	return rad * 180.0f / DX_PI_F;
+}
+
+// 度→cos
+float CosDeg(float deg)
+{
+	return cosf(DegToRad(deg));
+}
+
+// 度→sin
+float SinDeg(float deg)
+{
+	return sinf(DegToRad(deg));
 }

@@ -1,13 +1,13 @@
 #pragma once
 #include "../lib/input/input.h"
 #include "../lib/Fade/Fade.h"
-
+#include "../Data/Data.h"
 
 //定義関連---------------------------
 #define TITLE_SIZE_X (1600.0f) //画面サイズ(横)
 #define TITLE_SIZE_Y (900.0f) //画面サイズ(縦)
 //-----------------------------------
-static const int TITLE_MAX_HNDL = 15;
+static const int TITLE_MAX_HNDL = 20;
 static const int CARD_MAX = 3;
 
 class CTitle
@@ -15,6 +15,7 @@ class CTitle
 private:
 	CInput m_input;
 	CFade m_fade;
+	CData m_data;
 
 	enum tagTitleScene {
 		INIT,
@@ -27,6 +28,7 @@ private:
 	enum tagTitleMainScene	{
 		Fast,
 		Select,
+		Map,
 	};
 
 	tagTitleScene m_state;

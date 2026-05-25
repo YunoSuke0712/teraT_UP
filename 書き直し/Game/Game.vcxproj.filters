@@ -61,6 +61,9 @@
     <Filter Include="ソース ファイル\src\lib\Fade">
       <UniqueIdentifier>{b4a1dda7-6e15-49f6-9f9b-f50dea7cd17a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\src\Data">
+      <UniqueIdentifier>{4a361a94-96d4-4363-96f6-ebdaab235b31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -114,9 +117,6 @@
     <ClCompile Include="src\Collision\CollisionManager.cpp">
       <Filter>ソース ファイル\src\Collision</Filter>
     </ClCompile>
-    <ClCompile Include="src\Enemy\EnemyManager.cpp">
-      <Filter>ソース ファイル\src\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="src\Enemy\EnemyA.cpp">
       <Filter>ソース ファイル\src\Enemy</Filter>
     </ClCompile>
@@ -134,6 +134,18 @@
     </ClCompile>
     <ClCompile Include="src\Gimmick\Ori.cpp">
       <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy\EnemyManager.cpp">
+      <Filter>ソース ファイル\src\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gimmick\TreasureGoal.cpp">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneClearresult.cpp">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Data\Data.cpp">
+      <Filter>ソース ファイル\src\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +220,15 @@
     </ClInclude>
     <ClInclude Include="src\Gimmick\Ori.h">
       <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gimmick\TreasureGoal.h">
+      <Filter>ソース ファイル\src\Gimmick</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene\SceneClearresult.h">
+      <Filter>ソース ファイル\src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Data\Data.h">
+      <Filter>ソース ファイル\src\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

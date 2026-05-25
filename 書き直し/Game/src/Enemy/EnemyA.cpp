@@ -1,7 +1,7 @@
 #include"EnemyA.h"
 #include<math.h>
-#include"../lib/common/common.h"
-#include "../Field/field.h"
+#include"../lib/MyMath/MyMath.h"
+
 
 //ルートの番号
 static const int ROOT_ID[] = { 1,4,7,10};
@@ -12,6 +12,11 @@ static const VECTOR ROOT_POS = { 500.0f, -15.0f, 300.0f };		//ルートの位置
 static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
 static const float ENEMY_SIZE = 5.0f;							//敵の当たり判定
 static const float ENEMY_ROTATIONY = 0.0f;						//回転Y
+
+// 視界距離
+static const float ENEMY_RANGE = 200.0f;
+// 視野角
+static const float ENEMY_ANGLE = DegToRad(25.0f);
 
 static const float ENEMY_SPEED = 1.0f;							//敵の移動速度
 static const float ENEMY_P_SPEED = 1.5f;						//敵の追跡速度
@@ -49,6 +54,12 @@ void EnemyA::Init()
 	m_rotationY = ENEMY_ROTATIONY;
 	m_rootHndl = HNDL_INIT;
 	m_RePatrol = ZERO_I;
+	m_StanTime = ZERO_I;
+
+
+	m_SaveTimer = ZERO_I;
+	m_SaveID = 0;
+
 
 
 	// 0番目のルートに配置したので、次の目的地は1
@@ -63,15 +74,15 @@ void EnemyA::Init()
 void EnemyA::Load(int Ahndl, int danagerHndl)
 {
 	// ロードされていなければする
-	if (m_hndl == -1)
+	if (m_hndl == HNDL_INIT)
 	{
 		m_hndl = MV1DuplicateModel(Ahndl);
 	}
-	if (m_Dhndl == -1)
+	if (m_Dhndl == HNDL_INIT)
 	{
 		m_Dhndl = MV1DuplicateModel(danagerHndl);
 	}
-	if (m_rootHndl == -1)
+	if (m_rootHndl == HNDL_INIT)
 	{
 		m_rootHndl = MV1LoadModel("data/model/field/Map01/Map01_EnemyARoot_01.mv1");
 	}
@@ -114,40 +125,42 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 
 	switch (Condition_ID)
 	{
-	case STOP:
-
-		break;
 	case WAIT:
-
 		break;
-	case IN_P:
 
-		break;
-	case DISCOVERY_P:
-
-		break;
 	case TRACKING_P:
 		TargetPlayer(P_pos);
-		
 		break;
-	case TRACKING_D:
-		break;
+
 	case PATROL_RE:
 		ReMove();
 		break;
-		//======================================================
+
 		//巡回
-		//======================================================
 	case PATROL:
-
-		if (m_input.IsInputTrg(KEY_CLICK))m_rootID++;
-		if (m_input.IsInputTrg(KEY_RCLICK))m_rootID = 0;
 		if (m_rootID > ROOT_NUM)m_rootID = 0;
-		
 		MoveRoot(P_pos);
-
+		break;
+	case STAN:
+		if (m_StanTime < 180) m_StanTime++;
+		if (m_StanTime >= 180)
+		{
+			m_StanTime = 0;
+			Condition_ID = PATROL;
+			m_isActive = false;
+		}
 		break;
 	}
+
+	if (BehindAttack(P_pos))Condition_ID = STAN;
+	
+
+
+
+
+
+
+
 }
 
 //------------------------
@@ -274,50 +287,74 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 {
 	VECTOR targetPos = P_pos;
 
+	if (m_SaveTimer <= 0)
+	{
+		m_SaveTimer = 300;
+		m_SaveTraget = P_pos;
+	}
+	m_SaveTimer--;
+
+
 	// 自分の座標取得
 	VECTOR pos = GetPosition();
 	// 目的地へのベクトル取得
-	VECTOR dir = VSub(targetPos, pos);
+	VECTOR p_dir = VSub(targetPos, pos);
 	// 目的地までの距離を取得
-	float len = VSize(dir);
+	float p_len = VSize(p_dir);
+
+	// Saveへのベクトル取得
+	VECTOR s_dir = VSub(m_SaveTraget, pos);
+	// Saveまでの距離を取得
+	float s_len = VSize(s_dir);
 
 
+	if (s_len < 5.0f)
+	{
+		m_SaveTimer = 0;
+	}
+
+	if (p_len < 4.0f)
+	{
+	}
 	// 目的地までの距離が一定範囲内なら
-	if (len < 5.0f)
+	else if (p_len < 25.0f)
 	{
+		// いったん正規化して
+		p_dir.y = 0.0f;
+		p_dir = VNorm(p_dir);
+		// 実際の移動速度に変更
+		p_dir = VScale(p_dir, ENEMY_SPEED);
+		// 速度を加算してキャラクターにセット
+		pos = VAdd(pos, p_dir);
+		SetPosition(pos);
 
+		// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
+		float rot = atan2f(-p_dir.x, -p_dir.z);
+		SetRot(VGet(0.0f, rot, 0.0f));
+		m_rotationY = rot;
 	}
-	else if (len < 25.0f)
+	else if(p_len < 300.0f)
 	{
 		// いったん正規化して
-		dir.y = 0.0f;
-		dir = VNorm(dir);
+		s_dir.y = 0.0f;
+		s_dir = VNorm(s_dir);
 		// 実際の移動速度に変更
-		dir = VScale(dir, ENEMY_SPEED);
+		s_dir = VScale(s_dir, ENEMY_SPEED);
 		// 速度を加算してキャラクターにセット
-		pos = VAdd(pos, dir);
+		pos = VAdd(pos, s_dir);
 		SetPosition(pos);
-	}
-	else if(len < 250.0f)
-	{
-		// いったん正規化して
-		dir.y = 0.0f;
-		dir = VNorm(dir);
-		// 実際の移動速度に変更
-		dir = VScale(dir, ENEMY_SPEED);
-		// 速度を加算してキャラクターにセット
-		pos = VAdd(pos, dir);
-		SetPosition(pos);
+
+		// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
+		float rot = atan2f(-s_dir.x, -s_dir.z);
+		SetRot(VGet(0.0f, rot, 0.0f));
+		m_rotationY = rot;
 	}
 	else
 	{
 		Condition_ID = PATROL_RE;
 		m_RePatrol = ENEMY_RE_COOL;
+		m_SaveTimer = 0;
 	}
-	// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
-	float rot = atan2f(-dir.x, -dir.z);
-	SetRot(VGet(0.0f, rot, 0.0f));
-	m_rotationY = rot;
 }
 
 void EnemyA::ReMove()
@@ -382,11 +419,10 @@ void EnemyA::DrawEye()
 	dir = VNorm(dir);
 
 	// 視界距離
-	float range = 50.0f;
+	float range = ENEMY_RANGE;
 
 	// 視野角
-	float angle = DX_PI_F / 4.0f; // 45度
-
+	float angle = ENEMY_ANGLE;
 	//--------------------------------
 	// 左方向
 	//--------------------------------
@@ -475,4 +511,60 @@ void EnemyA::DrawEye()
 //		testEnd,
 //		GetColor(0, 0, 255)
 //	);
+}
+
+
+
+bool EnemyA::BehindAttack(VECTOR P_Pos)
+{
+	//--------------------------------
+	// 敵の前方向
+	//--------------------------------
+	VECTOR dir;
+
+	dir.x = -sinf(m_rotationY);
+	dir.y = 0.0f;
+	dir.z = -cosf(m_rotationY);
+
+	dir = VNorm(dir);
+
+	//--------------------------------
+	// 敵→プレイヤー方向
+	//--------------------------------
+	VECTOR toPlayer = VSub(P_Pos, m_Pos);
+
+	toPlayer.y = 0.0f;
+
+	//--------------------------------
+	// 距離
+	//--------------------------------
+	float len = VSize(toPlayer);
+
+	// 25m以上なら失敗
+	if (len > 25.0f)
+	{
+		return false;
+	}
+
+	//--------------------------------
+	// 正規化
+	//--------------------------------
+	toPlayer = VNorm(toPlayer);
+
+	//--------------------------------
+	// 内積
+	//--------------------------------
+	float dot = VDot(dir, toPlayer);
+
+	//--------------------------------
+	// 背後60度判定
+	//--------------------------------
+	float angle = DegToRad(45.0f);
+
+	if (dot < -cosf(angle))
+	{
+		if(m_input.IsInputTrg(KEY_RCLICK)) return true;
+	}
+
+	return false;
 }

@@ -4,10 +4,12 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Camera\DebugCamera.cpp;C:\
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Camera\EventCamera.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EventCamera.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Camera\PlayerCamera.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\PlayerCamera.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Collision\CollisionManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\CollisionManager.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Data\Data.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Data.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyA.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyA.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Field\field.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\field.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\Ori.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Ori.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\TreasureGoal.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\TreasureGoal.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\Warp.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Warp.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\GimmickManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Collision\collision.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\collision.obj
@@ -19,6 +21,7 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\MyMath\MyMath.cpp;C:\U
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Sound\SoundManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\SoundManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Player\Player.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Player.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\PlayScene.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\PlayScene.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\SceneClearresult.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\SceneClearresult.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\SceneManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\SceneManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Sceneresult.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Sceneresult.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Scene\Scenetitle.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Scenetitle.obj

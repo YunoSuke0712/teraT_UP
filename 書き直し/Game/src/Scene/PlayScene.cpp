@@ -65,7 +65,7 @@ int PlayScene::Loop()
 		SoundManager::AllStop();
 		m_state = PlayScene::INIT;  // 次へ進む
 		result = 0;
-		m_fade.RequestFadeOut();
+		m_fade.RequestFadeIn();
 		break;
 
 	case PlayScene::CLEAR:
@@ -177,22 +177,31 @@ void PlayScene::Step()
 
 
 
-	// プレイヤーの生存フラグが消えたら、ゲーム終了へ
-	if (m_player.IsActive() == false) {m_state = END;}
-
-
-
 	//コリジョン
+	m_col.CheckHitGimmickToPlayer(m_gimmick, m_player);
 	m_col.CheckHitFieldToPlayer(m_field, m_player);
 	m_col.CheckHitFieldToEnemy(m_field, m_enemy);
 	m_col.CheckHitPlayerToEnemy(m_player, m_enemy);
-	m_col.CheckHitGimmickToPlayer(m_gimmick, m_player);
 	//
+
+
+	// プレイヤーの生存フラグが消えたら、ゲーム終了へ
+	if (m_player.IsActive() == false)
+	{
+		m_state = END;
+	}
+	if (m_player.IsGoal() == true)
+	{
+		m_state = CLEAR;
+	}
+
+
 
 	// すべての結果を反映させる===================
 	m_field.Updata();
 	m_player.Update();
 	m_enemy.Update();
+	m_gimmick.Update();
 
 	m_camera.Step(m_player.GetPosition(), m_player.GetRotationY());
 	m_camera.Update();

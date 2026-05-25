@@ -20,8 +20,11 @@ private:
 
 	int		m_OriID;			//ID
 
-	bool	m_warpActive;
-	
+	//
+	VECTOR m_InitPos;
+	bool m_OriActive;
+	//
+
 
 public:
 	// コンストラクタ・デストラクタ
@@ -65,7 +68,7 @@ public:
 	void SetID(int id) { m_OriID = id; }
 	//座標取得
 	VECTOR GetOriPos(VECTOR pos) { return GetCenterB(); }
-
+	void GetInitPosA(VECTOR pos) { m_InitPos = pos; }
 
 
 	bool GetIsActive()

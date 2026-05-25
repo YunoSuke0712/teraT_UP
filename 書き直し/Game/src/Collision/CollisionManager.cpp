@@ -1,5 +1,6 @@
 #include"CollisionManager.h"
 #include"../lib/Collision/collision.h"
+#include"../lib/MyMath/MyMath.h"
 #include"../lib/input/input.h"
 #include"../lib/input/PadInput.h"
 #include "../lib/Common/common.h"
@@ -16,7 +17,7 @@ void CollisionManager::CheckHitFieldToPlayer(Field& fi, Player& pl)
 {
     const int ITERATION = 10; // 繰り返し回数
 
-    float p_radius = pl.GetRadius();
+    float p_radius = pl.GetRadius()+3.0f;
     VECTOR pos = pl.GetPosition();
 
     for (int iter = 0; iter < ITERATION; ++iter)
@@ -75,7 +76,7 @@ void CollisionManager::CheckHitFieldToEnemy(Field& fi, EnemyManager& ene)
         EnemyA* OneEnemy = ene.GetOneEnemyA(i);
         if (OneEnemy->GetIsActive() == false) continue;
 
-        float  e_radius = OneEnemy->GetRadius();
+        float  e_radius = OneEnemy->GetRadius()+1.0f;
         VECTOR pos = OneEnemy->GetPosition();
 
 
@@ -166,6 +167,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         EnemyA* OneEnemy = ene.GetOneEnemyA(i);
 
         if (OneEnemy->GetIsActive() == false) continue;
+        if (OneEnemy->GetCondition() == STAN) continue;
 
         //--------------------------------
         // 座標取得
@@ -184,7 +186,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         float dist = VSize(toPlayer);
 
         // 視界距離
-        const float VIEW_RANGE = 50.0f;
+        const float VIEW_RANGE = 200.0f;
 
         // 距離外
         if (dist > VIEW_RANGE) continue;
@@ -212,14 +214,14 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         // 90度視野
         // cos(45°) = 0.707
         //--------------------------------
-        if (dot > 0.707f)
+        if (dot > CosDeg(25.0f))
         {
             //--------------------------------
             // プレイヤー発見
             //--------------------------------
-            OneEnemy->SetFindPlayer(true);
 
-            OneEnemy->SetCondition_TRACKING_P();
+            OneEnemy->SetFindPlayer(true);
+            OneEnemy->SetCondition(TRACKING_P);
 
             //--------------------------------
             // 接触判定
