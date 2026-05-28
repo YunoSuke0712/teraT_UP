@@ -69,15 +69,13 @@ void CTitle::Init()
 		m_hndl[i] = HNDL_INIT;
 	}
 
-
-	
 	for (int i = 0; i < CARD_MAX; i++)
 	{
 		m_cardPosX[i] = 2400;
 	}
 	//ŠÇ—
 	m_UI_active = false;
-	m_TitleSelect = ZERO_I;
+	m_TitleSelect = Fast;
 	m_TitleCoolTime = ZERO_I;
 	m_NowSelect = ZERO_I;
 
@@ -104,7 +102,7 @@ void CTitle::Load()
 	if (m_hndl[4] == -1)
 		m_hndl[4] = LoadGraph("data/game/title/card2.png");
 	if (m_hndl[5] == -1)
-		m_hndl[5] = LoadGraph("data/game/title/");
+		m_hndl[5] = LoadGraph("data/game/title/png");
 	
 	if (m_hndl[6] == -1)
 		m_hndl[6] = LoadGraph("data/game/title/title_select0.png");

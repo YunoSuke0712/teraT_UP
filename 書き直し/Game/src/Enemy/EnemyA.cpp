@@ -4,7 +4,7 @@
 
 
 //ルートの番号
-static const int ROOT_ID[] = { 1,4,7,10};
+static const int ROOT_ID[] = { 1,4,7,10,13};
 //ルートの個数
 static const int ROOT_NUM = 4;
 
@@ -71,7 +71,7 @@ void EnemyA::Init()
 //--------------------------
 // モデルデータのロード
 //--------------------------
-void EnemyA::Load(int Ahndl, int danagerHndl)
+void EnemyA::Load(int Ahndl, int DanagerHndl,int RootHndl)
 {
 	// ロードされていなければする
 	if (m_hndl == HNDL_INIT)
@@ -80,11 +80,13 @@ void EnemyA::Load(int Ahndl, int danagerHndl)
 	}
 	if (m_Dhndl == HNDL_INIT)
 	{
-		m_Dhndl = MV1DuplicateModel(danagerHndl);
+		m_Dhndl = MV1DuplicateModel(DanagerHndl);
 	}
 	if (m_rootHndl == HNDL_INIT)
 	{
-		m_rootHndl = MV1LoadModel("data/model/field/Map01/Map01_EnemyARoot_01.mv1");
+		m_rootHndl = MV1DuplicateModel(RootHndl);
+
+			
 	}
 }
 
@@ -138,6 +140,7 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 
 		//巡回
 	case PATROL:
+		if (m_Type == 0)break;
 		if (m_rootID > ROOT_NUM)m_rootID = 0;
 		MoveRoot(P_pos);
 		break;
@@ -256,7 +259,7 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 	float len = VSize(dir);
 
 	// 目的地までの距離が一定範囲内なら
-	if (len < 20.0f)
+	if (len < 5.0f)
 	{
 		// 直接目的地をセット
 		//SetPosition(targetPos);
@@ -308,7 +311,7 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 	float s_len = VSize(s_dir);
 
 
-	if (s_len < 5.0f)
+	if (s_len < 30.0f)
 	{
 		m_SaveTimer = 0;
 	}

@@ -50,6 +50,8 @@ private:
 
 	float m_jumppower;		//ƒWƒƒƒ“ƒv—Í‚£‚Å‚·‚©‚Ë‚¥
 	bool m_jumpNow;
+	int	m_jumpCoolTime;
+
 	int  m_DashStamina;
 	int m_Stamina_Cool;
 

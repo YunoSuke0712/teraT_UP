@@ -8,7 +8,6 @@ using namespace std;
 
 // 最大数
 static const int ENEMYA_MAX_NUM = 20;
-static const int ENEMYB_MAX_NUM = 20;
 
 // 弾全体を管理する
 class EnemyManager
@@ -16,6 +15,7 @@ class EnemyManager
 private:
 
 	struct ReadPosData {
+		int	  m_Type;
 		float m_Pos_X;
 		float m_Pos_Y;
 		float m_Pos_Z;
@@ -29,10 +29,13 @@ private:
 
 	EnemyA m_EnemyA[ENEMYA_MAX_NUM];
 
+
 	float m_SoundCage;
 	int m_SoundCool;
 
+
 	void EnemyAData(int mapID);
+
 
 public:
 	// コンストラクタ

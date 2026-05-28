@@ -12,8 +12,9 @@ static const VECTOR PlayerScalse{ 0.02f,0.02f,0.02f };						//playerのサイズDASH
 //status
 static const float MOVE_SPEED = 0.8f;								//プレイヤーの進む速度
 static const int   STAMINA_COOL = 120;								//スタミナ回復速度
-static const float PLAYER_RADIUS{ 4.5f };							//当たり判定
+static const float PLAYER_RADIUS{ 3.0f };							//当たり判定
 static const float JUMP_POWER = 6.0f;								//ジャンプ力
+static const int   JUMP_COOL = 15;
 static const float DASH_SPEED_UP = 1.0f;							//ダッシュ
 //アニメーション===
 static const float	ANIM_SPD = F1;					//アニメーション速度
@@ -325,22 +326,29 @@ VECTOR Player::Move(VECTOR rot)
 	}
 	//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 	//ジャンプ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-	if ((m_input.IsInputTrg(KEY_JUMP) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A)) /*&& m_jumpNow == false*/)
+	if ((m_input.IsInputTrg(KEY_JUMP) || CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_A)) && m_jumpNow == false && m_jumpCoolTime <= 0)
 	{
 		m_jumpNow = true;
 		m_jumppower = JUMP_POWER;
 		//m_movespeed += 5;
+		m_jumpCoolTime = JUMP_COOL;
 
+	}
+
+	if (m_jumpCoolTime > 0)
+	{
+		m_jumpCoolTime--;
 	}
 	m_jumppower -= GRAVITY;
 
 	if (m_jumppower <= -4) {
 		m_jumppower = -4.0f;
 	}
-	if (m_jumpNow == false)
-	{
-		m_jumppower = 0.0f;
-	}
+
+	//if (m_jumpNow == false)
+	//{
+	//	m_jumppower = 0.0f;
+	//}
 	//当たり判定ないから最低値設定
 	//if (m_Pos.y <= 0)m_Pos.y = 0.0f;
 	//

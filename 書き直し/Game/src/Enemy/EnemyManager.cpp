@@ -3,24 +3,31 @@
 // モデルデータのパス
 static const char ENEMY_MODEL_PATH[] = "data/model/enemy/enemy.mv1";
 static const char ENEMYB_MODEL_PATH[] = "data/model/enemy/enemyB.mv1";
-static const char ENEMYB2_MODEL_PATH[] = "data/model/enemy/enemyB2.mv1";
 static const char DANAGER_MODEL_PATH[] = "data/model/enemy/danger.mv1";
 
-static const char MAP1_ENEMY_A[][200] =
+static const char ENEMYA_ROOT[][200] =
+{
+	{""},
+	{"data/model/field/Map01/Map01_EnemyARoot_01.mv1"},
+	{"data/model/field/Map02/Map02_EnemyARoot_01.mv1"},
+	{"data/model/field/Map03/Map03_EnemyARoot_01.mv1"}, 
+};
+
+static const char ENEMYA_POS[][200] =
 {
 	{""},
 	{"data/csv/Map01/EnemyA.csv"},
 	{"data/csv/Map02/EnemyA.csv"},
 	{"data/csv/Map03/EnemyA.csv"},
 };
-
-static const char MAP1_ENEMY_B[][200] =
+static const char ENEMYB_POS[][200] =
 {
 	{""},
 	{"data/csv/Map01/EnemyB.csv"},
 	{"data/csv/Map02/EnemyB.csv"},
 	{"data/csv/Map03/EnemyB.csv"},
 };
+
 
 
 // 敵の再出現時間
@@ -41,19 +48,13 @@ void EnemyManager::Init()
 		m_EnemyA[i].Init();
 	}
 
-	//for (int i = 0; i < ENEMYA_MAX_NUM; i++)
-	//{
-	//	//m_EnemyB[i].SetEnemyID(i);
-	//	//m_EnemyB[i].Init();
-	//}
-
-	m_SoundCage = 0;
 }
 
 //ロード
 void EnemyManager::Load(int mapID)
 {
 	EnemyAData(mapID);
+
 }
 
 //ループ
@@ -123,34 +124,35 @@ void EnemyManager::EnemyAData(int mapID)
 	int Ahndl = MV1LoadModel(ENEMY_MODEL_PATH);
 	int Dangerhndl = MV1LoadModel(DANAGER_MODEL_PATH);
 
-	int PosHndl = FileRead_open(MAP1_ENEMY_A[mapID]);
+	int Roothndl = MV1LoadModel(ENEMYA_ROOT[mapID]);
+	int PosHndl = FileRead_open(ENEMYA_POS[mapID]);
 
 
 	FILE* FilePointer;
-	if (fopen_s(&FilePointer, MAP1_ENEMY_A[mapID], "r") != 0)return;
+	if (fopen_s(&FilePointer, ENEMYA_POS[mapID], "r") != 0)return;
 	ReadPosData tmp = { 0 };
 
 	while (true)
 	{
+		int type = FileRead_scanf(PosHndl, "%d,", &tmp.m_Type);
 		int x = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_X);
 		int y = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Y);
 		int z = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Z);
 
 		// どれか失敗したら終了
-		if (x == -1 || y == -1 || z == -1)
+		if (type == -1 || x == -1 || y == -1 || z == -1)
 		{
 			break;
 		}
 
 		EnemyA* tEmp = new EnemyA();
 
-		tEmp->SetPosition(
-			VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z)
-		);
+		tEmp->SetPosition(VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z));
+		tEmp->SetType(tmp.m_Type);
 
 		m_EneA_List.push_back(tEmp);
 
-		tEmp->Load(Ahndl, Dangerhndl);
+		tEmp->Load(Ahndl, Dangerhndl, Roothndl);
 
 		m_InfoList.push_back(tmp);
 	}
@@ -159,3 +161,4 @@ void EnemyManager::EnemyAData(int mapID)
 	MV1DeleteModel(Ahndl);
 	MV1DeleteModel(Dangerhndl);
 }
+

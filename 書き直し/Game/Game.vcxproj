@@ -27,6 +27,7 @@
     <ClCompile Include="src\Collision\CollisionManager.cpp" />
     <ClCompile Include="src\Data\Data.cpp" />
     <ClCompile Include="src\Enemy\EnemyA.cpp" />
+    <ClCompile Include="src\Enemy\EnemyB.cpp" />
     <ClCompile Include="src\Enemy\EnemyManager.cpp" />
     <ClCompile Include="src\Field\field.cpp" />
     <ClCompile Include="src\Gimmick\Ori.cpp" />
@@ -55,6 +56,7 @@
     <ClInclude Include="src\Collision\CollisionManager.h" />
     <ClInclude Include="src\Data\Data.h" />
     <ClInclude Include="src\Enemy\EnemyA.h" />
+    <ClInclude Include="src\Enemy\EnemyB.h" />
     <ClInclude Include="src\Enemy\EnemyManager.h" />
     <ClInclude Include="src\Field\field.h" />
     <ClInclude Include="src\Gimmick\Ori.h" />

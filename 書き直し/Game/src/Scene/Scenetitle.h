@@ -32,11 +32,10 @@ private:
 	};
 
 	tagTitleScene m_state;
-
+	tagTitleMainScene m_TitleSelect;
 
 
 	int m_hndl[TITLE_MAX_HNDL];
-	int m_TitleSelect;
 	int m_NowSelect;
 
 

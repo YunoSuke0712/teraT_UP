@@ -21,7 +21,7 @@ static const char Csv_Ori[][255] =
 	{""} ,//map0ÇÕë∂ç›ÇµÇ»Ç¢
 	{"data/csv/Map01/Ori.csv" } ,
 	{"data/csv/Map02/Ori.csv" } ,
-	{"data/csv/Map03/Ori.csv"} ,
+	{"data/csv/Map03/Ori.csv" } ,
 };
 
 static const char Csv_TreGoal[][255] =
@@ -190,6 +190,7 @@ void GimmickManager::Update()
 
 void GimmickManager::LoadWarp(int mapID)
 {
+
 	int Ahndl = MV1LoadModel(WAEP_MODEL_PATH);
 	int Bhndl = MV1LoadModel(WAEP_MODEL_PATH);
 

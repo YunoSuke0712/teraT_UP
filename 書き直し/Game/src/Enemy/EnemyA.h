@@ -13,12 +13,15 @@ private:
 	bool	m_isActive;         //生存フラグ
 	int		m_hndl;				//ハンドル
 	VECTOR	m_Pos;				//位置
-	float	m_radius;           // 半径	
-	VECTOR	m_rot;
+	float	m_radius;           //半径	
+	VECTOR	m_rot;				//向き
+
 	
 	int		m_EnemyID;			//ID			
+	int		m_Type;				//移動タイプ	０：停止　１：移動
 	int		m_Dhndl;			//復活ハンドル
 	
+
 	int		m_rootHndl;
 	int		m_rootID;
 
@@ -58,10 +61,9 @@ public:
 	// 初期化
 	void Init();
 	// モデルデータのロード
-	void Load(int Ahndl,int danagerHndl);
+	void Load(int Ahndl,int DanagerHndl,int RootHndl);
 	// 終了時のデータ破棄など
 	void Exit();
-
 	// 全行動を処理する
 	void Step(VECTOR P_pos,int level,VECTOR D_pos);
 	// 更新処理
@@ -70,10 +72,8 @@ public:
 	// 描画処理
 	void Draw();
 
-	// 敵をリクエスト
-	// @pos : どこから発射するか
-	// @speed : どの方向に飛んでいくか
-	// @return : 生成成功か失敗か
+
+
 	bool Request(const VECTOR& pos);
 
 
@@ -89,7 +89,9 @@ public:
 	void SetSaveTargetPos(VECTOR POS) { m_Pos = POS; }
 	//向き
 	void SetRot(VECTOR rot) { m_rot = rot; }
-
+	//移動タイプ
+	void SetType(int type) { m_Type = type; }
+	int GetType() { return m_Type; }
 
 
 	// ヒット後の処理

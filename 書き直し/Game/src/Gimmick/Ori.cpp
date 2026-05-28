@@ -33,7 +33,7 @@ void Ori::Init()
 		m_radius[i] = WARP_SIZE;	//“G‚Ì“–‚½‚è”»’è
 		m_isActive[i] = true;
 		m_hndl[i] = HNDL_INIT;
-		m_rotationY[i] = ZERO_F;
+		//m_rotationY[i] = ZERO_F;
 
 	}
 	m_OriActive = false;
@@ -59,6 +59,8 @@ void Ori::Load(int Ahndl, int Bhndl)
 	MV1SetPosition(m_hndl[1], GetPositionB());
 	MV1SetScale(m_hndl[0], GIMMICK_SCALE);
 	MV1SetScale(m_hndl[1], GIMMICK_SCALE);
+	MV1SetRotationXYZ(m_hndl[0], { 0,m_rotationY[0],0 });
+
 
 
 }
@@ -128,6 +130,8 @@ void Ori::Step(Player& player)
 			m_Pos[0].y++;
 		}
 	}
+
+	m_rotationY[0]++;
 }
 
 //------------------------

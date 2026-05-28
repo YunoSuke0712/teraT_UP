@@ -135,9 +135,6 @@
     <ClCompile Include="src\Gimmick\Ori.cpp">
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClCompile>
-    <ClCompile Include="src\Enemy\EnemyManager.cpp">
-      <Filter>ソース ファイル\src\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="src\Gimmick\TreasureGoal.cpp">
       <Filter>ソース ファイル\src\Gimmick</Filter>
     </ClCompile>
@@ -146,6 +143,12 @@
     </ClCompile>
     <ClCompile Include="src\Data\Data.cpp">
       <Filter>ソース ファイル\src\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy\EnemyB.cpp">
+      <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Enemy\EnemyManager.cpp">
+      <Filter>ソース ファイル\src\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +232,9 @@
     </ClInclude>
     <ClInclude Include="src\Data\Data.h">
       <Filter>ソース ファイル\src\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Enemy\EnemyB.h">
+      <Filter>ソース ファイル\src\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

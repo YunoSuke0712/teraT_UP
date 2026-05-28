@@ -53,6 +53,11 @@ void CollisionManager::CheckHitFieldToPlayer(Field& fi, Player& pl)
                 maxLen = len;
                 bestPush = VScale(Norm, len);
             }
+
+            if (Norm.y > 0.8f && len > 0.0f)
+            {
+                 pl.SetJumpNow(false);
+            }
         }
 
         // 押し出し
@@ -127,37 +132,6 @@ void CollisionManager::CheckHitFieldToEnemy(Field& fi, EnemyManager& ene)
     }
 }
 
-////プレイヤーエネミー
-//void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
-//{
-//
-//    for (int i = 0;i < ene.GetEnemyANum();i++)
-//    {
-//        EnemyA* OneEnemy = ene.GetOneEnemyA(i);
-//        if (OneEnemy->GetIsActive() == false) continue;
-//
-//        float  e_radius = OneEnemy->GetRadius();
-//        VECTOR e_pos = OneEnemy->GetPosition();
-//        float p_radius = pl.GetRadius();
-//        VECTOR p_pos = pl.GetPosition();
-//
-//        VECTOR e_center = OneEnemy->GetCenter();
-//        VECTOR p_center = pl.GetCenter();
-//
-//
-//        // 当たり判定開始
-//        bool isHit = Collision::CheckHitSphereToSphere(p_center, p_radius, e_center, e_radius);
-//   
-//        if (isHit == true)
-//        {
-//            //// お互い当たった！！
-//            pl.HitEnemyCale();
-//            
-//        }
-//    
-//    
-//    }
-//}
 
 //プレイヤーエネミー
 void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
@@ -168,16 +142,13 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
 
         if (OneEnemy->GetIsActive() == false) continue;
         if (OneEnemy->GetCondition() == STAN) continue;
+        if (OneEnemy->GetType() == 0) continue;
 
-        //--------------------------------
-        // 座標取得
-        //--------------------------------
+        // 座標もらう
         VECTOR e_pos = OneEnemy->GetCenter();
         VECTOR p_pos = pl.GetCenter();
 
-        //--------------------------------
         // Enemy → Player方向
-        //--------------------------------
         VECTOR toPlayer = VSub(p_pos, e_pos);
 
         //--------------------------------
@@ -192,7 +163,8 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         if (dist > VIEW_RANGE) continue;
 
         //--------------------------------
-        // 正規化
+        // 正規化？
+
         //--------------------------------
         toPlayer = VNorm(toPlayer);
 
@@ -250,9 +222,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
 }
           
 
-void CollisionManager::CheckHitGimmickToPlayer(
-    GimmickManager& gim,
-    Player& pl)
+void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
 {
     const int ITERATION = 10;
 
