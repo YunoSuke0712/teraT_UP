@@ -5,8 +5,7 @@
 
 //ルートの番号
 static const int ROOT_ID[] = { 1,4,7,10,13};
-//ルートの個数
-static const int ROOT_NUM = 4;
+
 
 static const VECTOR ROOT_POS = { 500.0f, -15.0f, 300.0f };		//ルートの位置
 static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
@@ -141,7 +140,7 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 		//巡回
 	case PATROL:
 		if (m_Type == 0)break;
-		if (m_rootID > ROOT_NUM)m_rootID = 0;
+		if (m_rootID > m_RootNum)m_rootID = 0;
 		MoveRoot(P_pos);
 		break;
 	case STAN:
@@ -194,7 +193,7 @@ void EnemyA::Draw()
 
 	MV1DrawModel(m_hndl);
 
-	//DrawFormatString(1200, 500, GetColor(25, 200, 100), "EposX:%f", m_Pos.x);
+	DrawFormatString(1200, 500, GetColor(25, 200, 100), "rootnum:%d", m_RootNum);
 	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
 	//DrawFormatString(1200, 700, GetColor(25, 200, 100), ":%d", m_rootID);
@@ -264,7 +263,15 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 		// 直接目的地をセット
 		//SetPosition(targetPos);
 		// 目的地を一つ次へ
-		m_rootID = (m_rootID + 1) % ROOT_NUM;
+		//m_rootID = (m_rootID + 1);
+		//if (m_rootID == m_RootNum)
+		//{
+		//	m_rootID = 1;
+		//}
+
+
+		m_rootID = (m_rootID + 1) % m_RootNum;
+
 	}
 	else
 	{

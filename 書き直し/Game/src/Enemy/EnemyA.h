@@ -15,15 +15,17 @@ private:
 	VECTOR	m_Pos;				//位置
 	float	m_radius;           //半径	
 	VECTOR	m_rot;				//向き
+	int		m_Dhndl;			//復活ハンドル
 
 	
 	int		m_EnemyID;			//ID			
 	int		m_Type;				//移動タイプ	０：停止　１：移動
-	int		m_Dhndl;			//復活ハンドル
-	
+
 
 	int		m_rootHndl;
 	int		m_rootID;
+	//ルートの個数
+	int m_RootNum ;
 
 	float m_rotationY;			//常に回転させるためだけ
 
@@ -92,6 +94,8 @@ public:
 	//移動タイプ
 	void SetType(int type) { m_Type = type; }
 	int GetType() { return m_Type; }
+	//ルート個数
+	void SetRootNum(int num) { m_RootNum = num; }
 
 
 	// ヒット後の処理

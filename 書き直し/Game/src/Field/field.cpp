@@ -48,6 +48,12 @@ void Field::Load(int mapID)
 			m_hndl = MV1LoadModel("data/model/field/Map02/Map_02.mv1");
 			//子リジョン情報構築
 		}
+	case 3:
+		if (m_hndl == -1)
+		{
+			m_hndl = MV1LoadModel("data/model/field/Map03/Map_03.mv1");
+			//子リジョン情報構築
+		}
 		break;
 	}
 

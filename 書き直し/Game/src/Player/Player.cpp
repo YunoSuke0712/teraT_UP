@@ -12,9 +12,9 @@ static const VECTOR PlayerScalse{ 0.02f,0.02f,0.02f };						//playerのサイズDASH
 //status
 static const float MOVE_SPEED = 0.8f;								//プレイヤーの進む速度
 static const int   STAMINA_COOL = 120;								//スタミナ回復速度
-static const float PLAYER_RADIUS{ 3.0f };							//当たり判定
+static const float PLAYER_RADIUS{ 4.5f };							//当たり判定
 static const float JUMP_POWER = 6.0f;								//ジャンプ力
-static const int   JUMP_COOL = 15;
+static const int   JUMP_COOL = 5;
 static const float DASH_SPEED_UP = 1.0f;							//ダッシュ
 //アニメーション===
 static const float	ANIM_SPD = F1;					//アニメーション速度
@@ -338,6 +338,7 @@ VECTOR Player::Move(VECTOR rot)
 	if (m_jumpCoolTime > 0)
 	{
 		m_jumpCoolTime--;
+		m_jumpNow = true;
 	}
 	m_jumppower -= GRAVITY;
 

@@ -15,6 +15,8 @@ static const float ENEMY_WALL_SIZE = { 100.0f };
 //フィールドプレイヤー
 void CollisionManager::CheckHitFieldToPlayer(Field& fi, Player& pl)
 {
+    pl.SetJumpNow(true);
+
     const int ITERATION = 10; // 繰り返し回数
 
     float p_radius = pl.GetRadius()+3.0f;
@@ -54,9 +56,9 @@ void CollisionManager::CheckHitFieldToPlayer(Field& fi, Player& pl)
                 bestPush = VScale(Norm, len);
             }
 
-            if (Norm.y > 0.8f && len > 0.0f)
+            if (Norm.y > 0.8f)
             {
-                 pl.SetJumpNow(false);
+                pl.SetJumpNow(false);
             }
         }
 
@@ -221,10 +223,10 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
     }
 }
           
-
+//ギミックプレイやー
 void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
 {
-    const int ITERATION = 10;
+    const int ITERATION = 30;
 
     //--------------------------------
     // Ori全取得

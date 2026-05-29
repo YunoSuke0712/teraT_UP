@@ -19,6 +19,7 @@ private:
 		float m_Pos_X;
 		float m_Pos_Y;
 		float m_Pos_Z;
+		int   m_RootNum;
 	};
 	ReadPosData ReadData;
 

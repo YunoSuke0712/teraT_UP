@@ -138,9 +138,10 @@ void EnemyManager::EnemyAData(int mapID)
 		int x = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_X);
 		int y = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Y);
 		int z = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Z);
+		int root = FileRead_scanf(PosHndl, "%d,", &tmp.m_RootNum);
 
 		// ‚Ç‚ê‚©Ž¸”s‚µ‚½‚çI—¹
-		if (type == -1 || x == -1 || y == -1 || z == -1)
+		if (type == -1 || x == -1 || y == -1 || z == -1 || root == -1)
 		{
 			break;
 		}
@@ -149,6 +150,8 @@ void EnemyManager::EnemyAData(int mapID)
 
 		tEmp->SetPosition(VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z));
 		tEmp->SetType(tmp.m_Type);
+		tEmp->SetRootNum(tmp.m_RootNum);
+
 
 		m_EneA_List.push_back(tEmp);
 
