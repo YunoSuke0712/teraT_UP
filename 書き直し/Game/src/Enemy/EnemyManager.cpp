@@ -11,7 +11,7 @@ static const char ENEMYA_ROOT[][200] =
 	{"data/model/field/Map01/Map01_EnemyARoot_01.mv1"},
 	{"data/model/field/Map02/Map02_EnemyARoot_01.mv1"},
 	{"data/model/field/Map03/Map03_EnemyARoot_01.mv1"}, 
-	{"data/model/field/Map03/Map03_EnemyARoot_02.mv1"},
+
 };
 
 static const char ENEMYA_POS[][200] =

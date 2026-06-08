@@ -1,3 +1,35 @@
-﻿  Player.cpp
-C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Player\Player.cpp(346,17): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
-  Game.vcxproj -> C:\Users\2409411\Desktop\oreore\書き直し\Game\x64\Debug\Game.exe
+﻿  Main.cpp
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Enemy\EnemyManager.h(76,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'Main.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Gimmick\GimmickManager.h(75,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'Main.cpp' をコンパイルしています)
+  
+  CollisionManager.cpp
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Enemy\EnemyManager.h(76,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Collision/CollisionManager.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Gimmick\GimmickManager.h(75,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Collision/CollisionManager.cpp' をコンパイルしています)
+  
+  EnemyManager.cpp
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Enemy\EnemyManager.h(76,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Enemy/EnemyManager.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Enemy\EnemyManager.cpp(35,30): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+  PlayScene.cpp
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Enemy\EnemyManager.h(76,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/PlayScene.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Gimmick\GimmickManager.h(75,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/PlayScene.cpp' をコンパイルしています)
+  
+  SceneManager.cpp
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Enemy\EnemyManager.h(76,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/SceneManager.cpp' をコンパイルしています)
+  
+C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\src\Gimmick\GimmickManager.h(75,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  (ソース ファイル 'src/Scene/SceneManager.cpp' をコンパイルしています)
+  
+  コードを生成中...
+  Game.vcxproj -> C:\Users\2409411\Desktop\teraT_UP\書き直し\Game\x64\Debug\Game.exe

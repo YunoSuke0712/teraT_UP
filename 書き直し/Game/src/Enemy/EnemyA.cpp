@@ -588,7 +588,7 @@ bool EnemyA::BehindAttack(VECTOR P_Pos)
 	float dot = VDot(dir, toPlayer);
 
 	//--------------------------------
-	// ”wŒã60“x”»’è
+	// ”wŒã“x”»’è
 	//--------------------------------
 	float angle = DegToRad(45.0f);
 
