@@ -1,5 +1,3 @@
-﻿  GimmickManager.cpp
-C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(74,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
-  (ソース ファイル 'src/Gimmick/GimmickManager.cpp' をコンパイルしています)
-  
+﻿  Player.cpp
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Player\Player.cpp(346,17): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
   Game.vcxproj -> C:\Users\2409411\Desktop\oreore\書き直し\Game\x64\Debug\Game.exe

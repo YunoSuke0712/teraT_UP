@@ -1,5 +1,6 @@
 #pragma once
 #include"EnemyA.h"
+#include"../lib/MyMath/MyMath.h"
 
 #include <list>
 #include <vector>

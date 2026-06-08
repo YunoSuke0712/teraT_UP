@@ -28,6 +28,7 @@ private:
 		float m_PosB_Z;
 		float m_RotA_Y;
 		float m_RotB_Y;
+		bool  m_Active;
 	};
 	ReadPosData ReadData;
 	list <ReadPosData> m_InfoList;

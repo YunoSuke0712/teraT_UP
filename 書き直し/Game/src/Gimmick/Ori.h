@@ -64,6 +64,9 @@ public:
 	void SetRotationA(float rot_y) { m_rotationY[0] = DegToRad(rot_y); }
 	void SetRotationB(float rot_y) { m_rotationY[1] = DegToRad(rot_y); }
 
+	//‚¨‚è‚Ìó‘Ô‚ğw’è
+	void SetOriActive(bool active) { m_OriActive = active; }
+
 	//ID
 	void SetID(int id) { m_OriID = id; }
 	//À•Wæ“¾

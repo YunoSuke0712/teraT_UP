@@ -136,7 +136,10 @@ void Player::Exit()
 //------------------------
 void Player::Step(VECTOR rot)
 {
-	
+
+	//
+	m_jumpNow =false;
+	//
 	switch (m_pState)
 	{
 	case PLSTATE_DEAS:
@@ -239,7 +242,7 @@ void Player::Draw()
 {
 	MV1DrawModel(m_hndl);
 
-	DrawSphere3D(GetCenter(), m_radius, 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
+	//DrawSphere3D(GetCenter(), m_radius, 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
 	DrawFormatString(10, 10, GetColor(155, 0, 0),"%f",m_Pos.z);
 
 

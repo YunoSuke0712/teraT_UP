@@ -255,15 +255,17 @@ void GimmickManager::LoadOri(int mapID)
 
 	while (true)
 	{
-		int axp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_X);
-		int ayp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Y);
-		int azp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Z);
+		float axp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_X);
+		float ayp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Y);
+		float azp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Z);
 
-		int bxp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_X);
-		int byp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Y);
-		int bzp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Z);
+		float bxp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_X);
+		float byp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Y);
+		float bzp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Z);
 
-		int axr = FileRead_scanf(PosHndl, "%f,", &tmp.m_RotA_Y);
+		float axr = FileRead_scanf(PosHndl, "%f,", &tmp.m_RotA_Y);
+		bool  bac = FileRead_scanf(PosHndl, "%d,", &tmp.m_Active);
+			
 
 		// Ç«ÇÍÇ©é∏îsÇµÇΩÇÁèIóπ
 		if (axp == -1 || ayp == -1 || azp == -1 ||
@@ -289,6 +291,10 @@ void GimmickManager::LoadOri(int mapID)
 
 		tEmp->GetInitPosA(
 			VGet(tmp.m_PosA_X, tmp.m_PosA_Y, tmp.m_PosA_Z)
+		);
+
+		tEmp->SetOriActive(
+			tmp.m_Active
 		);
 
 		m_Ori_List.push_back(tEmp);
@@ -319,15 +325,15 @@ void GimmickManager::LoadTre_Goal(int mapID)
 
 	while (true)
 	{
-		int axp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_X);
-		int ayp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Y);
-		int azp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Z);
+		float axp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_X);
+		float ayp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Y);
+		float azp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosA_Z);
 
-		int bxp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_X);
-		int byp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Y);
-		int bzp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Z);
+		float bxp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_X);
+		float byp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Y);
+		float bzp = FileRead_scanf(PosHndl, "%f,", &tmp.m_PosB_Z);
 
-		int axr = FileRead_scanf(PosHndl, "%f,", &tmp.m_RotA_Y);
+		float axr = FileRead_scanf(PosHndl, "%f,", &tmp.m_RotA_Y);
 
 		// Ç«ÇÍÇ©é∏îsÇµÇΩÇÁèIóπ
 		if (axp == -1 || ayp == -1 || azp == -1 ||

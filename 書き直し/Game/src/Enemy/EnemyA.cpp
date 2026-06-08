@@ -4,18 +4,20 @@
 
 
 //ルートの番号
-static const int ROOT_ID[] = { 1,4,7,10,13};
+static const int ROOT_ID[] = { 1,4,7,10,13,16,19,22};
 
 
 static const VECTOR ROOT_POS = { 500.0f, -15.0f, 300.0f };		//ルートの位置
+static const VECTOR ROOT_SCALE = { 0.1f,0.1f,0.1f };
+
 static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
 static const float ENEMY_SIZE = 5.0f;							//敵の当たり判定
 static const float ENEMY_ROTATIONY = 0.0f;						//回転Y
 
-// 視界距離
-static const float ENEMY_RANGE = 200.0f;
-// 視野角
-static const float ENEMY_ANGLE = DegToRad(25.0f);
+
+static const float ENEMY_RANGE = 120.0f;						// 視界距離
+
+static const float ENEMY_ANGLE = DegToRad(30.0f);				// 視野角
 
 static const float ENEMY_SPEED = 1.0f;							//敵の移動速度
 static const float ENEMY_P_SPEED = 1.5f;						//敵の追跡速度
@@ -51,6 +53,10 @@ void EnemyA::Init()
 	m_Dhndl = HNDL_INIT;
 	Condition_ID = PATROL;
 	m_rotationY = ENEMY_ROTATIONY;
+	
+	m_Range = ENEMY_RANGE;
+	m_Angle = ENEMY_ANGLE;
+
 	m_rootHndl = HNDL_INIT;
 	m_RePatrol = ZERO_I;
 	m_StanTime = ZERO_I;
@@ -119,7 +125,7 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 {
 	MV1SetPosition(m_rootHndl, ROOT_POS);
 
-	MV1SetScale(m_rootHndl, VGet(0.8f, 1.0f, 0.8f));
+	MV1SetScale(m_rootHndl, VGet(1.0f, 1.0f, 1.f));
 	MV1SetupCollInfo(m_rootHndl);
 
 	m_Pos.y -= GRAVITY;
@@ -285,10 +291,15 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 		SetPosition(pos);
 	}
 
-	// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
-	float rot = atan2f(-dir.x, -dir.z);
-	SetRot(VGet(0.0f, rot, 0.0f));
-	m_rotationY = rot;
+	//どこを向くかを保存
+	float TarGetRot = GetRotationY(dir);
+	//回転を自然にするため向きがほとんどあってたら同じにしちゃう
+	//if (TarGetRot - abs(GetRotationY(dir)) < 0.5) m_rotationY = TarGetRot;
+	//回転
+	if (TarGetRot < m_rotationY)
+	{ m_rotationY-= 0.1; };
+	if (TarGetRot > m_rotationY) 
+	{ m_rotationY+= 0.1; };
 }
 
 
@@ -338,10 +349,16 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 		pos = VAdd(pos, p_dir);
 		SetPosition(pos);
 
-		// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
-		float rot = atan2f(-p_dir.x, -p_dir.z);
-		SetRot(VGet(0.0f, rot, 0.0f));
-		m_rotationY = rot;
+
+		//どこを向くかを保存
+		float TarGetRot = GetRotationY(s_dir);
+		//回転を自然にするため向きがほとんどあってたら同じにしちゃう
+		if (TarGetRot - abs(GetRotationY(s_dir)) < 0.1) m_rotationY = TarGetRot;
+		//回転
+		if (TarGetRot < m_rotationY) { m_rotationY -= 0.1; };
+		if (TarGetRot > m_rotationY) { m_rotationY += 0.1; };
+
+
 	}
 	else if(p_len < 300.0f)
 	{
@@ -354,10 +371,14 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 		pos = VAdd(pos, s_dir);
 		SetPosition(pos);
 
-		// 進行方向を向かせる(これは便利なので関数化しておいてもいいかも)
-		float rot = atan2f(-s_dir.x, -s_dir.z);
-		SetRot(VGet(0.0f, rot, 0.0f));
-		m_rotationY = rot;
+
+		//どこを向くかを保存
+		float TarGetRot = GetRotationY(s_dir);
+		//回転を自然にするため向きがほとんどあってたら同じにしちゃう
+		if (TarGetRot - abs(GetRotationY(s_dir)) < 0.1) m_rotationY = TarGetRot;
+		//回転
+		if (TarGetRot < m_rotationY) { m_rotationY -= 0.1; };
+		if (TarGetRot > m_rotationY) { m_rotationY += 0.1; };		
 	}
 	else
 	{
@@ -577,4 +598,13 @@ bool EnemyA::BehindAttack(VECTOR P_Pos)
 	}
 
 	return false;
+}
+
+
+float EnemyA::GetRotationY(VECTOR TargetDirection)
+{
+	// 進行方向を向かせるこれは便利なので関数化しておいてもいいかも)
+	float rot = atan2f(-TargetDirection.x, -TargetDirection.z);
+	SetRot(VGet(0.0f, rot, 0.0f));
+	return rot;
 }

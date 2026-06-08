@@ -3,7 +3,7 @@
 #include"../lib/common/common.h"
 #include "../Field/field.h"
 
-static const VECTOR GIMMICK_SCALE{ 0.75f,1.5f,0.75f };					//サイズ
+static const VECTOR GIMMICK_SCALE{ 0.95f,1.5f,0.95f };					//サイズ
 static const float WARP_SIZE = 5.0f;									//当たり判定
 
 static const float MaxDownPos = -200;

@@ -11,6 +11,7 @@ static const char ENEMYA_ROOT[][200] =
 	{"data/model/field/Map01/Map01_EnemyARoot_01.mv1"},
 	{"data/model/field/Map02/Map02_EnemyARoot_01.mv1"},
 	{"data/model/field/Map03/Map03_EnemyARoot_01.mv1"}, 
+	{"data/model/field/Map03/Map03_EnemyARoot_02.mv1"},
 };
 
 static const char ENEMYA_POS[][200] =
@@ -139,6 +140,11 @@ void EnemyManager::EnemyAData(int mapID)
 		int y = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Y);
 		int z = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Z);
 		int root = FileRead_scanf(PosHndl, "%d,", &tmp.m_RootNum);
+		//動かない敵のみ初期回転値を設定
+		//int roty;
+		//if (root == 0) roty = FileRead_scanf(PosHndl, "%d,", &tmp.m_rotY);else roty = 0.0f;
+		
+
 
 		// どれか失敗したら終了
 		if (type == -1 || x == -1 || y == -1 || z == -1 || root == -1)
@@ -151,6 +157,10 @@ void EnemyManager::EnemyAData(int mapID)
 		tEmp->SetPosition(VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z));
 		tEmp->SetType(tmp.m_Type);
 		tEmp->SetRootNum(tmp.m_RootNum);
+		//tEmp->SetRotationY(tmp.m_rotY);//度をラジアンに変換しながら値を渡す
+
+
+		//tEmp->SetRot({ 0.0f, RadToDeg(tmp.m_rotY) , 0.0f });//度をラジアンに変換しながら値を渡す
 
 
 		m_EneA_List.push_back(tEmp);

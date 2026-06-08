@@ -15,7 +15,12 @@ private:
 	VECTOR	m_Pos;				//位置
 	float	m_radius;           //半径	
 	VECTOR	m_rot;				//向き
+	float	m_Range;			//視界距離
+	float	m_Angle;			//視野角
+	
 	int		m_Dhndl;			//復活ハンドル
+	
+
 
 	
 	int		m_EnemyID;			//ID			
@@ -96,7 +101,9 @@ public:
 	int GetType() { return m_Type; }
 	//ルート個数
 	void SetRootNum(int num) { m_RootNum = num; }
-
+	
+	float GetRange() { return m_Range; }
+	float GetAngle() { return m_Angle; }
 
 	// ヒット後の処理
 	void HitCale();
@@ -130,4 +137,7 @@ public:
 	//
 
 	
+	//進行方向を向く
+	float GetRotationY(VECTOR TargetDirection);
+
 };

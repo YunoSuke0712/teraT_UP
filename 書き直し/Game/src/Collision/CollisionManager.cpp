@@ -144,7 +144,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
 
         if (OneEnemy->GetIsActive() == false) continue;
         if (OneEnemy->GetCondition() == STAN) continue;
-        if (OneEnemy->GetType() == 0) continue;
+        //if (OneEnemy->GetType() == 0) continue;
 
         // 座標もらう
         VECTOR e_pos = OneEnemy->GetCenter();
@@ -159,7 +159,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         float dist = VSize(toPlayer);
 
         // 視界距離
-        const float VIEW_RANGE = 200.0f;
+        const float VIEW_RANGE = OneEnemy->GetRange();
 
         // 距離外
         if (dist > VIEW_RANGE) continue;
@@ -188,7 +188,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         // 90度視野
         // cos(45°) = 0.707
         //--------------------------------
-        if (dot > CosDeg(25.0f))
+        if (dot > OneEnemy->GetAngle())
         {
             //--------------------------------
             // プレイヤー発見
@@ -223,10 +223,10 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
     }
 }
           
-//ギミックプレイやー
+//檻プレイやー
 void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
 {
-    const int ITERATION = 30;
+    const int ITERATION = 5;
 
     //--------------------------------
     // Ori全取得
@@ -246,7 +246,7 @@ void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
         //--------------------------------
         // プレイヤー情報
         //--------------------------------
-        float p_radius = pl.GetRadius();
+        float p_radius = pl.GetRadius() + 5;
 
         VECTOR pos = pl.GetPosition();
 
