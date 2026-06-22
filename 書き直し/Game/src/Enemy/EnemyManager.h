@@ -21,6 +21,8 @@ private:
 		float m_Pos_Y;
 		float m_Pos_Z;
 		int   m_RootNum;
+		int   m_RootID;
+		float m_RotationY;
 	};
 	ReadPosData ReadData;
 

@@ -136,7 +136,7 @@ void CollisionManager::CheckHitFieldToEnemy(Field& fi, EnemyManager& ene)
 
 
 //プレイヤーエネミー
-void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
+void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Field& fi)
 {
     for (int i = 0; i < ene.GetEnemyANum(); i++)
     {
@@ -188,15 +188,30 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
         // 90度視野
         // cos(45°) = 0.707
         //--------------------------------
-        if (dot > OneEnemy->GetAngle())
+        if (dot > CosDeg(OneEnemy->GetAngle()))
         {
             //--------------------------------
             // プレイヤー発見
             //--------------------------------
+             //ここでプレイヤーとエネミーの間に壁があるかしらべる
+            // レイ判定更新
+            MV1RefreshCollInfo(fi.GetFieldHndl());
 
-            OneEnemy->SetFindPlayer(true);
-            OneEnemy->SetCondition(TRACKING_P);
+            // Enemy → Player にレイ
+            MV1_COLL_RESULT_POLY hit = MV1CollCheck_Line(fi.GetFieldHndl(), -1, e_pos, p_pos);
+            //↑      当たったか  見えない線を飛ばす(どのハンドルか 全部のポリゴンを対象 開始位置 終了地点
+            
 
+            // 壁が無い
+            if (hit.HitFlag == FALSE)
+            {
+                OneEnemy->SetCondition(TRACKING_P);
+            }
+            else
+            {
+                continue;
+            }
+            
             //--------------------------------
             // 接触判定
             //--------------------------------
@@ -218,7 +233,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene)
             //--------------------------------
             // 見失った
             //--------------------------------
-            OneEnemy->SetFindPlayer(false);
+            //OneEnemy->SetFindPlayer(false);
         }
     }
 }

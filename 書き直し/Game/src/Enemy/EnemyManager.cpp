@@ -5,13 +5,26 @@ static const char ENEMY_MODEL_PATH[] = "data/model/enemy/enemy.mv1";
 static const char ENEMYB_MODEL_PATH[] = "data/model/enemy/enemyB.mv1";
 static const char DANAGER_MODEL_PATH[] = "data/model/enemy/danger.mv1";
 
-static const char ENEMYA_ROOT[][200] =
+static const char ENEMYA_ROOT[][5][200] =
 {
-	{""},
-	{"data/model/field/Map01/Map01_EnemyARoot_01.mv1"},
-	{"data/model/field/Map02/Map02_EnemyARoot_01.mv1"},
-	{"data/model/field/Map03/Map03_EnemyARoot_01.mv1"}, 
+	{""},//map‚O‚Í‘¶Ý‚µ‚È‚¢
 
+	{	//map1
+		"",
+		"data/model/field/Map01/Map01_EnemyARoot_01.mv1"
+	},
+
+	{	//map2
+		"",
+		"data/model/field/Map02/Map02_EnemyARoot_01.mv1"
+	},
+
+	{
+		//map3
+		"",
+		"data/model/field/Map03/Map03_EnemyARoot_01.mv1", 
+		"data/model/field/Map03/Map03_EnemyARoot_02.mv1"
+	},
 };
 
 static const char ENEMYA_POS[][200] =
@@ -69,6 +82,7 @@ void EnemyManager::Step(VECTOR P_pos, int level, VECTOR D_pos)
 	//slot.SetSoundCage(m_SoundCage);
 	if (m_SoundCool > 0)
 	m_SoundCool--;
+
 }
 
 //•`‰æ
@@ -125,8 +139,7 @@ void EnemyManager::EnemyAData(int mapID)
 	int Ahndl = MV1LoadModel(ENEMY_MODEL_PATH);
 	int Dangerhndl = MV1LoadModel(DANAGER_MODEL_PATH);
 
-	int Roothndl = MV1LoadModel(ENEMYA_ROOT[mapID]);
-	int PosHndl = FileRead_open(ENEMYA_POS[mapID]);
+	int Open = FileRead_open(ENEMYA_POS[mapID]);
 
 
 	FILE* FilePointer;
@@ -135,19 +148,16 @@ void EnemyManager::EnemyAData(int mapID)
 
 	while (true)
 	{
-		int type = FileRead_scanf(PosHndl, "%d,", &tmp.m_Type);
-		int x = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_X);
-		int y = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Y);
-		int z = FileRead_scanf(PosHndl, "%f,", &tmp.m_Pos_Z);
-		int root = FileRead_scanf(PosHndl, "%d,", &tmp.m_RootNum);
-		//“®‚©‚È‚¢“G‚Ì‚Ý‰Šú‰ñ“]’l‚ðÝ’è
-		//int roty;
-		//if (root == 0) roty = FileRead_scanf(PosHndl, "%d,", &tmp.m_rotY);else roty = 0.0f;
+		int type = FileRead_scanf(Open, "%d,", &tmp.m_Type);
+		int x = FileRead_scanf(Open, "%f,", &tmp.m_Pos_X);
+		int y = FileRead_scanf(Open, "%f,", &tmp.m_Pos_Y);
+		int z = FileRead_scanf(Open, "%f,", &tmp.m_Pos_Z);
+		int root = FileRead_scanf(Open, "%d,", &tmp.m_RootNum);
+		int rID = FileRead_scanf(Open, "%d,", &tmp.m_RootID);
+		int rot = FileRead_scanf(Open, "%f", &tmp.m_RotationY);
 		
-
-
 		// ‚Ç‚ê‚©Ž¸”s‚µ‚½‚çI—¹
-		if (type == -1 || x == -1 || y == -1 || z == -1 || root == -1)
+		if (type == -1 || x == -1 || y == -1 || z == -1 || root == -1 || rID == -1 || rot == -1)
 		{
 			break;
 		}
@@ -157,13 +167,13 @@ void EnemyManager::EnemyAData(int mapID)
 		tEmp->SetPosition(VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z));
 		tEmp->SetType(tmp.m_Type);
 		tEmp->SetRootNum(tmp.m_RootNum);
-		//tEmp->SetRotationY(tmp.m_rotY);//“x‚ðƒ‰ƒWƒAƒ“‚É•ÏŠ·‚µ‚È‚ª‚ç’l‚ð“n‚·
-
-
-		//tEmp->SetRot({ 0.0f, RadToDeg(tmp.m_rotY) , 0.0f });//“x‚ðƒ‰ƒWƒAƒ“‚É•ÏŠ·‚µ‚È‚ª‚ç’l‚ð“n‚·
+		tEmp->SetRotationY(DegToRad(tmp.m_RotationY));//“x‚ðƒ‰ƒWƒAƒ“‚É•ÏŠ·‚µ‚È‚ª‚ç’l‚ð“n‚·
 
 
 		m_EneA_List.push_back(tEmp);
+
+
+		int Roothndl = MV1LoadModel(ENEMYA_ROOT[mapID][tmp.m_RootID]);
 
 		tEmp->Load(Ahndl, Dangerhndl, Roothndl);
 

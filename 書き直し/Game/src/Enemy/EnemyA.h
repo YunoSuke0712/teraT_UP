@@ -8,45 +8,53 @@
 
 class EnemyA {
 private:
-	CInput m_input;
+	CInput m_input;				//ボタン
 
+	//軸
+	int		m_EnemyID;			//ID			
+	int		m_Type;				//移動タイプ	０：停止　１：移動
 	bool	m_isActive;         //生存フラグ
+
+	//個体
+	int		Condition_ID;		//エネミーの状態
 	int		m_hndl;				//ハンドル
 	VECTOR	m_Pos;				//位置
 	float	m_radius;           //半径	
 	VECTOR	m_rot;				//向き
-	float	m_Range;			//視界距離
-	float	m_Angle;			//視野角
-	
+	float	m_rotationY;		//Y軸用
 	int		m_Dhndl;			//復活ハンドル
-	
 
 
-	
-	int		m_EnemyID;			//ID			
-	int		m_Type;				//移動タイプ	０：停止　１：移動
 
 
-	int		m_rootHndl;
-	int		m_rootID;
-	//ルートの個数
-	int m_RootNum ;
+	//ルート
+	int		m_rootHndl;			//ルートハンドル
+	int		m_rootID;			//ルートID
+	int		m_RootNum;			//ルートの個数
+	//------------------------------------------------
 
-	float m_rotationY;			//常に回転させるためだけ
+	//
+	VECTOR m_Dir;				//向いている方向
+	//------------------------------------------------
 
-	//視界
-	VECTOR m_Dir;
-	bool m_IsFindPlayer;
 
+	//カウント
 	int m_StanTime;
 	int m_RePatrol;
-
 	int m_SaveTimer;
+	//-----------------------------------------------
+
+
+	//追いかけるPos保存
 	VECTOR m_SaveTraget;
 	int m_SaveID;
+	//-----------------------------------------------
 
-	int Condition_ID;
 
+	//視界用
+	float	m_Range;			//視界距離
+	float	m_Angle;			//視野角
+	//-----------------------------------------------
 
 
 
@@ -68,11 +76,11 @@ public:
 	// 初期化
 	void Init();
 	// モデルデータのロード
-	void Load(int Ahndl,int DanagerHndl,int RootHndl);
+	void Load(int Ahndl, int DanagerHndl, int RootHndl);
 	// 終了時のデータ破棄など
 	void Exit();
 	// 全行動を処理する
-	void Step(VECTOR P_pos,int level,VECTOR D_pos);
+	void Step(VECTOR P_pos, int level, VECTOR D_pos);
 	// 更新処理
 	// すべての行動が終わったらDxLibに情報を渡す
 	void Update();
@@ -96,12 +104,14 @@ public:
 	void SetSaveTargetPos(VECTOR POS) { m_Pos = POS; }
 	//向き
 	void SetRot(VECTOR rot) { m_rot = rot; }
+	void SetRotationY(float rotY) { m_rotationY = rotY; }
+
 	//移動タイプ
 	void SetType(int type) { m_Type = type; }
 	int GetType() { return m_Type; }
 	//ルート個数
 	void SetRootNum(int num) { m_RootNum = num; }
-	
+
 	float GetRange() { return m_Range; }
 	float GetAngle() { return m_Angle; }
 
@@ -113,7 +123,7 @@ public:
 	//void HitRelease();
 
 	void SetEnemyID(int id) { m_EnemyID = id; }
-
+	int  GetEnemyID() { return m_EnemyID; }
 
 	VECTOR GetDir() {
 
@@ -126,17 +136,20 @@ public:
 		return m_Dir;
 	}
 
-	void SetFindPlayer(bool flag) { m_IsFindPlayer = flag; }
+
+
+	
+
 
 	void SetCondition(int id) { Condition_ID = id; }
 
 
-	
+
 	// 当たり判定の半径サイズを取得
 	float GetRadius() { return m_radius; }
 	//
 
-	
+
 	//進行方向を向く
 	float GetRotationY(VECTOR TargetDirection);
 

@@ -2,8 +2,14 @@
 #include<DxLib.h>
 #include"../lib/Input/input.h"
 #include"../lib/Input/PadInput.h"
+#include"../lib/Common/common.h"
 
 
+//アニメーション===
+static const float	ANIM_SPD = F1;					//アニメーション速度
+static const int THROW_COUNT = 30;					//投げるアニメーション時間
+static const int DEATH_COUNT = 120;
+//=================
 
 
 
@@ -15,7 +21,8 @@ private:
 		PLSTATE_NORMAL,		//待機・移動状態
 		PLSTATE_WALK,		//歩く
 		PLSTATE_THROW,		//使う
-		PLSTATE_DEAS,		//捕まる
+		PLSTATE_DEATH,		//捕まる
+		
 
 		PLSTATE_NUM       // 状態の総数
 	};
@@ -31,19 +38,20 @@ private:
 
 	//アニメーション===========================
 	tagPlayerState m_pState; //状態
-	float m_AnimTime;
+	//float m_AnimTime;
 	int m_AnimIndex;
 	int m_NowAnim;
 	bool m_walk;
 	bool m_throw;
 	int m_throwcount;
-	int m_DeasCount;
+	int m_DeathCount;
 	//========================================
 	
 
 
 	float m_radius;           // 半径
 	bool m_isActive;          // 生存フラグ
+	bool m_DeathFlag;		  // 死亡フラグ
 	bool m_isGoal;
 	int m_hndl;
 	int m_score;
@@ -74,7 +82,10 @@ private:
 
 
 	VECTOR Move(VECTOR rot);
-
+	void Anim();
+	void Throw();
+	void Death(bool deas);
+	void Gravity();
 
 public:
 	// コンストラクタ・デストラクタ
@@ -131,6 +142,7 @@ public:
 
 	//プレイヤーのアニメーションを取得
 	int GetPlayerAnim() { return m_pState; }
+	void SetPpayerAnim_Throw() { m_pState = PLSTATE_THROW; m_throwcount = THROW_COUNT; }
 
 
 };

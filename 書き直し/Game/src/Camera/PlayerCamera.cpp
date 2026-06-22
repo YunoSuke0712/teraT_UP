@@ -123,7 +123,19 @@ void PlayCamera::Step(VECTOR forcus, float rotY)
 	if (CGamePad::Stick(STICK_RY_POS) != 0)m_camRot.x += -0.04;
 	if (CGamePad::Stick(STICK_RY_NEG) != 0)m_camRot.x += 0.04;
 
+	// 上下角度制限
+	float maxRad = (60.0f * DX_PI_F) / 180.0f;
+	float minRad = (-50.0f * DX_PI_F) / 180.0f;
 
+	if (m_camRot.x > maxRad)
+	{
+		m_camRot.x = maxRad;
+	}
+
+	if (m_camRot.x < minRad)
+	{
+		m_camRot.x = minRad;
+	}
 
 	m_targetPos = forcus;         // 注視点はプレイヤー
 	m_targetPos.y += TARGET_OFFSET_Y;

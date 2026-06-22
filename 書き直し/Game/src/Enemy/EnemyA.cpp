@@ -12,15 +12,14 @@ static const VECTOR ROOT_SCALE = { 0.1f,0.1f,0.1f };
 
 static const VECTOR Scale{ 0.03f,0.03f,0.03f };					//敵のサイズ
 static const float ENEMY_SIZE = 5.0f;							//敵の当たり判定
-static const float ENEMY_ROTATIONY = 0.0f;						//回転Y
 
 
-static const float ENEMY_RANGE = 120.0f;						// 視界距離
+static const float ENEMY_RANGE = 200.0f;						// 視界距離
 
-static const float ENEMY_ANGLE = DegToRad(30.0f);				// 視野角
+static const float ENEMY_ANGLE = 50.0f /2;						// 視野角 片方ずつのため/2
 
 static const float ENEMY_SPEED = 1.0f;							//敵の移動速度
-static const float ENEMY_P_SPEED = 1.5f;						//敵の追跡速度
+static const float ENEMY_P_SPEED = 1.0f;						//敵の追跡速度
 
 static const int   ENEMY_RE_COOL = 180;							//パトロールに戻る
 
@@ -52,7 +51,6 @@ void EnemyA::Init()
 	m_hndl = HNDL_INIT;
 	m_Dhndl = HNDL_INIT;
 	Condition_ID = PATROL;
-	m_rotationY = ENEMY_ROTATIONY;
 	
 	m_Range = ENEMY_RANGE;
 	m_Angle = ENEMY_ANGLE;
@@ -65,11 +63,11 @@ void EnemyA::Init()
 	m_SaveTimer = ZERO_I;
 	m_SaveID = 0;
 
-
+	m_rotationY = RadToDeg(0);
 
 	// 0番目のルートに配置したので、次の目的地は1
 	//
-	m_rootID = 1;
+	m_rootID = 0;
 
 }
 
@@ -163,12 +161,6 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 	if (BehindAttack(P_pos))Condition_ID = STAN;
 	
 
-
-
-
-
-
-
 }
 
 //------------------------
@@ -199,7 +191,7 @@ void EnemyA::Draw()
 
 	MV1DrawModel(m_hndl);
 
-	DrawFormatString(1200, 500, GetColor(25, 200, 100), "rootnum:%d", m_RootNum);
+	//DrawFormatString(1200, 500, GetColor(25, 200, 100), "rootnum:%d", m_RootNum);
 	//DrawFormatString(1200, 650, GetColor(25, 200, 100), "EposY:%f", m_Pos.y);
 	//DrawFormatString(1200, 600, GetColor(25, 200, 100), "EposZ:%f", m_Pos.z);
 	//DrawFormatString(1200, 700, GetColor(25, 200, 100), ":%d", m_rootID);
@@ -209,6 +201,12 @@ void EnemyA::Draw()
 
 	////DrawFormatString(1200, 800, GetColor(25, 200, 100), "x:%f",m_remove_pos.x);
 	////DrawFormatString(1200, 900, GetColor(25, 200, 100), "z:%f", m_remove_pos.z);
+
+
+	if (m_input.IsInputTrg(KEY_CLICK))
+	{
+		printfDx(" 向きy:%f\n", m_rotationY);
+	}
 
 	DrawEye();
 }
@@ -254,6 +252,9 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 {
 	// 次の目的地の座標取得
 	VECTOR targetPos = MV1GetFramePosition(m_rootHndl, ROOT_ID[m_rootID]);
+
+	//printfDx("Root = %d",m_rootID);
+
 	//DrawFormatString(20, 20, GetColor(155, 15, 15), "%f,%f,%f", targetPos.x, targetPos.y, targetPos.z);
 
 	// 自分の座標取得
@@ -264,7 +265,7 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 	float len = VSize(dir);
 
 	// 目的地までの距離が一定範囲内なら
-	if (len < 5.0f)
+	if (len < 15.0f)
 	{
 		// 直接目的地をセット
 		//SetPosition(targetPos);
@@ -276,7 +277,7 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 		//}
 
 
-		m_rootID = (m_rootID + 1) % m_RootNum;
+  		m_rootID = (m_rootID + 1) % m_RootNum;
 
 	}
 	else
@@ -291,15 +292,31 @@ void EnemyA::MoveRoot(VECTOR P_pos)
 		SetPosition(pos);
 	}
 
-	//どこを向くかを保存
-	float TarGetRot = GetRotationY(dir);
-	//回転を自然にするため向きがほとんどあってたら同じにしちゃう
-	//if (TarGetRot - abs(GetRotationY(dir)) < 0.5) m_rotationY = TarGetRot;
-	//回転
-	if (TarGetRot < m_rotationY)
-	{ m_rotationY-= 0.1; };
-	if (TarGetRot > m_rotationY) 
-	{ m_rotationY+= 0.1; };
+	float targetRot = GetRotationY(dir);
+
+	float diff = targetRot - m_rotationY;
+
+	// 最短回転
+	while (diff > DX_PI_F)  diff -= DX_TWO_PI_F;
+	while (diff < -DX_PI_F) diff += DX_TWO_PI_F;
+
+	const float rotSpeed = 0.1f;
+
+	if (abs(diff) < rotSpeed)
+	{
+		m_rotationY = targetRot;
+	}
+	else
+	{
+		if (diff > 0)
+		{
+			m_rotationY += rotSpeed;
+		}
+		else
+		{
+			m_rotationY -= rotSpeed;
+		}
+	}
 }
 
 
@@ -334,30 +351,46 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 		m_SaveTimer = 0;
 	}
 
-	if (p_len < 4.0f)
+	if (p_len < 6.0f)
 	{
 	}
 	// 目的地までの距離が一定範囲内なら
-	else if (p_len < 25.0f)
+	if (p_len < 30.0f)
 	{
 		// いったん正規化して
 		p_dir.y = 0.0f;
 		p_dir = VNorm(p_dir);
 		// 実際の移動速度に変更
-		p_dir = VScale(p_dir, ENEMY_SPEED);
+		p_dir = VScale(p_dir, ENEMY_SPEED + ENEMY_P_SPEED);
 		// 速度を加算してキャラクターにセット
 		pos = VAdd(pos, p_dir);
 		SetPosition(pos);
 
+		float targetRot = GetRotationY(s_dir);
 
-		//どこを向くかを保存
-		float TarGetRot = GetRotationY(s_dir);
-		//回転を自然にするため向きがほとんどあってたら同じにしちゃう
-		if (TarGetRot - abs(GetRotationY(s_dir)) < 0.1) m_rotationY = TarGetRot;
-		//回転
-		if (TarGetRot < m_rotationY) { m_rotationY -= 0.1; };
-		if (TarGetRot > m_rotationY) { m_rotationY += 0.1; };
+		float diff = targetRot - m_rotationY;
 
+		// 最短回転
+		while (diff > DX_PI_F)  diff -= DX_TWO_PI_F;
+		while (diff < -DX_PI_F) diff += DX_TWO_PI_F;
+
+		const float rotSpeed = 0.1f;
+
+		if (abs(diff) < rotSpeed)
+		{
+			m_rotationY = targetRot;
+		}
+		else
+		{
+			if (diff > 0)
+			{
+				m_rotationY += rotSpeed;
+			}
+			else
+			{
+				m_rotationY -= rotSpeed;
+			}
+		}
 
 	}
 	else if(p_len < 300.0f)
@@ -366,19 +399,37 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 		s_dir.y = 0.0f;
 		s_dir = VNorm(s_dir);
 		// 実際の移動速度に変更
-		s_dir = VScale(s_dir, ENEMY_SPEED);
+		s_dir = VScale(s_dir, ENEMY_SPEED + ENEMY_P_SPEED);
 		// 速度を加算してキャラクターにセット
 		pos = VAdd(pos, s_dir);
 		SetPosition(pos);
 
 
-		//どこを向くかを保存
-		float TarGetRot = GetRotationY(s_dir);
-		//回転を自然にするため向きがほとんどあってたら同じにしちゃう
-		if (TarGetRot - abs(GetRotationY(s_dir)) < 0.1) m_rotationY = TarGetRot;
-		//回転
-		if (TarGetRot < m_rotationY) { m_rotationY -= 0.1; };
-		if (TarGetRot > m_rotationY) { m_rotationY += 0.1; };		
+		float targetRot = GetRotationY(s_dir);
+
+		float diff = targetRot - m_rotationY;
+
+		// 最短回転
+		while (diff > DX_PI_F)  diff -= DX_TWO_PI_F;
+		while (diff < -DX_PI_F) diff += DX_TWO_PI_F;
+
+		const float rotSpeed = 0.1f;
+
+		if (abs(diff) < rotSpeed)
+		{
+			m_rotationY = targetRot;
+		}
+		else
+		{
+			if (diff > 0)
+			{
+				m_rotationY += rotSpeed;
+			}
+			else
+			{
+				m_rotationY -= rotSpeed;
+			}
+		}
 	}
 	else
 	{
@@ -453,7 +504,7 @@ void EnemyA::DrawEye()
 	float range = ENEMY_RANGE;
 
 	// 視野角
-	float angle = ENEMY_ANGLE;
+	float angle = DegToRad(ENEMY_ANGLE);	
 	//--------------------------------
 	// 左方向
 	//--------------------------------
@@ -588,13 +639,15 @@ bool EnemyA::BehindAttack(VECTOR P_Pos)
 	float dot = VDot(dir, toPlayer);
 
 	//--------------------------------
-	// 背後度判定
+	// 背後60度判定
 	//--------------------------------
 	float angle = DegToRad(45.0f);
 
 	if (dot < -cosf(angle))
 	{
 		if(m_input.IsInputTrg(KEY_RCLICK)) return true;
+		//player.SetPpayerAnim_Throw();
+
 	}
 
 	return false;

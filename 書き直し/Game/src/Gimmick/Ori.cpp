@@ -104,12 +104,14 @@ void Ori::Step(Player& player)
 			{
 				Active = true;
 				m_OriActive = true;
+				player.SetPpayerAnim_Throw();
 			}
 
 			if (Active == false && m_input.IsInputTrg(KEY_CLICK) && m_OriActive == true)
 			{
 				Active = true;
 				m_OriActive = false;
+				player.SetPpayerAnim_Throw();
 
 			}
 		}

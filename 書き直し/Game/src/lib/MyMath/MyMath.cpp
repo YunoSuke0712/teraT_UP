@@ -1,5 +1,4 @@
 #include "MyMath.h"
-#include <math.h>
 
 //////VECTOR VecCreate(VECTOR vPosA, VECTOR vPosB)
 //////{//ƒxƒNƒgƒ‹¶¬
@@ -409,4 +408,40 @@ float CosDeg(float deg)
 float SinDeg(float deg)
 {
 	return sinf(DegToRad(deg));
+}
+
+//ƒLƒƒƒ‰ƒNƒ^[‚Ì•ûŒü“]Š·YŽ²@Å’Z
+float MoveRotation(float nowRot, float targetRot, float rotSpeed)
+{
+	float diff = targetRot - nowRot;
+
+	// Å’Z‰ñ“]
+	while (diff > DX_PI_F)
+	{
+		diff -= DX_TWO_PI_F;
+	}
+
+	while (diff < -DX_PI_F)
+	{
+		diff += DX_TWO_PI_F;
+	}
+
+	// ‹ß‚©‚Á‚½‚ç‡‚í‚¹‚é
+	if (abs(diff) < rotSpeed)
+	{
+		nowRot = targetRot;
+	}
+	else
+	{
+		if (diff > 0)
+		{
+			nowRot += rotSpeed;
+		}
+		else
+		{
+			nowRot -= rotSpeed;
+		}
+	}
+
+	return nowRot;
 }

@@ -14,7 +14,7 @@ public:
 
 	static void CheckHitFieldToEnemy(Field& fi, EnemyManager& ene);
 
-	static void CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene);
+	static void CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene ,Field& fi);
 
 	static void CheckHitGimmickToPlayer(GimmickManager& gim, Player& pl);
 

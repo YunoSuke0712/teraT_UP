@@ -1,6 +1,5 @@
 #include"Player.h"
 #include<math.h>
-#include"../lib/Common/common.h"
 
 
 //Start
@@ -8,19 +7,15 @@ static const VECTOR PLAYER_STARTPOS{ 1100.0f, 50.0f, 300.0f };		//開始位置
 static const VECTOR PLAYER_STARROT{ 0.0f, 1.55f, 0.0f };			//開始角度
 //Model
 static const char PLAYER_MODEL_PATH[] = "data/model/player/NewPlayerB.mv1";	//プレイヤーのモデルのパス
-static const VECTOR PlayerScalse{ 0.02f,0.02f,0.02f };						//playerのサイズDASH_SPEED_UP
+static const VECTOR PlayerScalse{ 0.02f,0.02f,0.02f };						//playerのサイズ
 //status
 static const float MOVE_SPEED = 0.8f;								//プレイヤーの進む速度
 static const int   STAMINA_COOL = 120;								//スタミナ回復速度
-static const float PLAYER_RADIUS{ 4.5f };							//当たり判定
+static const float PLAYER_RADIUS = 4.5f;							//当たり判定
 static const float JUMP_POWER = 6.0f;								//ジャンプ力
-static const int   JUMP_COOL = 5;
+static const int   JUMP_COOL = 5;									//ジャンプクールタイム
 static const float DASH_SPEED_UP = 1.0f;							//ダッシュ
-//アニメーション===
-static const float	ANIM_SPD = F1;					//アニメーション速度
-static const int THROW_COUNT = 15;					//投げるアニメーション時間
-static const int DEAS_COUNT = 180;
-//=================
+
 
 
 //----------------------
@@ -45,7 +40,6 @@ Player::~Player()
 //----------------------
 void Player::Init()
 {
-
 	m_Pos = PLAYER_STARTPOS;
 	m_Rot = PLAYER_STARROT;
 	m_RotModel = PLAYER_STARROT;
@@ -53,10 +47,9 @@ void Player::Init()
 
 
 	m_pState = PLSTATE_NORMAL;
-	//m_AnimTime = 0;
 	
-
 	m_isActive = true;
+	m_DeathFlag = false;
 	m_isGoal = false;
 	m_radius = PLAYER_RADIUS;
 	m_hndl = HNDL_INIT;
@@ -75,9 +68,8 @@ void Player::Init()
 	m_walk = false;
 	m_throw = false;
 	m_throwcount = ZERO_I;
-	m_DeasCount = DEAS_COUNT;
-
-
+	m_DeathCount = ZERO_I;
+	//m_AnimTime = 0;
 
 
 	//アイテム初期化
@@ -108,8 +100,16 @@ void Player::Load()
 	if (m_AnimIndex == -1)
 	{
 		m_AnimIndex = MV1AttachAnim(m_hndl, m_pState);
-	
 
+	}
+
+	for (int i = 0; i < MV1GetAnimNum(m_hndl); i++)
+	{
+		printfDx(
+			"Anim[%d] Total=%f\n",
+			i,
+			MV1GetAnimTotalTime(m_hndl, i)
+		);
 	}
 }
 
@@ -136,74 +136,44 @@ void Player::Exit()
 //------------------------
 void Player::Step(VECTOR rot)
 {
+	Gravity();
 
-	//
-	m_jumpNow =false;
-	//
 	switch (m_pState)
 	{
-	case PLSTATE_DEAS:
-		m_DeasCount--;
-		if (m_DeasCount <= 0)
+	case PLSTATE_DEATH:		//死
+		if (m_DeathCount > 0)
+		{
+			m_DeathCount--;
+			m_pState = PLSTATE_DEATH;
+		}
+		if (m_DeathCount == 0)
 		{
 			m_isActive = false;
 		}
 		break;
-	default:
-
-		m_Pos.y += m_jumppower;
+	case PLSTATE_NORMAL:	//生
+		//break;
+	case PLSTATE_WALK:		//歩く
+		//移動
 		m_Pos = VAdd(m_Pos, Move(rot));
-
 		m_Speed = { 0.0f,0.0f,0.0f };
 
-
-
-
-
-		// アニメ処理-----------------------------------------------
-		if (m_walk != true && m_pState == PLSTATE_WALK)m_pState = PLSTATE_NORMAL;
-
+		Throw();
+		break;
+	case PLSTATE_THROW:		//使う
 		//投げる処理優先
 		if (m_throwcount > 0)
 		{
 			m_throwcount--;
-			m_pState = PLSTATE_THROW;
-			//m_NowAnim = PLSTATE_NORMAL;
-			if (m_throwcount == 0)m_pState = PLSTATE_NORMAL;
 		}
-
-		//ダウンが最優先
-		//ここにダウンのアニメ
-
-		//ここまでにm_pStateを変更
-		if (m_NowAnim != m_pState)
-		{
-			for (int i = 0; i < PLSTATE_NUM; i++)
-			{
-				m_AnimIndex = MV1DetachAnim(m_hndl, i);
-
-			}
-			m_AnimIndex = MV1AttachAnim(m_hndl, m_pState);
-		}
-		float	animTime = MV1GetAttachAnimTime(m_hndl, m_AnimIndex);
-		animTime += ANIM_SPD * 2;
-		if (animTime >= MV1GetAttachAnimTotalTime(m_hndl, m_AnimIndex))
-		{
-			animTime = 0.0f;
-		}
-		MV1SetAttachAnimTime(m_hndl, m_AnimIndex, animTime);
-		//----------------------------------------------------------
-
+		if (m_throwcount == 0)
+			m_pState = PLSTATE_NORMAL;
 
 		break;
 	}
-	
-	
 
-	
 
-	
-
+	Anim();
 }
 
 //------------------------
@@ -229,7 +199,6 @@ void Player::Update()
 	m_movespeed = MOVE_SPEED;
 
 	//現在のアニメーションを記録
-	m_NowAnim = m_pState;
 	m_walk = false;
 	if (m_throwcount < 0)m_walk = false;
 	if(m_Stamina_Cool > 0)m_Stamina_Cool--;
@@ -262,7 +231,22 @@ void Player::Draw()
 		MV1DrawModel(m_F_hndl);
 	}
 
-	
+	DrawFormatString(
+    10, 100,
+    GetColor(255,255,255),
+    "State:%d Anim:%d",
+    m_pState,
+    m_AnimIndex
+);
+
+
+	DrawFormatString(
+		10,
+		130,
+		GetColor(255, 255, 255),
+		"AnimNum=%d",
+		MV1GetAnimNum(m_hndl)
+	);
 	
 	////寺戸先生のスペシャル授業＝＝＝＝＝＝
 	//VECTOR END = VGet(0.0f,0.0f,0.0f);
@@ -289,7 +273,10 @@ VECTOR Player::GetCenter()
 
 void Player::HitEnemyCale()
 {
-	m_pState = PLSTATE_DEAS;
+	if (!m_DeathFlag)
+	{
+		Death(true);
+	}
 }
 
 void Player::HitGoal()
@@ -298,8 +285,77 @@ void Player::HitGoal()
 }
 
 
+
+
+
+void Player::Anim()
+{
+	// アニメ処理-----------------------------------------------
+	if (!m_walk && m_pState == PLSTATE_WALK)m_pState = PLSTATE_NORMAL;
+
+
+	//ダウンが最優先
+	//ここにダウンのアニメ
+
+	//ここまでにm_pStateを変更
+	if (m_NowAnim != m_pState)
+	{
+		if (m_AnimIndex != -1)
+		{
+			//アニメーション外す
+			MV1DetachAnim(m_hndl, m_AnimIndex);
+		}
+		//アニメーション付ける
+		m_AnimIndex = MV1AttachAnim(m_hndl, m_pState);
+		
+		//再生位置設定
+		MV1SetAttachAnimTime(m_hndl, m_AnimIndex, 0.0f);
+
+		//アニメーション番号切り替わり確認用
+		//printfDx("Change Anim %d -> %d\n", m_NowAnim, m_pState);
+
+
+	}
+
+	if (m_AnimIndex == -1){return;}
+	float	animTime = MV1GetAttachAnimTime(m_hndl, m_AnimIndex);
+
+	animTime += ANIM_SPD * 2;
+	if (animTime >= MV1GetAttachAnimTotalTime(m_hndl, m_AnimIndex))
+	{
+		animTime = 0.0f;
+	}
+	MV1SetAttachAnimTime(m_hndl, m_AnimIndex, animTime);
+	//----------------------------------------------------------
+
+	m_NowAnim = m_pState;
+
+}
+
+void Player::Throw()
+{
+	if (m_input.IsInputTrg(KEY_RCLICK)
+		||CGamePad::IsPadPush(DX_INPUT_PAD1, BUTTON_B))
+	{
+		m_throwcount = THROW_COUNT;
+		m_pState = PLSTATE_THROW;
+	}
+}
+
+void Player::Death(bool deas)
+{	
+	m_DeathFlag = true;
+	m_DeathCount = DEATH_COUNT;
+	m_pState = PLSTATE_DEATH;
+	
+}
+
+
+
+
 VECTOR Player::Move(VECTOR rot)
 {
+	m_jumpNow = false;
 	m_Rot.y = rot.y;
 
 	//PAD視野操作関連＝＝＝＝＝＝
@@ -343,19 +399,8 @@ VECTOR Player::Move(VECTOR rot)
 		m_jumpCoolTime--;
 		m_jumpNow = true;
 	}
-	m_jumppower -= GRAVITY;
 
-	if (m_jumppower <= -4) {
-		m_jumppower = -4.0f;
-	}
 
-	//if (m_jumpNow == false)
-	//{
-	//	m_jumppower = 0.0f;
-	//}
-	//当たり判定ないから最低値設定
-	//if (m_Pos.y <= 0)m_Pos.y = 0.0f;
-	//
 
 	//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 	//移動＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
@@ -374,7 +419,7 @@ VECTOR Player::Move(VECTOR rot)
 		m_RotModel.y = rot.y + DX_PI_F / 2;
 	}
 	if (m_input.IsInputRep(KEY_DOWN))
-	{  
+	{
 		ly += 1.0f;
 		m_RotModel.y = rot.y;
 	}
@@ -383,11 +428,6 @@ VECTOR Player::Move(VECTOR rot)
 		ly -= 1.0f;
 		m_RotModel.y = rot.y - DX_PI_F;
 	}
-	
-	//m_RotModel.y = rot.y - DX_PI_F / 2;
-	//m_RotModel.y = rot.y - DX_PI_F / 2;
-	//m_RotModel.y = rot.y;
-
 
 	// スティック入力
 	if (CGamePad::Stick(STICK_LX_POS))
@@ -443,4 +483,17 @@ VECTOR Player::Move(VECTOR rot)
 	m_Speed = move;
 	//＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 	return move;
+}
+
+
+void Player::Gravity()
+{
+	m_Pos.y += m_jumppower;
+
+	m_jumppower -= GRAVITY;
+
+	if (m_jumppower <= -4) {
+		m_jumppower = -4.0f;
+	}
+
 }

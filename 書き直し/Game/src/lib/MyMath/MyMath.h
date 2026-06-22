@@ -2,6 +2,9 @@
 #define _MYMATH_H_
 
 #include "DxLib.h"
+#include <cmath>
+#include <math.h>
+
 
 
 //////ベクトルや行列の計算処理をまとめたクラス
@@ -53,8 +56,13 @@ float RadToDeg(float rad);	//ラジアン→度変換
 //drawFormatString(10,10,GetColor(0,0,0), 　"m_rotY:%.1f 度",　　RedToDeg(m_Rot.y)　　)
 //のようにすると度で表示できる
 //
-float CosDeg(float cos);
+float CosDeg(float cos);// 度→cos
 
-float SinDeg(float sin);
+float SinDeg(float sin);// 度→sin
+
+float MoveRotation(float nowRot, float targetRot, float rotSpeed);//キャラクターの方向転換Y軸　最短
+					//現在の方向　　Targetの方向　　回転speed
+
+
 
 #endif

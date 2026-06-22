@@ -54,12 +54,12 @@ static const VECTOR HIGH_SCORE_POS = { 1350.0f,750.0f,0.0f };
 
 enum SCORE_RANK
 {
-	C,
-	B,
-	A,
-	S,
-	SS,
-	SSS,
+	//C,
+	//B,
+	//A,
+	//S,
+	//SS,
+	//SSS,
 
 	SCORE_RANK_NUM,
 };

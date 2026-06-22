@@ -186,7 +186,7 @@ void PlayScene::Step()
 	m_col.CheckHitGimmickToPlayer(m_gimmick, m_player);
 	m_col.CheckHitFieldToPlayer(m_field, m_player);
 	m_col.CheckHitFieldToEnemy(m_field, m_enemy);
-	m_col.CheckHitPlayerToEnemy(m_player, m_enemy);
+	m_col.CheckHitPlayerToEnemy(m_player, m_enemy,m_field);
 	//
 
 
