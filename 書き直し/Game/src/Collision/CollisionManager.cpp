@@ -200,7 +200,7 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Fiel
             // Enemy → Player にレイ
             MV1_COLL_RESULT_POLY hit = MV1CollCheck_Line(fi.GetFieldHndl(), -1, e_pos, p_pos);
             //↑      当たったか  見えない線を飛ばす(どのハンドルか 全部のポリゴンを対象 開始位置 終了地点
-            
+
 
             // 壁が無い
             if (hit.HitFlag == FALSE)
@@ -211,7 +211,11 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Fiel
             {
                 continue;
             }
-            
+        }
+
+
+        if (OneEnemy->GetCondition() == TRACKING_P)
+        {
             //--------------------------------
             // 接触判定
             //--------------------------------
@@ -227,13 +231,6 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Fiel
             {
                 pl.HitEnemyCale();
             }
-        }
-        else
-        {
-            //--------------------------------
-            // 見失った
-            //--------------------------------
-            //OneEnemy->SetFindPlayer(false);
         }
     }
 }

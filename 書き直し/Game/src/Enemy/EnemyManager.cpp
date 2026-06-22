@@ -1,7 +1,7 @@
 #include"EnemyManager.h"
 
 // モデルデータのパス
-static const char ENEMY_MODEL_PATH[] = "data/model/enemy/enemy.mv1";
+static const char ENEMY_MODEL_PATH[] = "data/model/enemy/trian.mv1";
 static const char ENEMYB_MODEL_PATH[] = "data/model/enemy/enemyB.mv1";
 static const char DANAGER_MODEL_PATH[] = "data/model/enemy/danger.mv1";
 

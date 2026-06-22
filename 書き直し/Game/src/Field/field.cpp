@@ -39,7 +39,7 @@ void Field::Load(int mapID)
 	case 1:
 		if (m_hndl == -1)
 		{
-			m_hndl = MV1LoadModel("data/model/field/Map01/Map_01.mv1");
+			m_hndl = MV1LoadModel("data/model/field/Map01/Map_01_new.mv1");
 		}
 		break;
 	case 2:

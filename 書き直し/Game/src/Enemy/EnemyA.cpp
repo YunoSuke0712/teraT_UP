@@ -197,7 +197,7 @@ void EnemyA::Draw()
 	//DrawFormatString(1200, 700, GetColor(25, 200, 100), ":%d", m_rootID);
 
 	MV1DrawModel(m_rootHndl);
-	DrawSphere3D(GetCenter(), m_radius, 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
+	//DrawSphere3D(GetCenter(), m_radius, 16, GetColor(255, 0, 255), GetColor(255, 0, 255), true);
 
 	////DrawFormatString(1200, 800, GetColor(25, 200, 100), "x:%f",m_remove_pos.x);
 	////DrawFormatString(1200, 900, GetColor(25, 200, 100), "z:%f", m_remove_pos.z);
@@ -355,7 +355,7 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 	{
 	}
 	// –Ú“I’n‚Ü‚Å‚Ì‹——£‚ªˆê’è”ÍˆÍ“à‚È‚ç
-	if (p_len < 30.0f)
+	else if (p_len < 30.0f)
 	{
 		// ‚¢‚Á‚½‚ñ³‹K‰»‚µ‚Ä
 		p_dir.y = 0.0f;
