@@ -15,7 +15,7 @@ static const float PLAYER_RADIUS = 4.5f;							//当たり判定
 static const float JUMP_POWER = 6.0f;								//ジャンプ力
 static const int   JUMP_COOL = 5;									//ジャンプクールタイム
 static const float DASH_SPEED_UP = 1.0f;							//ダッシュ
-
+static const int   HP = 3;
 
 
 //----------------------
@@ -44,7 +44,7 @@ void Player::Init()
 	m_Rot = PLAYER_STARROT;
 	m_RotModel = PLAYER_STARROT;
 	m_RotModel.y += DX_PI_F;
-
+	m_Hp =
 
 	m_pState = PLSTATE_NORMAL;
 	
@@ -168,6 +168,9 @@ void Player::Step(VECTOR rot)
 		}
 		if (m_throwcount == 0)
 			m_pState = PLSTATE_NORMAL;
+		break;
+
+	case PLSTATE_HITBACK:
 
 		break;
 	}
@@ -275,7 +278,13 @@ void Player::HitEnemyCale()
 {
 	if (!m_DeathFlag)
 	{
-		Death(true);
+		//Death(true);
+		m_pState = PLSTATE_HITBACK;//吹っ飛ぶ処理書き途中。
+		m_jumppower = JUMP_POWER;
+		m_jumpNow = true;
+		m_Pos.y + 3;
+
+
 	}
 }
 

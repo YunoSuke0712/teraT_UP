@@ -23,7 +23,7 @@ static const float ENEMY_P_SPEED = 1.0f;						//敵の追跡速度
 
 static const int   ENEMY_RE_COOL = 180;							//パトロールに戻る
 
-
+static const int ATTACK_COOl = 300;
 
 //----------------------
 // コンストラクタ
@@ -59,9 +59,10 @@ void EnemyA::Init()
 	m_RePatrol = ZERO_I;
 	m_StanTime = ZERO_I;
 
+	m_AttackCoolTime = ATTACK_COOl;;
 
 	m_SaveTimer = ZERO_I;
-	m_SaveID = 0;
+	m_SaveID = 300;
 
 	m_rotationY = RadToDeg(0);
 
@@ -161,6 +162,9 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 	if (BehindAttack(P_pos))Condition_ID = STAN;
 	
 
+	//クールタイム進行
+	if (m_AttackCoolTime < ATTACK_COOl)m_AttackCoolTime++;
+
 }
 
 //------------------------
@@ -203,10 +207,10 @@ void EnemyA::Draw()
 	////DrawFormatString(1200, 900, GetColor(25, 200, 100), "z:%f", m_remove_pos.z);
 
 
-	if (m_input.IsInputTrg(KEY_CLICK))
-	{
-		printfDx(" 向きy:%f\n", m_rotationY);
-	}
+	//if (m_input.IsInputTrg(KEY_CLICK))
+	//{
+	//	printfDx(" 向きy:%f\n", m_rotationY);
+	//}
 
 	DrawEye();
 }
@@ -247,6 +251,25 @@ void EnemyA::HitCale()
 	Condition_ID = STAN;
 
 }
+
+//------------------------
+// ヒット後の処理
+//------------------------
+bool EnemyA::Attack(CEffekseerCtrl& ef, int effectID)
+{
+	if (m_AttackCoolTime >= 300)
+	{
+		m_AttackCoolTime = 0;
+		ef.Request(effectID, m_Pos, false);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+
 
 void EnemyA::MoveRoot(VECTOR P_pos)
 {
@@ -353,10 +376,12 @@ void EnemyA::TargetPlayer(VECTOR P_pos)
 
 	if (p_len < 6.0f)
 	{
+		m_SaveTimer = 0;
 	}
 	// 目的地までの距離が一定範囲内なら
 	else if (p_len < 30.0f)
 	{
+		m_SaveTimer = 0;
 		// いったん正規化して
 		p_dir.y = 0.0f;
 		p_dir = VNorm(p_dir);

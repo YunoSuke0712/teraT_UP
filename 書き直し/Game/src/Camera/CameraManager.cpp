@@ -1,6 +1,9 @@
 #include"CameraManager.h"
 
 
+
+
+
 //----------------------
 // コンストラクタ
 //----------------------
@@ -22,7 +25,7 @@ void CameraManager::Init()
 
 	m_NowEvent = false;
 
-	SetCameraNearFar(25.0f, 10000.0f);
+	SetCameraNearFar(Near, Far);
 }
 
 //----------------------

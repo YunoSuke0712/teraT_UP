@@ -109,6 +109,8 @@ void PlayScene::Draw()
 		//m_line.Draw(m_player, SPZ_POS, m_goal.GetPos(),m_item.GetLevel());
 		// 
 		m_camera.Draw();
+		m_effect.Draw();
+		m_message.Draw();
 		// ===== •Ç‰z‚µUI =====
 		//DrawEnemyBehindWallUI();
 		//m_line.DrawEnemyBehindWallUI(m_player, m_camera, m_enemy, m_item.GetLevel());
@@ -138,18 +140,20 @@ void PlayScene::Draw()
 //----------------------
 // ‰Šú‰»
 //----------------------
-void PlayScene::Init(
-)
+void PlayScene::Init()
 {
-	// ‚»‚ê‚¼‚ê‚ÌƒJƒƒ‰‚ð‰Šú‰»
-
 	m_field.Init();
 	m_player.Init();
 	m_enemy.Init();
 	m_gimmick.Init();
+	m_message.Init();
+
 
 	m_camera.Init();
 
+
+	m_effect.Init(10,2000);
+	m_effect.SetProjectionMtx(DX_PI_F / 4.0f, WINDOW_SIZE_X / WINDOW_SIZE_Y, Near, Far);
 
 }
 
@@ -164,6 +168,8 @@ void PlayScene::Load()
 	m_player.Load();
 	m_enemy.Load(data->GetPlayMapID());
 	m_gimmick.Load(data->GetPlayMapID());
+	m_effect.Load();
+	m_message.Load();
 	
 }
 
@@ -178,15 +184,16 @@ void PlayScene::Step()
 	m_field.Step();
 	m_player.Step(m_camera.GetRot());
 	m_enemy.Step(m_player.GetPosition(),1,{1,1,1});
-	m_gimmick.Step(m_player);
-
+	m_gimmick.Step(m_player,m_effect);
+	m_message.Step();
 
 
 	//ƒRƒŠƒWƒ‡ƒ“
-	m_col.CheckHitGimmickToPlayer(m_gimmick, m_player);
 	m_col.CheckHitFieldToPlayer(m_field, m_player);
 	m_col.CheckHitFieldToEnemy(m_field, m_enemy);
-	m_col.CheckHitPlayerToEnemy(m_player, m_enemy,m_field);
+	m_col.CheckHitPlayerToEnemy(m_player, m_enemy,m_field, m_effect);
+	m_col.CheckHitGimmickToPlayer(m_gimmick, m_player);
+
 	//
 
 
@@ -210,6 +217,9 @@ void PlayScene::Step()
 
 	m_camera.Step(m_player.GetPosition(), m_player.GetRotationY());
 	m_camera.Update();
+
+	m_effect.SetCameraRotMtx(m_camera.GetPlayCameraPos(), m_camera.GetRot(), VGet(0.0f, 1.0f, 0.0f));
+	m_effect.Update();
 }
 
 //----------------------
@@ -221,7 +231,9 @@ void PlayScene::Exit()
 	m_player.Exit();
 	m_enemy.Exit();
 	m_gimmick.Exit();
-	
+	m_effect.Exit();
+	m_message.Exit();
+
 }
 
 

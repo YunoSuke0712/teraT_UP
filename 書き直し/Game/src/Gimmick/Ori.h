@@ -4,7 +4,7 @@
 #include "../Player/Player.h"
 #include "../lib/Input/input.h"
 #include "../lib/MyMath/MyMath.h"
-
+#include "../Effect/effekseer.h"
 
 static const int OriMaxNum = 2;
 
@@ -39,7 +39,7 @@ public:
 	void Exit();
 
 	// 全行動を処理する
-	void Step(Player& player);
+	void Step(Player& player, CEffekseerCtrl& effect);
 	// 更新処理
 	// すべての行動が終わったらDxLibに情報を渡す
 	void Update();

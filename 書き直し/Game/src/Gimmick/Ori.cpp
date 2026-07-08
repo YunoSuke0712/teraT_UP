@@ -84,7 +84,7 @@ void Ori::Exit()
 //------------------------
 // 毎フレーム更新
 //------------------------
-void Ori::Step(Player& player)
+void Ori::Step(Player& player, CEffekseerCtrl& effect)
 {
 	bool Active = false;
 

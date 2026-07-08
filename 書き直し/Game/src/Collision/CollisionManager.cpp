@@ -136,7 +136,7 @@ void CollisionManager::CheckHitFieldToEnemy(Field& fi, EnemyManager& ene)
 
 
 //プレイヤーエネミー
-void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Field& fi)
+void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Field& fi, CEffekseerCtrl& ef)
 {
     for (int i = 0; i < ene.GetEnemyANum(); i++)
     {
@@ -197,7 +197,6 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Fiel
             // レイ判定更新
             MV1RefreshCollInfo(fi.GetFieldHndl());
 
-            // Enemy → Player にレイ
             MV1_COLL_RESULT_POLY hit = MV1CollCheck_Line(fi.GetFieldHndl(), -1, e_pos, p_pos);
             //↑      当たったか  見えない線を飛ばす(どのハンドルか 全部のポリゴンを対象 開始位置 終了地点
 
@@ -229,8 +228,14 @@ void CollisionManager::CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene, Fiel
 
             if (isHit == true)
             {
-                pl.HitEnemyCale();
+
+                if (OneEnemy->Attack(ef, 2))
+                {
+                    pl.HitEnemyCale();
+
+                }
             }
+
         }
     }
 }
@@ -332,6 +337,8 @@ void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
 
                     bestPush =
                         VScale(norm, len);
+                    
+
                 }
             }
 
@@ -341,6 +348,7 @@ void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
             pos = VAdd(pos, bestPush);
 
             pl.SetPosition(pos);
+
 
             //--------------------------------
             // 解放
@@ -354,6 +362,9 @@ void CollisionManager::CheckHitGimmickToPlayer(GimmickManager& gim,Player& pl)
             {
                 break;
             }
+
         }
     }
+
+
 }

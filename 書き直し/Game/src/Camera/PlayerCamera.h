@@ -37,5 +37,6 @@ public:
 
 
 	VECTOR GetRot() { return m_camRot; }
+	VECTOR GetPos() { return m_camPos; }
 
 };

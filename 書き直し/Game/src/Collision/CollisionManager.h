@@ -4,6 +4,7 @@
 #include"../Field/field.h"
 #include"../Enemy/EnemyManager.h"
 #include"../Gimmick/GimmickManager.h"
+#include"../Effect/effekseer.h"
 
 // 各種オブジェクトの当たり判定クラス
 class CollisionManager {
@@ -14,7 +15,7 @@ public:
 
 	static void CheckHitFieldToEnemy(Field& fi, EnemyManager& ene);
 
-	static void CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene ,Field& fi);
+	static void CheckHitPlayerToEnemy(Player& pl, EnemyManager& ene ,Field& fi, CEffekseerCtrl& ef);
 
 	static void CheckHitGimmickToPlayer(GimmickManager& gim, Player& pl);
 

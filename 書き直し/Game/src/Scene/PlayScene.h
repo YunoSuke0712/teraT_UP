@@ -11,6 +11,8 @@
 #include "../Collision/CollisionManager.h"
 
 #include "../lib/Fade/Fade.h"
+#include "../Effect/effekseer.h"
+#include "../lib/Message/MessageManager.h"
 
 //=========================================
 
@@ -37,8 +39,9 @@ private:
 	CameraManager m_camera;   // ƒJƒƒ‰
 	CollisionManager m_col;
 	CFade m_fade;
-	//CFade m_fade;
-	
+	CEffekseerCtrl m_effect;
+	MessageManager m_message;
+
 	//===============================================
 
 public:

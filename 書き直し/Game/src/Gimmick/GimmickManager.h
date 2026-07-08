@@ -7,7 +7,10 @@
 #include <list>
 #include <vector>
 
-#include "../Player/Player.h"
+//#include "../Player/Player.h"
+//#include "エフェクトのやつ"
+//↑消しても大丈夫そう
+
 
 using namespace std;
 
@@ -61,7 +64,7 @@ public:
 	void Exit();
 
 	// 全行動を処理する
-	void Step(Player& player);
+	void Step(Player& player, CEffekseerCtrl& effect);
 	// 更新処理
 	// すべての行動が終わったらDxLibに情報を渡す
 	void Update();

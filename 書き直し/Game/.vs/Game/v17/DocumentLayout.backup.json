@@ -3,80 +3,104 @@
   "WorkspaceRootPath": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Enemy\\EnemyA.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageText.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Message\\MessageText.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Collision\\CollisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Collision\\CollisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageText.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Message\\MessageText.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Enemy\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Message\\MessageManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Common\\common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Common\\common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Message\\MessageManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Enemy\\EnemyA.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\Ori.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Gimmick\\Ori.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Enemy\\EnemyManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\MyMath\\MyMath.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Field\\field.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\MyMath\\MyMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Enemy\\EnemyA.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Enemy\\EnemyManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Data\\Data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Data\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\GimmickManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Gimmick\\GimmickManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Player\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:Main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\Ori.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Gimmick\\Ori.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Collision\\CollisionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Collision\\CollisionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Player\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Field\\field.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Common\\common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Common\\common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Field\\field.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Sceneresult.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\Sceneresult.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Fade\\Fade.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Fade\\Fade.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\Scenetitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Fade\\Fade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Fade\\Fade.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Data\\Data.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\Scenetitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\MyMath\\MyMath.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\MyMath\\MyMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Data\\Data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Input\\PadInput.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -85,38 +109,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Input\\PadInput.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\lib\\Input\\PadInput.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Camera\\PlayerCamera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Camera\\PlayerCamera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\GimmickManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Gimmick\\GimmickManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\Scenetitle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\Scenetitle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Field\\field.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Sceneresult.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DF58D087-9DDC-496E-AE79-6E61B68F48EF}|Game.vcxproj|solutionrelative:src\\Scene\\Sceneresult.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -126,87 +118,294 @@
       "DocumentGroups": [
         {
           "DockedWidth": 273,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Ori.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\Ori.cpp",
-              "RelativeDocumentMoniker": "src\\Gimmick\\Ori.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\Ori.cpp",
-              "RelativeToolTip": "src\\Gimmick\\Ori.cpp",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAWwGoAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-28T01:10:56.02Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CollisionManager.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Collision\\CollisionManager.cpp",
-              "RelativeDocumentMoniker": "src\\Collision\\CollisionManager.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Collision\\CollisionManager.cpp",
-              "RelativeToolTip": "src\\Collision\\CollisionManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-25T06:03:39.554Z",
+              "Title": "MessageText.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageText.h",
+              "RelativeDocumentMoniker": "src\\lib\\Message\\MessageText.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageText.h",
+              "RelativeToolTip": "src\\lib\\Message\\MessageText.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-07-03T03:58:57.884Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MessageText.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageText.cpp",
+              "RelativeDocumentMoniker": "src\\lib\\Message\\MessageText.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageText.cpp",
+              "RelativeToolTip": "src\\lib\\Message\\MessageText.cpp",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-03T03:58:51.413Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessageManager.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageManager.h",
+              "RelativeDocumentMoniker": "src\\lib\\Message\\MessageManager.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageManager.h",
+              "RelativeToolTip": "src\\lib\\Message\\MessageManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwBwAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-07-03T03:57:43.151Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageManager.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageManager.cpp",
+              "RelativeDocumentMoniker": "src\\lib\\Message\\MessageManager.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Message\\MessageManager.cpp",
+              "RelativeToolTip": "src\\lib\\Message\\MessageManager.cpp",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-03T03:57:16.628Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "EnemyA.cpp",
               "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.cpp",
               "RelativeDocumentMoniker": "src\\Enemy\\EnemyA.cpp",
               "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.cpp",
               "RelativeToolTip": "src\\Enemy\\EnemyA.cpp",
-              "ViewState": "AgIAALQAAAAAAAAAAAApwMAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-25T05:15:54.66Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Data.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.h",
-              "RelativeDocumentMoniker": "src\\Data\\Data.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.h",
-              "RelativeToolTip": "src\\Data\\Data.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "EnemyA.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.h",
+              "RelativeDocumentMoniker": "src\\Enemy\\EnemyA.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.h",
+              "RelativeToolTip": "src\\Enemy\\EnemyA.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-22T03:29:19.262Z"
+              "WhenOpened": "2026-05-25T05:21:22.018Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Data.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.cpp",
-              "RelativeDocumentMoniker": "src\\Data\\Data.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.cpp",
-              "RelativeToolTip": "src\\Data\\Data.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-22T03:29:01.498Z"
+              "DocumentIndex": 7,
+              "Title": "EnemyManager.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.h",
+              "RelativeDocumentMoniker": "src\\Enemy\\EnemyManager.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.h",
+              "RelativeToolTip": "src\\Enemy\\EnemyManager.h",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-07-06T01:07:07.107Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MyMath.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.cpp",
-              "RelativeDocumentMoniker": "src\\lib\\MyMath\\MyMath.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.cpp",
-              "RelativeToolTip": "src\\lib\\MyMath\\MyMath.cpp",
-              "ViewState": "AgIAAIABAAAAAAAAAAAiwJMBAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "EnemyManager.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.cpp",
+              "RelativeDocumentMoniker": "src\\Enemy\\EnemyManager.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.cpp",
+              "RelativeToolTip": "src\\Enemy\\EnemyManager.cpp",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAIwLsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-10T03:32:35.129Z",
+              "WhenOpened": "2026-07-06T01:07:06.312Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "PlayScene.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\PlayScene.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.cpp",
+              "RelativeToolTip": "src\\Scene\\PlayScene.cpp",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAQwKwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-25T02:41:00.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlayScene.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.h",
+              "RelativeDocumentMoniker": "src\\Scene\\PlayScene.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.h",
+              "RelativeToolTip": "src\\Scene\\PlayScene.h",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-09T01:20:59.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Main.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\Main.cpp",
+              "RelativeDocumentMoniker": "Main.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\Main.cpp",
+              "RelativeToolTip": "Main.cpp",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAiwFMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-22T06:35:22.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "field.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.h",
+              "RelativeDocumentMoniker": "src\\Field\\field.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.h",
+              "RelativeToolTip": "src\\Field\\field.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-25T01:40:18.819Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "field.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.cpp",
+              "RelativeDocumentMoniker": "src\\Field\\field.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.cpp",
+              "RelativeToolTip": "src\\Field\\field.cpp",
+              "ViewState": "AgIAAEUAAAAAAAAAAAApwCkAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-25T01:37:16.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Fade.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Fade\\Fade.h",
+              "RelativeDocumentMoniker": "src\\lib\\Fade\\Fade.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Fade\\Fade.h",
+              "RelativeToolTip": "src\\lib\\Fade\\Fade.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-22T06:55:47.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "common.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Common\\common.h",
+              "RelativeDocumentMoniker": "src\\lib\\Common\\common.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Common\\common.h",
+              "RelativeToolTip": "src\\lib\\Common\\common.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-10T03:05:50.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Scenetitle.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\Scenetitle.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.cpp",
+              "RelativeToolTip": "src\\Scene\\Scenetitle.cpp",
+              "ViewState": "AgIAALwAAAAAAAAAAAApwNUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-27T10:07:34.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.cpp",
+              "RelativeDocumentMoniker": "src\\Player\\Player.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.cpp",
+              "RelativeToolTip": "src\\Player\\Player.cpp",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAhwBkBAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-28T01:16:36.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Fade.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Fade\\Fade.cpp",
+              "RelativeDocumentMoniker": "src\\lib\\Fade\\Fade.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Fade\\Fade.cpp",
+              "RelativeToolTip": "src\\lib\\Fade\\Fade.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-22T06:55:47.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Sceneresult.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Sceneresult.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\Sceneresult.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Sceneresult.cpp",
+              "RelativeToolTip": "src\\Scene\\Sceneresult.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-21T03:57:01.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "SceneManager.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.cpp",
+              "RelativeDocumentMoniker": "src\\Scene\\SceneManager.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.cpp",
+              "RelativeToolTip": "src\\Scene\\SceneManager.cpp",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-27T10:01:27.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Data.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.h",
+              "RelativeDocumentMoniker": "src\\Data\\Data.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.h",
+              "RelativeToolTip": "src\\Data\\Data.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-22T03:29:19.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Scenetitle.h",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.h",
+              "RelativeDocumentMoniker": "src\\Scene\\Scenetitle.h",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.h",
+              "RelativeToolTip": "src\\Scene\\Scenetitle.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-28T00:36:51.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "MyMath.h",
               "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.h",
               "RelativeDocumentMoniker": "src\\lib\\MyMath\\MyMath.h",
@@ -218,180 +417,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Scenetitle.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.h",
-              "RelativeDocumentMoniker": "src\\Scene\\Scenetitle.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.h",
-              "RelativeToolTip": "src\\Scene\\Scenetitle.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAkwCIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-28T00:36:51.254Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.cpp",
-              "RelativeDocumentMoniker": "src\\Player\\Player.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.cpp",
-              "RelativeToolTip": "src\\Player\\Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAARAAAAAAAAAA==",
+              "DocumentIndex": 22,
+              "Title": "MyMath.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.cpp",
+              "RelativeDocumentMoniker": "src\\lib\\MyMath\\MyMath.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\MyMath\\MyMath.cpp",
+              "RelativeToolTip": "src\\lib\\MyMath\\MyMath.cpp",
+              "ViewState": "AgIAAIABAAAAAAAAAAAiwJMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-28T01:16:36.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-10T03:32:35.129Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EnemyA.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.h",
-              "RelativeDocumentMoniker": "src\\Enemy\\EnemyA.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyA.h",
-              "RelativeToolTip": "src\\Enemy\\EnemyA.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-25T05:21:22.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "field.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.cpp",
-              "RelativeDocumentMoniker": "src\\Field\\field.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.cpp",
-              "RelativeToolTip": "src\\Field\\field.cpp",
-              "ViewState": "AgIAABgAAAAAAAAAAAApwCkAAAA7AAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "Data.cpp",
+              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.cpp",
+              "RelativeDocumentMoniker": "src\\Data\\Data.cpp",
+              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Data\\Data.cpp",
+              "RelativeToolTip": "src\\Data\\Data.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-25T01:37:16.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-22T03:29:01.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EnemyManager.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.cpp",
-              "RelativeDocumentMoniker": "src\\Enemy\\EnemyManager.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.cpp",
-              "RelativeToolTip": "src\\Enemy\\EnemyManager.cpp",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAAMAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-25T03:06:52.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "common.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Common\\common.h",
-              "RelativeDocumentMoniker": "src\\lib\\Common\\common.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Common\\common.h",
-              "RelativeToolTip": "src\\lib\\Common\\common.h",
-              "ViewState": "AgIAAE8AAAAAAAAAAAApwGcAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-10T03:05:50.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "SceneManager.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.cpp",
-              "RelativeDocumentMoniker": "src\\Scene\\SceneManager.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.cpp",
-              "RelativeToolTip": "src\\Scene\\SceneManager.cpp",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAiwFUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-27T10:01:27.384Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Ori.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\Ori.h",
-              "RelativeDocumentMoniker": "src\\Gimmick\\Ori.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\Ori.h",
-              "RelativeToolTip": "src\\Gimmick\\Ori.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-28T01:14:14.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "GimmickManager.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\GimmickManager.cpp",
-              "RelativeDocumentMoniker": "src\\Gimmick\\GimmickManager.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\GimmickManager.cpp",
-              "RelativeToolTip": "src\\Gimmick\\GimmickManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-27T09:59:05.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "EnemyManager.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.h",
-              "RelativeDocumentMoniker": "src\\Enemy\\EnemyManager.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Enemy\\EnemyManager.h",
-              "RelativeToolTip": "src\\Enemy\\EnemyManager.h",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAABgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-25T02:52:56.795Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CollisionManager.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Collision\\CollisionManager.h",
-              "RelativeDocumentMoniker": "src\\Collision\\CollisionManager.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Collision\\CollisionManager.h",
-              "RelativeToolTip": "src\\Collision\\CollisionManager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-04T01:39:18.621Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Player.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.h",
-              "RelativeDocumentMoniker": "src\\Player\\Player.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Player\\Player.h",
-              "RelativeToolTip": "src\\Player\\Player.h",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFcAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-28T02:41:55.187Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "PlayScene.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.cpp",
-              "RelativeDocumentMoniker": "src\\Scene\\PlayScene.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.cpp",
-              "RelativeToolTip": "src\\Scene\\PlayScene.cpp",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAiwM8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-25T02:41:00.027Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "PlayerCamera.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Camera\\PlayerCamera.cpp",
-              "RelativeDocumentMoniker": "src\\Camera\\PlayerCamera.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Camera\\PlayerCamera.cpp",
-              "RelativeToolTip": "src\\Camera\\PlayerCamera.cpp",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAmwIkAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-06-11T00:54:57.436Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 25,
               "Title": "PadInput.h",
               "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Input\\PadInput.h",
               "RelativeDocumentMoniker": "src\\lib\\Input\\PadInput.h",
@@ -403,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 26,
               "Title": "PadInput.cpp",
               "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\lib\\Input\\PadInput.cpp",
               "RelativeDocumentMoniker": "src\\lib\\Input\\PadInput.cpp",
@@ -412,78 +462,6 @@
               "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-06-11T01:04:10.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "PlayScene.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.h",
-              "RelativeDocumentMoniker": "src\\Scene\\PlayScene.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\PlayScene.h",
-              "RelativeToolTip": "src\\Scene\\PlayScene.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-09T01:20:59.06Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "GimmickManager.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\GimmickManager.h",
-              "RelativeDocumentMoniker": "src\\Gimmick\\GimmickManager.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Gimmick\\GimmickManager.h",
-              "RelativeToolTip": "src\\Gimmick\\GimmickManager.h",
-              "ViewState": "AgIAADUAAAAAAAAAAAAWwEoAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-28T06:53:01.364Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Scenetitle.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.cpp",
-              "RelativeDocumentMoniker": "src\\Scene\\Scenetitle.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Scenetitle.cpp",
-              "RelativeToolTip": "src\\Scene\\Scenetitle.cpp",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAGgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-27T10:07:34.223Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "SceneManager.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.h",
-              "RelativeDocumentMoniker": "src\\Scene\\SceneManager.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\SceneManager.h",
-              "RelativeToolTip": "src\\Scene\\SceneManager.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-28T00:41:08.437Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "field.h",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.h",
-              "RelativeDocumentMoniker": "src\\Field\\field.h",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Field\\field.h",
-              "RelativeToolTip": "src\\Field\\field.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-25T01:40:18.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Sceneresult.cpp",
-              "DocumentMoniker": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Sceneresult.cpp",
-              "RelativeDocumentMoniker": "src\\Scene\\Sceneresult.cpp",
-              "ToolTip": "C:\\Users\\2409411\\Desktop\\oreore\\\u66F8\u304D\u76F4\u3057\\Game\\src\\Scene\\Sceneresult.cpp",
-              "RelativeToolTip": "src\\Scene\\Sceneresult.cpp",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAACsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-21T03:57:01.882Z"
             }
           ]
         }

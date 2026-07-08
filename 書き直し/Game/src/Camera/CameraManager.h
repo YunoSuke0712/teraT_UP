@@ -3,6 +3,9 @@
 #include"DebugCamera.h"
 #include"EventCamera.h"
 
+static const float Near = 25.0f;		//ニア
+static const float Far = 10000.0;		//ファー
+
 // 複数のカメラを管理する
 class CameraManager {
 public:
@@ -54,6 +57,12 @@ public:
 	}
 	void SetEventNow() { m_NowEvent = false; }
 	VECTOR GetRot() { return m_Play.GetRot(); }
+
+	VECTOR GetPlayCameraPos()
+	{
+		VECTOR offset = VGet(0.0f, 50.0f, -120.0f);
+		return VAdd(m_Play.GetPos(), offset);
+	}
 
 
 	//int SetEventTime(int time) { return time; }

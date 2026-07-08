@@ -7,7 +7,7 @@
 #include"src/Scene/SceneManager.h"
 #include"src/lib/Input/input.h"
 #include"src/lib/Debug/debug.h"
-
+#include"src/Effect/effekseer.h"
 
 // プログラムは WinMain から始まります
 int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
@@ -51,28 +51,32 @@ int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	m_debug.InitFps();
 
 
-	SceneManager scene;
-
-	//ゲームメインループ
-	while (ProcessMessage() != -1)
 	{
-		//エスケープキーが押されたら終了
-		if (CheckHitKey(KEY_INPUT_ESCAPE) == 1) break;
-		//想定のフレームに到達していなければ松の木
-		if (m_debug.IsNextFame() == false)continue;
+		SceneManager scene;
 
-		ClearDrawScreen();	// 画面クリア
+		//ゲームメインループ
+		while (ProcessMessage() != -1)
+		{
+			//エスケープキーが押されたら終了
+			if (CheckHitKey(KEY_INPUT_ESCAPE) == 1) break;
+			//想定のフレームに到達していなければ松の木
+			if (m_debug.IsNextFame() == false)continue;
 
-		if (scene.Loop() != -1)break;
-		m_debug.StepFps();
+			ClearDrawScreen();	// 画面クリア
 
-		scene.Draw();
+			if (scene.Loop() != -1)break;
 
-		ScreenFlip();		// 描画切り替え
+			CEffekseerCtrl::UpdateAutoCamera();
 
+			m_debug.StepFps();
+
+			scene.Draw();
+
+			ScreenFlip();		// 描画切り替え
+
+		}
 	}
 
-	//MV1DeleteModel(fieldhndl);
 
 	DxLib_End();			// ＤＸライブラリ使用の終了処理
 

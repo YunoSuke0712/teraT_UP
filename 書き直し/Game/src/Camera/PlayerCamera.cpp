@@ -179,6 +179,8 @@ void PlayCamera::Step(VECTOR forcus, float rotY)
 void PlayCamera::Update()
 {
 	SetCameraPositionAndTargetAndUpVec(m_camPos, m_targetPos, m_UpVec);
+
+
 }
 
 void PlayCamera::Draw()

@@ -3,6 +3,7 @@
 #include <cmath>
 #include "../lib/Input/input.h"
 #include"../lib/common/common.h"
+#include"../Effect/effekseer.h"
 
 
 
@@ -42,6 +43,7 @@ private:
 	int m_StanTime;
 	int m_RePatrol;
 	int m_SaveTimer;
+	int m_AttackCoolTime;
 	//-----------------------------------------------
 
 
@@ -117,6 +119,9 @@ public:
 
 	// ƒqƒbƒgŒã‚Ìˆ—
 	void HitCale();
+	bool Attack(CEffekseerCtrl& ef, int effectID);
+
+
 	//void HitEye();
 	//void HitEyeDecoy();
 	//void HitDecoy();

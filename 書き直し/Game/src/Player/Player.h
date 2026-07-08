@@ -3,7 +3,7 @@
 #include"../lib/Input/input.h"
 #include"../lib/Input/PadInput.h"
 #include"../lib/Common/common.h"
-
+#include"../Effect/effekseer.h"
 
 //アニメーション===
 static const float	ANIM_SPD = F1;					//アニメーション速度
@@ -22,6 +22,7 @@ private:
 		PLSTATE_WALK,		//歩く
 		PLSTATE_THROW,		//使う
 		PLSTATE_DEATH,		//捕まる
+		PLSTATE_HITBACK,	//吹っ飛ぶ
 		
 
 		PLSTATE_NUM       // 状態の総数
@@ -54,7 +55,10 @@ private:
 	bool m_DeathFlag;		  // 死亡フラグ
 	bool m_isGoal;
 	int m_hndl;
+	int m_Hp;
+	
 	int m_score;
+
 
 	float m_jumppower;		//ジャンプ力ぅですかねぇ
 	bool m_jumpNow;

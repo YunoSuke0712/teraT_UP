@@ -71,7 +71,7 @@ void GimmickManager::Load(int mapID)
 }
 
 //ƒ‹[ƒv
-void GimmickManager::Step(Player& player)
+void GimmickManager::Step(Player& player,CEffekseerCtrl& effect)
 {
 	//
 	for (auto A : m_Warp_List)
@@ -81,7 +81,7 @@ void GimmickManager::Step(Player& player)
 	//
 	for (auto A : m_Ori_List)
 	{
-		A->Step(player);
+		A->Step(player,effect);
 	}
 	//
 	for (auto A : m_Tre_Goal_List)

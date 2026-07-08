@@ -64,6 +64,12 @@
     <Filter Include="ソース ファイル\src\Data">
       <UniqueIdentifier>{4a361a94-96d4-4363-96f6-ebdaab235b31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\src\Effect">
+      <UniqueIdentifier>{17b3c2dc-40bf-4c25-b4c8-ecd858525cd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\src\lib\Message">
+      <UniqueIdentifier>{c4573adc-8899-41a2-a4e4-0cc0bb874083}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -150,6 +156,15 @@
     <ClCompile Include="src\Enemy\EnemyManager.cpp">
       <Filter>ソース ファイル\src\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="src\Effect\effekseer.cpp">
+      <Filter>ソース ファイル\src\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Message\MessageManager.cpp">
+      <Filter>ソース ファイル\src\lib\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Message\MessageText.cpp">
+      <Filter>ソース ファイル\src\lib\Message</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Camera\CameraManager.h">
@@ -235,6 +250,15 @@
     </ClInclude>
     <ClInclude Include="src\Enemy\EnemyB.h">
       <Filter>ソース ファイル\src\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Effect\effekseer.h">
+      <Filter>ソース ファイル\src\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Message\MessageManager.h">
+      <Filter>ソース ファイル\src\lib\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Message\MessageText.h">
+      <Filter>ソース ファイル\src\lib\Message</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

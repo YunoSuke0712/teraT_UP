@@ -5,6 +5,7 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Camera\EventCamera.cpp;C:\
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Camera\PlayerCamera.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\PlayerCamera.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Collision\CollisionManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\CollisionManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Data\Data.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Data.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Effect\effekseer.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\effekseer.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyA.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyA.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyB.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyB.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\EnemyManager.obj
@@ -18,6 +19,8 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Debug\debug.cpp;C:\Use
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Fade\Fade.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Fade.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Input\input.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\input.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Input\PadInput.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\PadInput.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Message\MessageManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\MessageManager.obj
+C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Message\MessageText.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\MessageText.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\MyMath\MyMath.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\MyMath.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\lib\Sound\SoundManager.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\SoundManager.obj
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Player\Player.cpp;C:\Users\2409411\Desktop\oreore\書き直し\Game\Game\x64\Debug\Player.obj
