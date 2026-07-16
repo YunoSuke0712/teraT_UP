@@ -5,8 +5,6 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(78,46
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(78,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   (ソース ファイル 'Main.cpp' をコンパイルしています)
   
-  MessageManager.cpp
-  MessageText.cpp
   PlayScene.cpp
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(78,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   (ソース ファイル 'src/Scene/PlayScene.cpp' をコンパイルしています)
@@ -21,7 +19,10 @@ C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Enemy\EnemyManager.h(78,46
 C:\Users\2409411\Desktop\oreore\書き直し\Game\src\Gimmick\GimmickManager.h(78,46): warning C4267: 'return': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
   (ソース ファイル 'src/Scene/SceneManager.cpp' をコンパイルしています)
   
+  MessageManager.cpp
+  MessageText.cpp
   コードを生成中...
+  LINK : 前回のインクリメンタル リンクで C:\Users\2409411\Desktop\oreore\書き直し\Game\x64\Debug\Game.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
 Effekseer_vs2022_x64_d.lib(Effekseer.Vector3D.obj) : warning LNK4099: PDB '' が 'Effekseer_vs2022_x64_d.lib(Effekseer.Vector3D.obj)' で、または '' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
 Effekseer_vs2022_x64_d.lib(Effekseer.Matrix44.obj) : warning LNK4099: PDB '' が 'Effekseer_vs2022_x64_d.lib(Effekseer.Matrix44.obj)' で、または '' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
 Effekseer_vs2022_x64_d.lib(Effekseer.Effect.obj) : warning LNK4099: PDB '' が 'Effekseer_vs2022_x64_d.lib(Effekseer.Effect.obj)' で、または '' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
