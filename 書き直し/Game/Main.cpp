@@ -7,7 +7,7 @@
 #include"src/Scene/SceneManager.h"
 #include"src/lib/Input/input.h"
 #include"src/lib/Debug/debug.h"
-#include"src/Effect/effekseer.h"
+#include"src/lib/Effect/effekseer.h"
 
 // ƒvƒƒOƒ‰ƒ€‚Í WinMain ‚©‚çn‚Ü‚è‚Ü‚·
 int  WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,

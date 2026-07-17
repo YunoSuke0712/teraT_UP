@@ -141,9 +141,14 @@ void EnemyManager::EnemyAData(int mapID)
 
 	int Open = FileRead_open(ENEMYA_POS[mapID]);
 
+	if (Open <= 0)
+	{
+		printfDx("EnemyA.csv Open Error\n");
+		MV1DeleteModel(Ahndl);
+		MV1DeleteModel(Dangerhndl);
+		return;
+	}
 
-	FILE* FilePointer;
-	if (fopen_s(&FilePointer, ENEMYA_POS[mapID], "r") != 0)return;
 	ReadPosData tmp = { 0 };
 
 	while (true)
@@ -155,9 +160,10 @@ void EnemyManager::EnemyAData(int mapID)
 		int root = FileRead_scanf(Open, "%d,", &tmp.m_RootNum);
 		int rID = FileRead_scanf(Open, "%d,", &tmp.m_RootID);
 		int rot = FileRead_scanf(Open, "%f", &tmp.m_RotationY);
-		
+
 		// どれか失敗したら終了
-		if (type == -1 || x == -1 || y == -1 || z == -1 || root == -1 || rID == -1 || rot == -1)
+		if (type == -1 || x == -1 || y == -1 || z == -1 ||
+			root == -1 || rID == -1 || rot == -1)
 		{
 			break;
 		}
@@ -167,11 +173,9 @@ void EnemyManager::EnemyAData(int mapID)
 		tEmp->SetPosition(VGet(tmp.m_Pos_X, tmp.m_Pos_Y, tmp.m_Pos_Z));
 		tEmp->SetType(tmp.m_Type);
 		tEmp->SetRootNum(tmp.m_RootNum);
-		tEmp->SetRotationY(DegToRad(tmp.m_RotationY));//度をラジアンに変換しながら値を渡す
-
+		tEmp->SetRotationY(DegToRad(tmp.m_RotationY));	// 度→ラジアン変換
 
 		m_EneA_List.push_back(tEmp);
-
 
 		int Roothndl = MV1LoadModel(ENEMYA_ROOT[mapID][tmp.m_RootID]);
 
@@ -179,7 +183,8 @@ void EnemyManager::EnemyAData(int mapID)
 
 		m_InfoList.push_back(tmp);
 	}
-	fclose(FilePointer);
+
+	FileRead_close(Open);
 
 	MV1DeleteModel(Ahndl);
 	MV1DeleteModel(Dangerhndl);

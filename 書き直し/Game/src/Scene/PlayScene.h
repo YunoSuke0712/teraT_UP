@@ -11,7 +11,7 @@
 #include "../Collision/CollisionManager.h"
 
 #include "../lib/Fade/Fade.h"
-#include "../Effect/effekseer.h"
+#include "../lib/Effect/effekseer.h"
 #include "../lib/Message/MessageManager.h"
 
 //=========================================

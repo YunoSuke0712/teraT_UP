@@ -44,7 +44,7 @@ void Player::Init()
 	m_Rot = PLAYER_STARROT;
 	m_RotModel = PLAYER_STARROT;
 	m_RotModel.y += DX_PI_F;
-	m_Hp =
+	m_Hp = HP;
 
 	m_pState = PLSTATE_NORMAL;
 	
@@ -171,7 +171,8 @@ void Player::Step(VECTOR rot)
 		break;
 
 	case PLSTATE_HITBACK:
-
+		if (m_jumpNow == false)
+			m_pState = PLSTATE_NORMAL;
 		break;
 	}
 

@@ -135,7 +135,7 @@ void EnemyA::Step(VECTOR P_pos, int level, VECTOR D_pos)
 		break;
 
 	case TRACKING_P:
-		TargetPlayer(P_pos);
+		if(m_AttackCoolTime >= ATTACK_COOl)TargetPlayer(P_pos);
 		break;
 
 	case PATROL_RE:
@@ -257,7 +257,7 @@ void EnemyA::HitCale()
 //------------------------
 bool EnemyA::Attack(CEffekseerCtrl& ef, int effectID)
 {
-	if (m_AttackCoolTime >= 300)
+	if (m_AttackCoolTime >= ATTACK_COOl)
 	{
 		m_AttackCoolTime = 0;
 		ef.Request(effectID, m_Pos, false);

@@ -3,7 +3,7 @@
 #include <cmath>
 #include "../lib/Input/input.h"
 #include"../lib/common/common.h"
-#include"../Effect/effekseer.h"
+#include"../lib/Effect/effekseer.h"
 
 
 

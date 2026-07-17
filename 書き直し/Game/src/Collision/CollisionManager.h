@@ -4,7 +4,7 @@
 #include"../Field/field.h"
 #include"../Enemy/EnemyManager.h"
 #include"../Gimmick/GimmickManager.h"
-#include"../Effect/effekseer.h"
+#include"../lib/Effect/effekseer.h"
 
 // 各種オブジェクトの当たり判定クラス
 class CollisionManager {

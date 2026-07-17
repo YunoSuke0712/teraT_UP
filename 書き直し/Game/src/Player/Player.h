@@ -3,7 +3,7 @@
 #include"../lib/Input/input.h"
 #include"../lib/Input/PadInput.h"
 #include"../lib/Common/common.h"
-#include"../Effect/effekseer.h"
+#include"../lib/Effect/effekseer.h"
 
 //アニメーション===
 static const float	ANIM_SPD = F1;					//アニメーション速度

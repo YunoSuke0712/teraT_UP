@@ -23,16 +23,11 @@ void MessageText::Load()
 
     int Open = FileRead_open(TextCsvAddress[1]);
 
-    if (Open == 0)
+    if (Open < 0)
     {
         printfDx("Open Error\n");
         return;
     }
-
-    FILE* FilePointer;
-
-    if (fopen_s(&FilePointer, TextCsvAddress[1], "r") != 0)
-        return;
 
     while (true)
     {
@@ -44,6 +39,7 @@ void MessageText::Load()
         int colB = FileRead_scanf(Open, "%d,", &tmp.m_ColorB);
         int text = FileRead_gets(tmp.Message, sizeof(tmp.Message), Open);
 
+        // どれか1つでも失敗したら終了
         if (size == -1 || colR == -1 || colG == -1 || colB == -1 || text == -1)
         {
             break;
@@ -52,10 +48,8 @@ void MessageText::Load()
         m_InfoList.push_back(tmp);
     }
 
-    fclose(FilePointer);
     FileRead_close(Open);
 }
-
 void MessageText::Draw(int id)
 {
     if (id < 0)

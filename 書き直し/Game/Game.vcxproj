@@ -26,7 +26,6 @@
     <ClCompile Include="src\Camera\PlayerCamera.cpp" />
     <ClCompile Include="src\Collision\CollisionManager.cpp" />
     <ClCompile Include="src\Data\Data.cpp" />
-    <ClCompile Include="src\Effect\effekseer.cpp" />
     <ClCompile Include="src\Enemy\EnemyA.cpp" />
     <ClCompile Include="src\Enemy\EnemyB.cpp" />
     <ClCompile Include="src\Enemy\EnemyManager.cpp" />
@@ -37,6 +36,7 @@
     <ClCompile Include="src\Gimmick\GimmickManager.cpp" />
     <ClCompile Include="src\lib\Collision\collision.cpp" />
     <ClCompile Include="src\lib\Debug\debug.cpp" />
+    <ClCompile Include="src\lib\Effect\effekseer.cpp" />
     <ClCompile Include="src\lib\Fade\Fade.cpp" />
     <ClCompile Include="src\lib\Input\input.cpp" />
     <ClCompile Include="src\lib\Input\PadInput.cpp" />
@@ -58,7 +58,6 @@
     <ClInclude Include="src\Camera\PlayerCamera.h" />
     <ClInclude Include="src\Collision\CollisionManager.h" />
     <ClInclude Include="src\Data\Data.h" />
-    <ClInclude Include="src\Effect\effekseer.h" />
     <ClInclude Include="src\Enemy\EnemyA.h" />
     <ClInclude Include="src\Enemy\EnemyB.h" />
     <ClInclude Include="src\Enemy\EnemyManager.h" />
@@ -70,6 +69,7 @@
     <ClInclude Include="src\lib\Collision\collision.h" />
     <ClInclude Include="src\lib\Common\common.h" />
     <ClInclude Include="src\lib\Debug\debug.h" />
+    <ClInclude Include="src\lib\Effect\effekseer.h" />
     <ClInclude Include="src\lib\Fade\Fade.h" />
     <ClInclude Include="src\lib\Input\input.h" />
     <ClInclude Include="src\lib\Input\PadInput.h" />

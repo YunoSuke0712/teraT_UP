@@ -4,7 +4,7 @@
 #include "../Player/Player.h"
 #include "../lib/Input/input.h"
 #include "../lib/MyMath/MyMath.h"
-#include "../Effect/effekseer.h"
+#include "../lib/Effect/effekseer.h"
 
 static const int OriMaxNum = 2;
 
